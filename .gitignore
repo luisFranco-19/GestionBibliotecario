@@ -1,0 +1,44 @@
+# Ignorar archivos temporales y de configuración local de Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vsp
+*.vshost.*
+*.vsl
+*.dbmdl
+*.log
+*.vsidx
+
+# Ignorar archivos de compilación y binarios generados (se regeneran al compilar)
+[Dd]ebug/
+[Rr]elease/
+bin/
+obj/
+*.exe
+*.pdb
+*.cache
+
+# Ignorar paquetes y dependencias restaurables con NuGet
+packages/
+*.nupkg
+*.lock.json
+project.lock.json
+
+# Ignorar archivos basura del sistema operativo (Windows)
+[Tt]humbs.db
+[Ee]hthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Asegurar que se suba la librería Guna UI
+# **¡IMPORTANTE!** Revisa que esta ruta coincida exactamente con la ubicación
+# de la carpeta donde tienes guardado Guna en tu repositorio local.
+
+!Recursos/Guna_UI_Framework_Ultimate_v2.0.0.1/Guna.UI-Framework-Lib-master/**
+
+# Asegurar que se suban todas las DLLs necesarias del proyecto
+!**/*.dll
+!**/*x64/
+!**/*x86/
