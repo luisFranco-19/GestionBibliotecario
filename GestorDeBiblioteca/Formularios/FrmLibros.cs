@@ -140,8 +140,15 @@ namespace GestorDeBiblioteca
                 string connetionString = ConexionDB.ObtenerConexion();
                 using (SqlConnection conexion = new SqlConnection(connetionString))
                 {
-                    string consultaSql = "SELECT l.idLibro, l.titulo, a.nombre AS autor, a.nacionalidad, l.estado, l.anioPublicacion, cantidad " +
-                      "FROM Libros l INNER JOIN Autores a ON l.idAutor = a.idAutor";
+                    string consultaSql = @"SELECT 
+                                    l.idLibro, 
+                                    l.titulo, 
+                                    a.nombre AS autor,
+                                    a.nacionalidad, 
+                                    l.estado,
+                                    l.anioPublicacion, 
+                                    l.cantidad
+                      FROM Libros l INNER JOIN Autores a ON l.idAutor = a.idAutor";
 
                     SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion);
                     DataTable dt = new DataTable();
@@ -463,6 +470,11 @@ namespace GestorDeBiblioteca
         #endregion
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgvListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

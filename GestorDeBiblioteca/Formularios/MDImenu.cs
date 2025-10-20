@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestorDeBiblioteca.Formularios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -80,8 +81,12 @@ namespace GestorDeBiblioteca
         {
             Close();
         }
-
+        private void btnDevolucion_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmDev(), true);
+        }
         #endregion
+
 
     }
 }
