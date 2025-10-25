@@ -47,12 +47,19 @@ namespace GestorDeBiblioteca
 
             lblCarnetUsuario.Visible = false;
             lblNombreUsuario.Visible = false;
+
+            lblTituloLibro.Visible = false;
+            lblAutorLibro.Visible = false;
+            lblEstadoLibro.Visible = false;
+
+
             BotonesLayout.Visible = false;
 
             Carnet.Visible = true;
             Nombre.Visible = true;
 
-            panelregistroLibros.Visible = false;
+            panelregistroLibros.Visible = true;
+
             txtBuscarUsuario.Focus();
         }
         private void MostrarDatosUsuario()
@@ -69,14 +76,13 @@ namespace GestorDeBiblioteca
             panelregistroUsuarios.Visible = true ;
            
 
-
             lblTituloLibro.Visible = false;
             lblAutorLibro.Visible = false;
             lblEstadoLibro.Visible = false;
 
-            Titulo.Visible = true;
+            Titulo.Visible =true;
             Autor.Visible = true;
-            Estado.Visible = true;
+            Estado.Visible =true;
 
             panelregistroLibros.Visible = true;
             txtBuscarLibro.Focus();
@@ -119,6 +125,39 @@ namespace GestorDeBiblioteca
 
             dgvPrestamos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPrestamos.AllowUserToAddRows = false;
+
+
+            //  Estilo del data
+            dgvPrestamos.BorderStyle = BorderStyle.None;
+            dgvPrestamos.BackgroundColor = Color.White;
+            dgvPrestamos.GridColor = Color.LightGray;
+            dgvPrestamos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvPrestamos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvPrestamos.RowHeadersVisible = false;
+
+            //  Encabezado 
+            dgvPrestamos.EnableHeadersVisualStyles = false;
+            dgvPrestamos.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(33, 150, 243);
+            dgvPrestamos.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvPrestamos.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvPrestamos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvPrestamos.ColumnHeadersHeight = 35;
+
+            // Filas 
+            dgvPrestamos.DefaultCellStyle.BackColor = Color.White;
+            dgvPrestamos.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
+            dgvPrestamos.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+            dgvPrestamos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); // Color al seleccionar una columna
+            dgvPrestamos.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            // Filas alternas 
+            dgvPrestamos.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
+
+
+            dgvPrestamos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPrestamos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPrestamos.MultiSelect = false;
+            dgvPrestamos.RowTemplate.Height = 30;
         }
         #endregion
 
@@ -403,6 +442,36 @@ namespace GestorDeBiblioteca
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Titulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNombreUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBuscarUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FechaPrestamo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvPrestamos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

@@ -47,7 +47,7 @@
             // 
             // panelSiderbar
             // 
-            this.panelSiderbar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelSiderbar.BackColor = System.Drawing.Color.RoyalBlue;
             this.panelSiderbar.Controls.Add(this.btnDashboard);
             this.panelSiderbar.Controls.Add(this.btnSalir);
             this.panelSiderbar.Controls.Add(this.btnUsuario);
@@ -58,7 +58,7 @@
             this.panelSiderbar.Controls.Add(this.picLogo);
             this.panelSiderbar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSiderbar.Location = new System.Drawing.Point(0, 0);
-            this.panelSiderbar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSiderbar.Margin = new System.Windows.Forms.Padding(4);
             this.panelSiderbar.Name = "panelSiderbar";
             this.panelSiderbar.Size = new System.Drawing.Size(221, 838);
             this.panelSiderbar.TabIndex = 15;
@@ -67,27 +67,27 @@
             // 
             this.btnDashboard.CheckedState.Parent = this.btnDashboard;
             this.btnDashboard.CustomImages.Parent = this.btnDashboard;
-            this.btnDashboard.FillColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnDashboard.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnDashboard.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.ForeColor = System.Drawing.Color.White;
             this.btnDashboard.HoverState.Parent = this.btnDashboard;
             this.btnDashboard.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_control_panel_100;
             this.btnDashboard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDashboard.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnDashboard.Location = new System.Drawing.Point(0, 209);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDashboard.Location = new System.Drawing.Point(0, 225);
+            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.ShadowDecoration.Parent = this.btnDashboard;
             this.btnDashboard.Size = new System.Drawing.Size(221, 75);
             this.btnDashboard.TabIndex = 1;
             this.btnDashboard.Text = "Dashboard";
-            this.btnDashboard.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // btnSalir
             // 
             this.btnSalir.CheckedState.Parent = this.btnSalir;
             this.btnSalir.CustomImages.Parent = this.btnSalir;
-            this.btnSalir.FillColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSalir.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnSalir.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.White;
             this.btnSalir.HoverState.Parent = this.btnSalir;
@@ -95,7 +95,7 @@
             this.btnSalir.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSalir.ImageSize = new System.Drawing.Size(30, 30);
             this.btnSalir.Location = new System.Drawing.Point(0, 759);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.ShadowDecoration.Parent = this.btnSalir;
             this.btnSalir.Size = new System.Drawing.Size(221, 75);
@@ -107,15 +107,15 @@
             // 
             this.btnUsuario.CheckedState.Parent = this.btnUsuario;
             this.btnUsuario.CustomImages.Parent = this.btnUsuario;
-            this.btnUsuario.FillColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnUsuario.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnUsuario.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuario.ForeColor = System.Drawing.Color.White;
             this.btnUsuario.HoverState.Parent = this.btnUsuario;
             this.btnUsuario.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_customer_100;
             this.btnUsuario.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnUsuario.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnUsuario.Location = new System.Drawing.Point(-3, 303);
-            this.btnUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUsuario.Location = new System.Drawing.Point(-3, 323);
+            this.btnUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.btnUsuario.Name = "btnUsuario";
             this.btnUsuario.ShadowDecoration.Parent = this.btnUsuario;
             this.btnUsuario.Size = new System.Drawing.Size(221, 75);
@@ -127,15 +127,15 @@
             // 
             this.btnLibro.CheckedState.Parent = this.btnLibro;
             this.btnLibro.CustomImages.Parent = this.btnLibro;
-            this.btnLibro.FillColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnLibro.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnLibro.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLibro.ForeColor = System.Drawing.Color.White;
             this.btnLibro.HoverState.Parent = this.btnLibro;
             this.btnLibro.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_libros_100;
             this.btnLibro.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnLibro.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnLibro.Location = new System.Drawing.Point(-3, 409);
-            this.btnLibro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLibro.Location = new System.Drawing.Point(0, 427);
+            this.btnLibro.Margin = new System.Windows.Forms.Padding(4);
             this.btnLibro.Name = "btnLibro";
             this.btnLibro.ShadowDecoration.Parent = this.btnLibro;
             this.btnLibro.Size = new System.Drawing.Size(221, 75);
@@ -147,15 +147,15 @@
             // 
             this.btnPrestamo.CheckedState.Parent = this.btnPrestamo;
             this.btnPrestamo.CustomImages.Parent = this.btnPrestamo;
-            this.btnPrestamo.FillColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnPrestamo.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnPrestamo.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrestamo.ForeColor = System.Drawing.Color.White;
             this.btnPrestamo.HoverState.Parent = this.btnPrestamo;
             this.btnPrestamo.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_libros_100__1_;
             this.btnPrestamo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPrestamo.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnPrestamo.Location = new System.Drawing.Point(0, 514);
-            this.btnPrestamo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPrestamo.Location = new System.Drawing.Point(0, 533);
+            this.btnPrestamo.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrestamo.Name = "btnPrestamo";
             this.btnPrestamo.ShadowDecoration.Parent = this.btnPrestamo;
             this.btnPrestamo.Size = new System.Drawing.Size(221, 75);
@@ -167,15 +167,15 @@
             // 
             this.btnDevolucion.CheckedState.Parent = this.btnDevolucion;
             this.btnDevolucion.CustomImages.Parent = this.btnDevolucion;
-            this.btnDevolucion.FillColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnDevolucion.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnDevolucion.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDevolucion.ForeColor = System.Drawing.Color.White;
             this.btnDevolucion.HoverState.Parent = this.btnDevolucion;
             this.btnDevolucion.Image = global::GestorDeBiblioteca.Properties.Resources.icon_actualizar_48;
             this.btnDevolucion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDevolucion.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnDevolucion.Location = new System.Drawing.Point(-3, 628);
-            this.btnDevolucion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDevolucion.Location = new System.Drawing.Point(0, 647);
+            this.btnDevolucion.Margin = new System.Windows.Forms.Padding(4);
             this.btnDevolucion.Name = "btnDevolucion";
             this.btnDevolucion.ShadowDecoration.Parent = this.btnDevolucion;
             this.btnDevolucion.Size = new System.Drawing.Size(221, 75);
@@ -200,7 +200,7 @@
             // 
             this.picLogo.Image = global::GestorDeBiblioteca.Properties.Resources.Logo__2_;
             this.picLogo.Location = new System.Drawing.Point(-41, -37);
-            this.picLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picLogo.Margin = new System.Windows.Forms.Padding(4);
             this.picLogo.Name = "picLogo";
             this.picLogo.Size = new System.Drawing.Size(301, 254);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -209,10 +209,10 @@
             // 
             // panelSuperior
             // 
-            this.panelSuperior.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelSuperior.BackColor = System.Drawing.Color.RoyalBlue;
             this.panelSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSuperior.Location = new System.Drawing.Point(221, 0);
-            this.panelSuperior.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSuperior.Margin = new System.Windows.Forms.Padding(4);
             this.panelSuperior.Name = "panelSuperior";
             this.panelSuperior.Size = new System.Drawing.Size(1464, 43);
             this.panelSuperior.TabIndex = 18;
@@ -222,7 +222,7 @@
             this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(221, 43);
-            this.panelContenedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelContenedor.Margin = new System.Windows.Forms.Padding(4);
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(1464, 795);
             this.panelContenedor.TabIndex = 20;
@@ -236,7 +236,7 @@
             this.Controls.Add(this.panelSuperior);
             this.Controls.Add(this.panelSiderbar);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MDImenu";
             this.Text = "MDImenu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

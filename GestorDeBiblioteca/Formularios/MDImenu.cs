@@ -85,8 +85,12 @@ namespace GestorDeBiblioteca
         {
             AbrirFormulario(new FrmDev(), true);
         }
+
         #endregion
 
-
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmDashboard(), true);
+        }
     }
 }

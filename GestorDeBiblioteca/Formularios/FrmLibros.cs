@@ -184,6 +184,37 @@ namespace GestorDeBiblioteca
             dgvListado.Columns[6].HeaderText = "COPIAS";
             dgvListado.Columns[6].Width = 150;
 
+            //  Estilo del data
+            dgvListado.BorderStyle = BorderStyle.None;
+            dgvListado.BackgroundColor = Color.White;
+            dgvListado.GridColor = Color.LightGray;
+            dgvListado.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvListado.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvListado.RowHeadersVisible = false;
+
+            //  Encabezado 
+            dgvListado.EnableHeadersVisualStyles = false;
+            dgvListado.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(33, 150, 243);
+            dgvListado.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvListado.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvListado.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvListado.ColumnHeadersHeight = 35;
+
+            // Filas 
+            dgvListado.DefaultCellStyle.BackColor = Color.White;
+            dgvListado.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
+            dgvListado.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+            dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); // Color al seleccionar una columna
+            dgvListado.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            // Filas alternas 
+            dgvListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
+
+
+            dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvListado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvListado.MultiSelect = false;
+            dgvListado.RowTemplate.Height = 30;
 
         }
         private void Actualizar(int idLibro, string titulo, string nombreAutor, string nacionalidad, string estado, string fechaPublicacion, string cantidad)
@@ -466,6 +497,39 @@ namespace GestorDeBiblioteca
             {
                 MessageBox.Show("Error al cargar el registro para editar: " + ex.Message);
             }
+
+            //  Estilo del data
+            dgvListado.BorderStyle = BorderStyle.None;
+            dgvListado.BackgroundColor = Color.White;
+            dgvListado.GridColor = Color.LightGray;
+            dgvListado.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvListado.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvListado.RowHeadersVisible = false;
+
+            //  Encabezado 
+            dgvListado.EnableHeadersVisualStyles = false;
+            dgvListado.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(33, 150, 243);
+            dgvListado.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvListado.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvListado.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvListado.ColumnHeadersHeight = 35;
+
+            // Filas 
+            dgvListado.DefaultCellStyle.BackColor = Color.White;
+            dgvListado.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
+            dgvListado.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+            dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); // Color al seleccionar una columna
+            dgvListado.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            // Filas alternas 
+            dgvListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
+
+
+            dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvListado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvListado.MultiSelect = false;
+            dgvListado.RowTemplate.Height = 30;
+
         }
         #endregion
 
@@ -475,6 +539,16 @@ namespace GestorDeBiblioteca
         }
 
         private void dgvListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            limpiarControles();
+        }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
         {
 
         }

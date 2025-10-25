@@ -120,6 +120,37 @@ namespace GestorDeBiblioteca
                 MessageBox.Show("Error al listar registros: " + ex);
             }
 
+            //  Estilo del data
+            dgvListado.BorderStyle = BorderStyle.None;
+            dgvListado.BackgroundColor = Color.White;
+            dgvListado.GridColor = Color.LightGray;
+            dgvListado.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvListado.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvListado.RowHeadersVisible = false;
+
+            //  Encabezado 
+            dgvListado.EnableHeadersVisualStyles = false;
+            dgvListado.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(33, 150, 243);
+            dgvListado.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvListado.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvListado.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvListado.ColumnHeadersHeight = 35;
+
+            // Filas 
+            dgvListado.DefaultCellStyle.BackColor = Color.White;
+            dgvListado.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
+            dgvListado.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+            dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); // Color al seleccionar una columna
+            dgvListado.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            // Filas alternas 
+            dgvListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
+
+
+            dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvListado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvListado.MultiSelect = false;
+            dgvListado.RowTemplate.Height = 30;
 
         }
         private void formatoGrid()
@@ -396,6 +427,9 @@ namespace GestorDeBiblioteca
             {
                 MessageBox.Show("Error al actualizar; " + ex);
             }
+
+         
+
         }
         #endregion
 
@@ -404,5 +438,19 @@ namespace GestorDeBiblioteca
 
         }
 
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbFecha_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
