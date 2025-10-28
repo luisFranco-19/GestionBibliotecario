@@ -18,10 +18,22 @@ namespace GestorDeBiblioteca
         public FrmUsuarios()
         {
             InitializeComponent();
+
+            this.KeyPreview = true;
+            this.KeyPress += ValidacionEntrada.PasarFocus;
+            this.KeyDown += ValidacionEntrada.ControlEsc;
+
+            txtCarnet.TabIndex = 0;
+            txtNombres.TabIndex = 1;
+            txtApellidos.TabIndex = 2;
+            txtTelefonos.TabIndex = 3;
+            txtEmail.TabIndex = 4;
+            cbmCargos.TabIndex = 5;
+            btnAceptar.TabIndex = 6;
+
         }
 
-        public string ConnectionString = ConfigurationManager.ConnectionStrings
-           ["GestorDeBiblioteca.Properties.Settings.conexion"].ConnectionString;
+        
         private void FrmUsuarios_Load(object sender, EventArgs e)
         {
 
@@ -32,6 +44,8 @@ namespace GestorDeBiblioteca
             cbmCargos.SelectedIndex = 0;
             listarRegistro();
 
+            this.ActiveControl = txtCarnet;
+            txtCarnet.Focus();
         }
 
         #region Metodos
@@ -39,7 +53,7 @@ namespace GestorDeBiblioteca
         {
             errorIcono.Clear();
 
-            var controles = new List<Control> { txtNombres,txtApellidos, txtTelefonos, txtEmail, cbmCargos };
+            var controles = new List<Control> { txtNombres, txtApellidos, txtTelefonos, txtEmail, cbmCargos };
             bool esValido = true;
             foreach (Control control in controles)
             {
@@ -49,6 +63,7 @@ namespace GestorDeBiblioteca
                     esValido = false;
 
                 }
+                txtCarnet.Focus();
             }
             if (!esValido)
                 return false;
@@ -56,8 +71,11 @@ namespace GestorDeBiblioteca
             return true;
 
         }
+
         private void Aceptar(string carnet, string nombre,string apellidos, string telefono, string email, string cargo)
         {
+           
+
             try
             {
                 string connetionString = ConexionDB.ObtenerConexion();
@@ -120,6 +138,37 @@ namespace GestorDeBiblioteca
                 MessageBox.Show("Error al listar registros: " + ex);
             }
 
+            //  Estilo del data
+            dgvListado.BorderStyle = BorderStyle.None;
+            dgvListado.BackgroundColor = Color.White;
+            dgvListado.GridColor = Color.LightGray;
+            dgvListado.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvListado.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvListado.RowHeadersVisible = false;
+
+            //  Encabezado 
+            dgvListado.EnableHeadersVisualStyles = false;
+            dgvListado.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(33, 150, 243);
+            dgvListado.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvListado.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvListado.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvListado.ColumnHeadersHeight = 35;
+
+            // Filas 
+            dgvListado.DefaultCellStyle.BackColor = Color.White;
+            dgvListado.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
+            dgvListado.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+            dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); // Color al seleccionar una columna
+            dgvListado.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            // Filas alternas 
+            dgvListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
+
+
+            dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvListado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvListado.MultiSelect = false;
+            dgvListado.RowTemplate.Height = 30;
 
         }
         private void formatoGrid()
@@ -238,7 +287,6 @@ namespace GestorDeBiblioteca
                 MessageBox.Show("Error inesperado al eliminar: " + ex.Message);
             }
         }
-
         private void limpiarControles()
         {
             txtNombres.Clear();
@@ -255,11 +303,30 @@ namespace GestorDeBiblioteca
         #endregion
 
         #region Botones de Comando
-
-
-
         private void btnAceptar_Click_1(object sender, EventArgs e)
         {
+            errorIcono.Clear();
+            bool datosValidos = true;
+
+            foreach (Control control in tableLayoutPanel1.Controls)
+            {
+                if (control is Guna.UI2.WinForms.Guna2TextBox gunaTextBox)
+                {
+                    if (string.IsNullOrWhiteSpace(gunaTextBox.Text))
+                    {
+                        errorIcono.SetError(gunaTextBox, "Esre campo es obligatorio. ");
+                        datosValidos = false;
+                    }
+                }
+            }
+
+            if (!datosValidos)
+            {
+                MessageBox.Show("Informacion incompleta, seran remarcados los datos que faltan. ",
+                    "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             try
             {
                 if (validarControl())
@@ -396,13 +463,33 @@ namespace GestorDeBiblioteca
             {
                 MessageBox.Show("Error al actualizar; " + ex);
             }
+
+         
+
         }
         #endregion
 
+        #region None
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbFecha_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        #endregion
 
     }
 }

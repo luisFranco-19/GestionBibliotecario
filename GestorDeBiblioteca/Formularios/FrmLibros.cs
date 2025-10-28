@@ -20,15 +20,32 @@ namespace GestorDeBiblioteca
         public FrmLibros()
         {
             InitializeComponent();
+
+           
+            this.KeyPreview = true;
+            this.KeyPress += ValidacionEntrada.PasarFocus;
+            this.KeyDown += ValidacionEntrada.ControlEsc;
+
+            txtTitulos.TabIndex = 0;
+            txtAutor.TabIndex = 1;
+            txtNacionalidad.TabIndex = 2;
+            cmbEstado.TabIndex = 3;
+            txtAñoPublicacion.TabIndex = 4;
+            txtCantidad.TabIndex = 5;
+            btnAceptar.TabIndex = 6;
+
+
         }
-        public string ConnectionString = ConfigurationManager.ConnectionStrings
-          ["GestorDeBiblioteca.Properties.Settings.conexion"].ConnectionString;
+
         private void FrmLibros_Load(object sender, EventArgs e)
         {
             cmbEstado.Items.Add("Activo");
             cmbEstado.Items.Add("Inactivo");
             cmbEstado.SelectedIndex = 0;
             listarRegistro();
+
+            this.ActiveControl = txtTitulos;
+            txtTitulos.Focus();
         }
 
         #region Metodos
@@ -36,7 +53,7 @@ namespace GestorDeBiblioteca
         {
             errorIcono.Clear();
 
-            var controles = new List<Control> { txtTitulos, txtAutor, txtAñoPublicacion };
+            var controles = new List<Control> { txtTitulos, txtAutor, txtAñoPublicacion , txtCantidad, txtNacionalidad};
             bool esValido = true;
             foreach (Control control in controles)
             {
@@ -46,6 +63,7 @@ namespace GestorDeBiblioteca
                     esValido = false;
 
                 }
+                txtTitulos.Focus();
             }
             if (!esValido)
                 return false;
@@ -59,8 +77,15 @@ namespace GestorDeBiblioteca
 
             if (!int.TryParse(fechaPublicacion, out int anoPub))
             {
-                MessageBox.Show("El año de publicación debe ser un número válido (ej. 1997).", "Año inválido",
+                MessageBox.Show("El año de publicación debe ser un número válido", "Año inválido",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!int.TryParse(cantidad, out int cantidadCopias) || cantidadCopias <= 0)
+            {
+                MessageBox.Show("La cantidad de copias es invalida debe exister una o mas copias por libro", "Cantidad inválida",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTitulos.Focus();
                 return;
             }
             try
@@ -69,13 +94,17 @@ namespace GestorDeBiblioteca
                 using (SqlConnection conexion = new SqlConnection(connetionString))
                 {
                     conexion.Open();
-                    SqlTransaction tran = conexion.BeginTransaction();
+                    SqlTransaction transaction = conexion.BeginTransaction();
 
                     try
                     {
-                        // 1️ Buscar autor
-                        string sqlBuscarAutor = "SELECT idAutor FROM Autores WHERE nombre=@Nombre AND nacionalidad=@Nacionalidad";
-                        SqlCommand cmdBuscar = new SqlCommand(sqlBuscarAutor, conexion, tran);
+                       
+                        string sqlBuscarAutor = @"SELECT idAutor 
+                                                FROM Autores
+                                                WHERE nombre = @Nombre
+                                                AND nacionalidad = @Nacionalidad";
+
+                        SqlCommand cmdBuscar = new SqlCommand(sqlBuscarAutor, conexion, transaction);
                         cmdBuscar.Parameters.AddWithValue("@Nombre", nombreAutor);
                         cmdBuscar.Parameters.AddWithValue("@Nacionalidad", nacionalidad);
 
@@ -84,31 +113,42 @@ namespace GestorDeBiblioteca
 
                         if (resultado != null)
                         {
-                            idAutor = Convert.ToInt32(resultado); // Autor existe
+                            idAutor = Convert.ToInt32(resultado); 
                         }
                         else
                         {
-                            // 2️ Insertar autor
-                            string sqlInsertarAutor = "INSERT INTO Autores (nombre, nacionalidad) VALUES (@Nombre, @Nacionalidad); SELECT SCOPE_IDENTITY();";
-                            SqlCommand cmdInsertAutor = new SqlCommand(sqlInsertarAutor, conexion, tran);
+                           
+                            string sqlInsertarAutor = @"INSERT INTO Autores (nombre, nacionalidad)
+                                                        VALUES (@Nombre, 
+                                                        @Nacionalidad);
+                                                        SELECT SCOPE_IDENTITY();";
+
+                            SqlCommand cmdInsertAutor = new SqlCommand(sqlInsertarAutor, conexion, transaction);
                             cmdInsertAutor.Parameters.AddWithValue("@Nombre", nombreAutor);
                             cmdInsertAutor.Parameters.AddWithValue("@Nacionalidad", nacionalidad);
                             idAutor = Convert.ToInt32(cmdInsertAutor.ExecuteScalar());
                         }
 
-                        // 3️ Insertar libro
-                        string sqlInsertarLibro = "INSERT INTO Libros (titulo, idAutor, estado, anioPublicacion, cantidad) VALUES (@Titulo, @IdAutor, @Estado, @AnoPublicacion, @Cantidad)";
-                        SqlCommand cmdInsertLibro = new SqlCommand(sqlInsertarLibro, conexion, tran);
+                        
+                        string sqlInsertarLibro = @"INSERT INTO Libros (titulo, idAutor, estado, 
+                                                    anioPublicacion, cantidad)
+                                                    VALUES (@Titulo,
+                                                    @IdAutor,
+                                                    @Estado,
+                                                    @AnoPublicacion,
+                                                    @Cantidad)";
+
+                        SqlCommand cmdInsertLibro = new SqlCommand(sqlInsertarLibro, conexion, transaction);
                         cmdInsertLibro.Parameters.AddWithValue("@Titulo", titulo);
                         cmdInsertLibro.Parameters.AddWithValue("@IdAutor", idAutor);
                         cmdInsertLibro.Parameters.AddWithValue("@Estado", estado);
                         cmdInsertLibro.Parameters.AddWithValue("@AnoPublicacion", anoPub);
-                        cmdInsertLibro.Parameters.AddWithValue("@Cantidad", cantidad);
+                        cmdInsertLibro.Parameters.AddWithValue("@Cantidad", cantidadCopias);
 
 
                         int result = cmdInsertLibro.ExecuteNonQuery();
 
-                        tran.Commit();
+                        transaction.Commit();
 
                         if (result > 0)
                         {
@@ -123,7 +163,7 @@ namespace GestorDeBiblioteca
                     }
                     catch
                     {
-                        tran.Rollback();
+                        transaction.Rollback();
                         MessageBox.Show("Error al guardar libro y autor. Se ha revertido la operación.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -140,8 +180,15 @@ namespace GestorDeBiblioteca
                 string connetionString = ConexionDB.ObtenerConexion();
                 using (SqlConnection conexion = new SqlConnection(connetionString))
                 {
-                    string consultaSql = "SELECT l.idLibro, l.titulo, a.nombre AS autor, a.nacionalidad, l.estado, l.anioPublicacion, cantidad " +
-                      "FROM Libros l INNER JOIN Autores a ON l.idAutor = a.idAutor";
+                    string consultaSql = @"SELECT 
+                                    l.idLibro, 
+                                    l.titulo, 
+                                    a.nombre AS autor,
+                                    a.nacionalidad, 
+                                    l.estado,
+                                    l.anioPublicacion, 
+                                    l.cantidad
+                      FROM Libros l INNER JOIN Autores a ON l.idAutor = a.idAutor";
 
                     SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion);
                     DataTable dt = new DataTable();
@@ -177,10 +224,42 @@ namespace GestorDeBiblioteca
             dgvListado.Columns[6].HeaderText = "COPIAS";
             dgvListado.Columns[6].Width = 150;
 
+            //  Estilo del data
+            dgvListado.BorderStyle = BorderStyle.None;
+            dgvListado.BackgroundColor = Color.White;
+            dgvListado.GridColor = Color.LightGray;
+            dgvListado.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvListado.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvListado.RowHeadersVisible = false;
+
+            //  Encabezado 
+            dgvListado.EnableHeadersVisualStyles = false;
+            dgvListado.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(33, 150, 243);
+            dgvListado.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvListado.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvListado.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvListado.ColumnHeadersHeight = 35;
+
+            // Filas 
+            dgvListado.DefaultCellStyle.BackColor = Color.White;
+            dgvListado.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
+            dgvListado.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+            dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); // Color al seleccionar una columna
+            dgvListado.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            // Filas alternas 
+            dgvListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
+
+
+            dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvListado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvListado.MultiSelect = false;
+            dgvListado.RowTemplate.Height = 30;
 
         }
         private void Actualizar(int idLibro, string titulo, string nombreAutor, string nacionalidad, string estado, string fechaPublicacion, string cantidad)
         {
+          
             try
             {
                 string connetionString = ConexionDB.ObtenerConexion();
@@ -188,8 +267,8 @@ namespace GestorDeBiblioteca
                 {
                     conexion.Open();
 
-                    // 1. Obtener el idAutor relacionado al libro
-                    string consultaAutor = "SELECT idAutor FROM Libros WHERE idLibro = @idLibro";
+                    
+                    string consultaAutor = @"SELECT idAutor FROM Libros WHERE idLibro = @idLibro";
                     int idAutor = 0;
 
                     using (SqlCommand cmdAutor = new SqlCommand(consultaAutor, conexion))
@@ -207,8 +286,11 @@ namespace GestorDeBiblioteca
                         }
                     }
 
-                    // 2. Actualizar Autor
-                    string consultaUpdateAutor = "UPDATE Autores SET nombre = @NombreAutor, nacionalidad = @Nacionalidad WHERE idAutor = @idAutor";
+                   
+                    string consultaUpdateAutor = @"UPDATE Autores 
+                                                    SET nombre = @NombreAutor, 
+                                                    nacionalidad = @Nacionalidad 
+                                                    WHERE idAutor = @idAutor";
                     using (SqlCommand cmdUpdateAutor = new SqlCommand(consultaUpdateAutor, conexion))
                     {
                         cmdUpdateAutor.Parameters.AddWithValue("@NombreAutor", nombreAutor);
@@ -217,10 +299,13 @@ namespace GestorDeBiblioteca
                         cmdUpdateAutor.ExecuteNonQuery();
                     }
 
-                    // 3. Actualizar Libro
-                    string consultaUpdateLibro = "UPDATE Libros " +
-                                                 "SET titulo = @Titulo, estado = @Estado, anioPublicacion = @AnioPublicacion, cantidad = @Cantidad " +
-                                                 "WHERE idLibro = @idLibro";
+               
+                    string consultaUpdateLibro = @"UPDATE Libros 
+                                                 SET titulo = @Titulo, 
+                                                estado = @Estado,
+                                                anioPublicacion = @AnioPublicacion,
+                                                cantidad = @Cantidad 
+                                                WHERE idLibro = @idLibro";
 
                     using (SqlCommand cmdUpdateLibro = new SqlCommand(consultaUpdateLibro, conexion))
                     {
@@ -351,7 +436,6 @@ namespace GestorDeBiblioteca
                 MessageBox.Show("Se ha generado un error inesperado" + ex);
             }
         }
-
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             try
@@ -389,7 +473,6 @@ namespace GestorDeBiblioteca
                 MessageBox.Show("Se ha generado un error inesperado" + ex);
             }
         }
-
         private void btnEliminar_Click_1(object sender, EventArgs e)
         {
             if (dgvListado.SelectedRows.Count > 0)
@@ -421,7 +504,6 @@ namespace GestorDeBiblioteca
             }
 
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limpiarControles();
@@ -459,12 +541,70 @@ namespace GestorDeBiblioteca
             {
                 MessageBox.Show("Error al cargar el registro para editar: " + ex.Message);
             }
+
+            //  Estilo del data
+            dgvListado.BorderStyle = BorderStyle.None;
+            dgvListado.BackgroundColor = Color.White;
+            dgvListado.GridColor = Color.LightGray;
+            dgvListado.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvListado.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvListado.RowHeadersVisible = false;
+
+            //  Encabezado 
+            dgvListado.EnableHeadersVisualStyles = false;
+            dgvListado.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(33, 150, 243);
+            dgvListado.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvListado.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvListado.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvListado.ColumnHeadersHeight = 35;
+
+            // Filas 
+            dgvListado.DefaultCellStyle.BackColor = Color.White;
+            dgvListado.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
+            dgvListado.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+            dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); // Color al seleccionar una columna
+            dgvListado.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            // Filas alternas 
+            dgvListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
+
+
+            dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvListado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvListado.MultiSelect = false;
+            dgvListado.RowTemplate.Height = 30;
+
         }
         #endregion
 
+
+        #region None
+
+        private void FrmLibros_Shown(object sender, EventArgs e)
+        {
+
+        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
+        private void dgvListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            limpiarControles();
+        }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+     
     }
 }
