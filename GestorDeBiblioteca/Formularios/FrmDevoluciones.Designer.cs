@@ -1,6 +1,6 @@
 ﻿namespace GestorDeBiblioteca.Formularios
 {
-    partial class FrmDev
+    partial class FrmDevoluciones
     {
         /// <summary>
         /// Required designer variable.

@@ -20,20 +20,18 @@ namespace GestorDeBiblioteca
         {
             InitializeComponent();
         }
-        public string ConnectionString = ConfigurationManager.ConnectionStrings
-        ["GestorDeBiblioteca.Properties.Settings.conexion"].ConnectionString;
+      
 
         #region Variables
-        private DataTable dtPrestamo;       // Libros seleccionados
-        private int? selectedUserId = null; // Usuario actual
+        private DataTable dtPrestamo;       
+        private int? selectedUserId = null; 
         #endregion
 
         #region Load
         private void FrmGestionDePrestamos_Load(object sender, EventArgs e)
         {
             FechaPrestamo.Text = DateTime.Now.ToShortDateString();
-            InicializarPrestamoTable();
-
+            ListarRegistros();
             MostrarSoloBuscadorUsuario();
 
         }
@@ -42,7 +40,7 @@ namespace GestorDeBiblioteca
         #region Métodos de visibilidad
         private void MostrarSoloBuscadorUsuario()
         {
-            
+            dtpFechaDevolucion.Visible = false;
             txtBuscarUsuario.Visible = true;
 
             lblCarnetUsuario.Visible = false;
@@ -99,66 +97,59 @@ namespace GestorDeBiblioteca
             Estado.Visible =true;
 
             BotonesLayout.Visible = true;
+            dtpFechaDevolucion.Visible = true;
+
         }
 
         #endregion
 
         #region Inicializar DataGrid de préstamos
-        private void InicializarPrestamoTable()
+        private void ListarRegistros()
         {
-            dtPrestamo = new DataTable();
-            dtPrestamo.Columns.Add("idLibro", typeof(int)); // Ocultar el id del libro
-            dtPrestamo.Columns.Add("Cantidad", typeof(int));
-            dtPrestamo.Columns.Add("Autor", typeof(string));
-            dtPrestamo.Columns.Add("Titulo", typeof(string));
+            try
+            {
+                string connetionSting = ConexionDB.ObtenerConexion();
 
-            dtPrestamo.Columns["Cantidad"].DefaultValue = 1;
-            dgvPrestamos.DataSource = dtPrestamo;
+                using (SqlConnection conexion = new SqlConnection(connetionSting))
+                {
+                    string consulta = @"SELECT * 
+                                        FROM vw_PrestamosUsuario ORDER BY Id";
 
-            if (dgvPrestamos.Columns["idLibro"] != null)
-                dgvPrestamos.Columns["idLibro"].Visible = false;
+                    SqlDataAdapter adapter = new SqlDataAdapter(consulta, conexion);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
 
-            dgvPrestamos.Columns["Cantidad"].Width = 80;
-            dgvPrestamos.Columns["Autor"].Width = 150;
-            dgvPrestamos.Columns["Titulo"].Width = 241;
+                    dgvPrestamos.DataSource = dt;
+                    dgvPrestamos.Columns[0].Visible = false;
+                }
 
-
-            dgvPrestamos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPrestamos.AllowUserToAddRows = false;
-
-
-            //  Estilo del data
-            dgvPrestamos.BorderStyle = BorderStyle.None;
-            dgvPrestamos.BackgroundColor = Color.White;
-            dgvPrestamos.GridColor = Color.LightGray;
-            dgvPrestamos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvPrestamos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvPrestamos.RowHeadersVisible = false;
-
-            //  Encabezado 
-            dgvPrestamos.EnableHeadersVisualStyles = false;
-            dgvPrestamos.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(33, 150, 243);
-            dgvPrestamos.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgvPrestamos.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dgvPrestamos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvPrestamos.ColumnHeadersHeight = 35;
-
-            // Filas 
-            dgvPrestamos.DefaultCellStyle.BackColor = Color.White;
-            dgvPrestamos.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
-            dgvPrestamos.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-            dgvPrestamos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); // Color al seleccionar una columna
-            dgvPrestamos.DefaultCellStyle.SelectionForeColor = Color.Black;
-
-            // Filas alternas 
-            dgvPrestamos.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
-
-
-            dgvPrestamos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvPrestamos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPrestamos.MultiSelect = false;
-            dgvPrestamos.RowTemplate.Height = 30;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
+
+        private void dgvPrestamos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    int id = Convert.ToInt32(dgvPrestamos.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                    string usuario = dgvPrestamos.Rows[e.RowIndex].Cells["Usuario"].Value.ToString();
+                    string libro = dgvPrestamos.Rows[e.RowIndex].Cells["LibroPrestado"].Value.ToString();
+                    string fecha = dgvPrestamos.Rows[e.RowIndex].Cells["FechaPrestamo"].Value.ToString();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+
         #endregion
 
         #region Buscar Usuarios
@@ -192,7 +183,7 @@ namespace GestorDeBiblioteca
                         lblCarnetUsuario.Text = carnet;
                         lblNombreUsuario.Text = nombre + " " + apellido;
 
-                        //  buscar de libros 
+                        
                         MostrarDatosUsuario();
                         MostrarBuscadorLibros();
                     }
@@ -229,10 +220,10 @@ namespace GestorDeBiblioteca
                 using (SqlConnection conexion = new SqlConnection(connetionString))
                 {
                     string consulta = @"
-                        SELECT TOP 1 l.idLibro, l.titulo, a.nombre AS autor, l.estado
-                        FROM Libros l
-                        INNER JOIN Autores a ON l.idAutor = a.idAutor
-                        WHERE l.titulo LIKE @texto OR a.nombre LIKE @texto";
+                    SELECT TOP 1 l.idLibro, l.titulo, a.nombre AS autor, l.estado, l.cantidad
+                    FROM Libros l
+                    INNER JOIN Autores a ON l.idAutor = a.idAutor
+                    WHERE l.titulo LIKE @texto OR a.nombre LIKE @texto";
 
                     SqlCommand cmd = new SqlCommand(consulta, conexion);
                     cmd.Parameters.AddWithValue("@texto", "%" + txtBuscarLibro.Text.Trim() + "%");
@@ -245,14 +236,22 @@ namespace GestorDeBiblioteca
                         string titulo = reader.GetString(1);
                         string autor = reader.GetString(2);
                         string estado = reader.GetString(3);
+                        int cantidad = reader.GetInt32(4);
 
-                        lblTituloLibro.Text =  titulo;
-                        lblAutorLibro.Text =  autor;
-                        lblEstadoLibro.Text =  estado;
+                        lblTituloLibro.Text = titulo;
+                        lblAutorLibro.Text = autor;
+                        lblEstadoLibro.Text = estado;
+
+                        if (cantidad <= 0)
+                        {
+                            MessageBox.Show($"El libro \"{titulo}\" no está disponible actualmente.",
+                                "Sin Disponibilidad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
 
                         if (estado == "Activo")
                         {
-                            AgregarLibroAPrestamo(idLibro, titulo, autor);
+                            
                             MostrarDatosLibro();
                         }
                         else
@@ -285,25 +284,26 @@ namespace GestorDeBiblioteca
 
 
         #region Manejo de Préstamos
-        private void AgregarLibroAPrestamo(int idLibro, string titulo, string autor)
-        {
-            DataRow existente = dtPrestamo.AsEnumerable()
-                .FirstOrDefault(r => r.Field<int>("idLibro") == idLibro);
+        //private void AgregarLibroAPrestamo(int idLibro, string titulo, string autor)
+        //{
+        //    DataRow existente = dtPrestamo.AsEnumerable()
+        //        .FirstOrDefault(r => r.Field<int>("idLibro") == idLibro);
 
-            if (existente != null)
-            {
-                existente["Cantidad"] = Convert.ToInt32(existente["Cantidad"]) + 1;
-            }
-            else
-            {
-                DataRow fila = dtPrestamo.NewRow();
-                fila["idLibro"] = idLibro;
-                fila["Cantidad"] = 1;
-                fila["Autor"] = autor;
-                fila["Titulo"] = titulo;
-                dtPrestamo.Rows.Add(fila);
-            }
-        }
+        //    if (existente != null)
+        //    {
+        //        MessageBox.Show("Este libro ya fue agregado al préstamo actual.",
+        //            "Libro duplicado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        return;
+        //    }
+
+        //    DataRow fila = dtPrestamo.NewRow();
+        //    fila["idLibro"] = idLibro;
+        //    fila["Cantidad"] = 1; 
+        //    fila["Autor"] = autor;
+        //    fila["Titulo"] = titulo;
+        //    dtPrestamo.Rows.Add(fila);
+        //}
+
 
         private void QuitarLibroSeleccionado()
         {
@@ -311,6 +311,7 @@ namespace GestorDeBiblioteca
             {
                 dgvPrestamos.Rows.RemoveAt(dgvPrestamos.CurrentRow.Index);
             }
+
         }
 
         private bool ValidarAntesGuardar()
@@ -329,15 +330,18 @@ namespace GestorDeBiblioteca
                 return false;
             }
 
-            if (dtpFechaDevolucion.Checked && dtpFechaDevolucion.Value.Date < DateTime.Now.Date)
+            
+            if (dtpFechaDevolucion.Value.Date <= DateTime.Now.Date)
             {
-                MessageBox.Show("La fecha de devolución debe ser mayor o igual a hoy.",
+                MessageBox.Show("Debe establecer una fecha de devolución mayor a la fecha actual.",
                     "Fecha inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
             return true;
         }
+
+
 
         private void GuardarPrestamo()
         {
@@ -363,6 +367,7 @@ namespace GestorDeBiblioteca
                                 SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
                             int idPrestamo;
+
                             using (SqlCommand cmdPrestamo = new SqlCommand(insertPrestamo, conexion, tr))
                             {
                                 cmdPrestamo.Parameters.AddWithValue("@idUsuario", selectedUserId.Value);
@@ -378,7 +383,12 @@ namespace GestorDeBiblioteca
                                     INSERT INTO DetallePrestamos (idPrestamo, idLibro, cantidad)
                                     VALUES (@idPrestamo, @idLibro, @cantidad);";
 
-                                string updateLibro = "UPDATE Libros SET estado = 'Inactivo' WHERE idLibro = @idLibro";
+                                string updateLibro = @"
+                                    UPDATE Libros
+                                    SET cantidad = cantidad - 1,
+                                        estado = CASE WHEN cantidad - 1 <= 0 THEN 'Inactivo' ELSE 'Activo' END
+                                    WHERE idLibro = @idLibro";
+
 
                                 using (SqlCommand cmdDetalle = new SqlCommand(insertDetalle, conexion, tr))
                                 {
@@ -403,6 +413,8 @@ namespace GestorDeBiblioteca
                             selectedUserId = null;
                             txtBuscarUsuario.Text = "";
                             txtBuscarLibro.Text = "";
+                            dtpFechaDevolucion.Value = DateTime.Now;
+
                             MostrarSoloBuscadorUsuario();
                         }
                         catch (Exception exTr)
@@ -431,11 +443,14 @@ namespace GestorDeBiblioteca
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             QuitarLibroSeleccionado();
+
         }
 
 
         #endregion
 
+
+        #region None
         private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
         {
 
@@ -475,6 +490,8 @@ namespace GestorDeBiblioteca
         {
 
         }
+        #endregion
+
     }
 }
 

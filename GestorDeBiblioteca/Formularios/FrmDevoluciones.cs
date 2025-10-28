@@ -14,9 +14,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace GestorDeBiblioteca.Formularios
 {
-    public partial class FrmDev : Form
+    public partial class FrmDevoluciones : Form
     {
-        public FrmDev()
+        public FrmDevoluciones()
         {
             InitializeComponent();
             this.KeyPress += ValidacionEntrada.PasarFocus;
@@ -25,7 +25,7 @@ namespace GestorDeBiblioteca.Formularios
             txtBuscar.Focus();
         }
 
-        public FrmDev(int idPrestamo, string carnet, string nombre, string telefono, string cargo, int fechaRegistro)
+        public FrmDevoluciones(int idPrestamo, string carnet, string nombre, string telefono, string cargo, int fechaRegistro)
         {
             InitializeComponent();
 
@@ -176,7 +176,7 @@ namespace GestorDeBiblioteca.Formularios
                     string fechaRegistro = dgvListado.Rows[e.RowIndex].Cells["FechaRegistro"].Value.ToString();
 
                    
-                    FrmDev frm = new FrmDev();
+                    FrmDevoluciones frm = new FrmDevoluciones();
 
                     //frm.registroAgregado -= ListarRegistros;
                     //MostrarModal.MostrarConCapa(this, frm);

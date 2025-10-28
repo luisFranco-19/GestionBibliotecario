@@ -37,10 +37,10 @@
       <HintPath>packages\FontAwesome.Sharp.6.6.0\lib\net48\FontAwesome.Sharp.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2">
-      <HintPath>..\..\..\..\..\..\Base de datos\Semana5\Recursos\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
+      <HintPath>..\..\..\Biblioteca app Inicio\GestionBibliotecario\Recursos\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
     </Reference>
-    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
-      <HintPath>packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    <Reference Include="Klik.Windows.Forms.EntryLib.V2.2005">
+      <HintPath>..\..\..\Biblioteca app Inicio\GestionBibliotecario\Recursos\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Libreria\Klik.Windows.Forms.EntryLib.V2.2005.dll</HintPath>
     </Reference>
     <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
@@ -54,6 +54,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.Serialization.Primitives, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -76,12 +77,6 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Formularios\Error.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Error.Designer.cs">
-      <DependentUpon>Error.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,17 +89,11 @@
     <Compile Include="Formularios\FrmConexion.Designer.cs">
       <DependentUpon>FrmConexion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FrmDashboard.cs">
+    <Compile Include="Formularios\FrmDevoluciones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FrmDashboard.Designer.cs">
-      <DependentUpon>FrmDashboard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\FrmDev.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmDev.Designer.cs">
-      <DependentUpon>FrmDev.cs</DependentUpon>
+    <Compile Include="Formularios\FrmDevoluciones.Designer.cs">
+      <DependentUpon>FrmDevoluciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmGestionDePrestamos.cs">
       <SubType>Form</SubType>
@@ -136,20 +125,14 @@
     <Compile Include="utilidades\MostrarModal.cs" />
     <Compile Include="utilidades\ParametrosDeConexion.cs" />
     <Compile Include="utilidades\ValidacionEntrada.cs" />
-    <EmbeddedResource Include="Formularios\Error.resx">
-      <DependentUpon>Error.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmConexion.resx">
       <DependentUpon>FrmConexion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmDashboard.resx">
-      <DependentUpon>FrmDashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmDev.resx">
-      <DependentUpon>FrmDev.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\FrmDevoluciones.resx">
+      <DependentUpon>FrmDevoluciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmGestionDePrestamos.resx">
       <DependentUpon>FrmGestionDePrestamos.cs</DependentUpon>
@@ -163,6 +146,7 @@
     <EmbeddedResource Include="Formularios\MDImenu.resx">
       <DependentUpon>MDImenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
