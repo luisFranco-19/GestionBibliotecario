@@ -103,6 +103,7 @@ namespace GestorDeBiblioteca.Formularios
             dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251);
             dgvListado.DefaultCellStyle.SelectionForeColor = Color.Black;
             dgvListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
+            dgvListado.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Centrar texto en las celdas
 
             dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvListado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;

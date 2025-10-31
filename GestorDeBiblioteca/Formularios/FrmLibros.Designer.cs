@@ -188,7 +188,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.2627F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.7373F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 263F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 264F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label10, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtAñoPublicacion, 2, 1);
@@ -226,7 +226,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(422, 0);
+            this.label10.Location = new System.Drawing.Point(421, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(176, 25);
             this.label10.TabIndex = 46;
@@ -236,9 +236,9 @@
             // 
             this.txtAñoPublicacion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtAñoPublicacion.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.txtAñoPublicacion.Location = new System.Drawing.Point(422, 32);
+            this.txtAñoPublicacion.Location = new System.Drawing.Point(421, 32);
             this.txtAñoPublicacion.Name = "txtAñoPublicacion";
-            this.txtAñoPublicacion.Size = new System.Drawing.Size(258, 29);
+            this.txtAñoPublicacion.Size = new System.Drawing.Size(259, 29);
             this.txtAñoPublicacion.TabIndex = 47;
             // 
             // txtTitulos
@@ -247,16 +247,16 @@
             this.txtTitulos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitulos.Location = new System.Drawing.Point(3, 32);
             this.txtTitulos.Name = "txtTitulos";
-            this.txtTitulos.Size = new System.Drawing.Size(205, 29);
+            this.txtTitulos.Size = new System.Drawing.Size(204, 29);
             this.txtTitulos.TabIndex = 3;
             // 
             // txtCantidad
             // 
             this.txtCantidad.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCantidad.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.txtCantidad.Location = new System.Drawing.Point(422, 123);
+            this.txtCantidad.Location = new System.Drawing.Point(421, 123);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(258, 29);
+            this.txtCantidad.Size = new System.Drawing.Size(259, 29);
             this.txtCantidad.TabIndex = 51;
             this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
             // 
@@ -264,7 +264,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(214, 86);
+            this.label9.Location = new System.Drawing.Point(213, 86);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(69, 25);
             this.label9.TabIndex = 48;
@@ -286,14 +286,14 @@
             this.txtAutor.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.txtAutor.Location = new System.Drawing.Point(3, 123);
             this.txtAutor.Name = "txtAutor";
-            this.txtAutor.Size = new System.Drawing.Size(205, 29);
+            this.txtAutor.Size = new System.Drawing.Size(204, 29);
             this.txtAutor.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(214, 0);
+            this.label3.Location = new System.Drawing.Point(213, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 25);
             this.label3.TabIndex = 42;
@@ -303,7 +303,7 @@
             // 
             this.txtNacionalidad.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtNacionalidad.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.txtNacionalidad.Location = new System.Drawing.Point(214, 32);
+            this.txtNacionalidad.Location = new System.Drawing.Point(213, 32);
             this.txtNacionalidad.Name = "txtNacionalidad";
             this.txtNacionalidad.Size = new System.Drawing.Size(202, 29);
             this.txtNacionalidad.TabIndex = 43;
@@ -312,7 +312,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(422, 86);
+            this.label8.Location = new System.Drawing.Point(421, 86);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(69, 25);
             this.label8.TabIndex = 50;
@@ -323,7 +323,7 @@
             this.cmbEstado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbEstado.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(214, 123);
+            this.cmbEstado.Location = new System.Drawing.Point(213, 123);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(202, 29);
             this.cmbEstado.TabIndex = 49;

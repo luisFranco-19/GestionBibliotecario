@@ -246,6 +246,8 @@ namespace GestorDeBiblioteca
             dgvListado.DefaultCellStyle.Font = new Font("Segoe UI", 10);
             dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); // Color al seleccionar una columna
             dgvListado.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dgvListado.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Centrar texto en las celdas
+
 
             // Filas alternas 
             dgvListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);

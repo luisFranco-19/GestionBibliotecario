@@ -140,6 +140,8 @@ namespace GestorDeBiblioteca
             dgvPrestamos.DefaultCellStyle.Font = new Font("Segoe UI", 10);
             dgvPrestamos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); // Color al seleccionar una columna
             dgvPrestamos.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dgvPrestamos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Centrar texto en las celdas
+
 
             // Filas alternas 
             dgvPrestamos.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
