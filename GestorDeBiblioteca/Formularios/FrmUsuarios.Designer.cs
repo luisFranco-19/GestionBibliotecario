@@ -40,21 +40,21 @@
             this.labale = new System.Windows.Forms.Label();
             this.Nombres = new System.Windows.Forms.Label();
             this.txtNombres = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label = new System.Windows.Forms.Label();
             this.txtTelefonos = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtApellidos = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cbmCargos = new System.Windows.Forms.ComboBox();
+            this.txtApellidos = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.dgvListado = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lbFecha = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lbFecha = new System.Windows.Forms.Label();
+            this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -256,6 +256,16 @@
             this.txtNombres.Size = new System.Drawing.Size(241, 29);
             this.txtNombres.TabIndex = 21;
             // 
+            // txtEmail
+            // 
+            this.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.txtEmail.Location = new System.Drawing.Point(497, 38);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(220, 29);
+            this.txtEmail.TabIndex = 26;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
+            // 
             // label
             // 
             this.label.AutoSize = true;
@@ -275,26 +285,6 @@
             this.txtTelefonos.Size = new System.Drawing.Size(241, 29);
             this.txtTelefonos.TabIndex = 23;
             // 
-            // txtEmail
-            // 
-            this.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.txtEmail.Location = new System.Drawing.Point(497, 38);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(220, 29);
-            this.txtEmail.TabIndex = 26;
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 22);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Carnet";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -305,14 +295,15 @@
             this.label2.TabIndex = 41;
             this.label2.Text = "Apellidos";
             // 
-            // txtApellidos
+            // label1
             // 
-            this.txtApellidos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtApellidos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellidos.Location = new System.Drawing.Point(250, 38);
-            this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(241, 29);
-            this.txtApellidos.TabIndex = 42;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 22);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Carnet";
             // 
             // label6
             // 
@@ -333,6 +324,15 @@
             this.cbmCargos.Name = "cbmCargos";
             this.cbmCargos.Size = new System.Drawing.Size(220, 29);
             this.cbmCargos.TabIndex = 36;
+            // 
+            // txtApellidos
+            // 
+            this.txtApellidos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtApellidos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellidos.Location = new System.Drawing.Point(250, 38);
+            this.txtApellidos.Name = "txtApellidos";
+            this.txtApellidos.Size = new System.Drawing.Size(241, 29);
+            this.txtApellidos.TabIndex = 42;
             // 
             // txtId
             // 
@@ -385,9 +385,19 @@
             this.label5.Text = "Datos del Usuario";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // errorIcono
+            // label4
             // 
-            this.errorIcono.ContainerControl = this;
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(769, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 25);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Fecha";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Visible = false;
             // 
             // lbFecha
             // 
@@ -404,19 +414,9 @@
             this.lbFecha.Visible = false;
             this.lbFecha.Click += new System.EventHandler(this.lbFecha_Click);
             // 
-            // label4
+            // errorIcono
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(769, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 25);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "Fecha";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Visible = false;
+            this.errorIcono.ContainerControl = this;
             // 
             // FrmUsuarios
             // 
