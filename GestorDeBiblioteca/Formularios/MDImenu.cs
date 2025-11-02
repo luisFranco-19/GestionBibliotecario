@@ -67,19 +67,22 @@ namespace GestorDeBiblioteca
         {
             AbrirFormulario(new FrmUsuarios(), true);
         }
-
         private void btnLibro_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmLibros(), true);
         }
-
         private void btnPrestamo_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmGestionDePrestamos(), true);
         }
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Close();
+            DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas salir?", "Aviso",
+                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resultado == DialogResult.Yes)
+            {
+                Application.Exit(); // Cierra todos los formularios
+            }
         }
         private void btnDevolucion_Click(object sender, EventArgs e)
         {
@@ -89,8 +92,23 @@ namespace GestorDeBiblioteca
         {
             AbrirFormulario(new FrmDashboard(), true);
         }
+        private void btnBloquearMenu_Click(object sender, EventArgs e)
+        {
+            FrmLogin login = new FrmLogin();
+            login.Show();
+            this.Hide();   // El Dashboard no se cierra, solo se oculta
+
+            //FrmDashboard.ActiveForm.Show();
+
+        }
+
         #endregion
 
+        #region None
+        private void panelSuperior_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
+        #endregion
     }
 }

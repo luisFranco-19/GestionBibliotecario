@@ -28,83 +28,237 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.total2 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.total3 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.total4 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.total1 = new System.Windows.Forms.Label();
+            this.picBox4 = new System.Windows.Forms.PictureBox();
+            this.picBox2 = new System.Windows.Forms.PictureBox();
+            this.picBox3 = new System.Windows.Forms.PictureBox();
+            this.picBox1 = new System.Windows.Forms.PictureBox();
+            this.chartEstadisticas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
             this.dvgListado = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btnRegistrosLibros = new Guna.UI2.WinForms.Guna2Button();
             this.btnStockLibros = new Guna.UI2.WinForms.Guna2Button();
             this.btnRegistroUsuarios = new Guna.UI2.WinForms.Guna2Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.charGrafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartEstadisticas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgListado)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.charGrafico)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.pictureBox7);
-            this.panel1.Controls.Add(this.pictureBox8);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.pictureBox5);
-            this.panel1.Controls.Add(this.pictureBox6);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.pictureBox4);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.charGrafico);
+            this.panel1.Controls.Add(this.tableLayoutPanel4);
+            this.panel1.Controls.Add(this.tableLayoutPanel3);
+            this.panel1.Controls.Add(this.tableLayoutPanel2);
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Controls.Add(this.picBox4);
+            this.panel1.Controls.Add(this.picBox2);
+            this.panel1.Controls.Add(this.picBox3);
+            this.panel1.Controls.Add(this.picBox1);
+            this.panel1.Controls.Add(this.chartEstadisticas);
             this.panel1.Controls.Add(this.txtBuscar);
             this.panel1.Controls.Add(this.dvgListado);
             this.panel1.Controls.Add(this.btnRegistrosLibros);
             this.panel1.Controls.Add(this.btnStockLibros);
             this.panel1.Controls.Add(this.btnRegistroUsuarios);
-            this.panel1.Controls.Add(this.panel2);
             this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1063, 514);
             this.panel1.TabIndex = 3;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.total2, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(2, 169);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(214, 81);
+            this.tableLayoutPanel4.TabIndex = 45;
+            // 
+            // total2
+            // 
+            this.total2.AutoSize = true;
+            this.total2.BackColor = System.Drawing.Color.PowderBlue;
+            this.total2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.total2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.total2.ForeColor = System.Drawing.Color.Black;
+            this.total2.Location = new System.Drawing.Point(3, 0);
+            this.total2.Name = "total2";
+            this.total2.Size = new System.Drawing.Size(208, 81);
+            this.total2.TabIndex = 37;
+            this.total2.Text = "total2";
+            this.total2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.total3, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(842, 38);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(214, 81);
+            this.tableLayoutPanel3.TabIndex = 44;
+            // 
+            // total3
+            // 
+            this.total3.AutoSize = true;
+            this.total3.BackColor = System.Drawing.Color.PowderBlue;
+            this.total3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.total3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.total3.ForeColor = System.Drawing.Color.Black;
+            this.total3.Location = new System.Drawing.Point(3, 0);
+            this.total3.Name = "total3";
+            this.total3.Size = new System.Drawing.Size(208, 81);
+            this.total3.TabIndex = 33;
+            this.total3.Text = "total3";
+            this.total3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.total4, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(842, 169);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(214, 81);
+            this.tableLayoutPanel2.TabIndex = 43;
+            // 
+            // total4
+            // 
+            this.total4.AutoSize = true;
+            this.total4.BackColor = System.Drawing.Color.PowderBlue;
+            this.total4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.total4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.total4.ForeColor = System.Drawing.Color.Black;
+            this.total4.Location = new System.Drawing.Point(3, 0);
+            this.total4.Name = "total4";
+            this.total4.Size = new System.Drawing.Size(208, 81);
+            this.total4.TabIndex = 41;
+            this.total4.Text = "total4";
+            this.total4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.total1, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 38);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 81F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(214, 81);
+            this.tableLayoutPanel1.TabIndex = 42;
+            // 
+            // total1
+            // 
+            this.total1.AutoSize = true;
+            this.total1.BackColor = System.Drawing.Color.PowderBlue;
+            this.total1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.total1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.total1.ForeColor = System.Drawing.Color.Black;
+            this.total1.Location = new System.Drawing.Point(3, 0);
+            this.total1.Name = "total1";
+            this.total1.Size = new System.Drawing.Size(208, 81);
+            this.total1.TabIndex = 29;
+            this.total1.Text = "total1";
+            this.total1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // picBox4
+            // 
+            this.picBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.picBox4.Location = new System.Drawing.Point(797, 134);
+            this.picBox4.Name = "picBox4";
+            this.picBox4.Size = new System.Drawing.Size(57, 50);
+            this.picBox4.TabIndex = 39;
+            this.picBox4.TabStop = false;
+            // 
+            // picBox2
+            // 
+            this.picBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.picBox2.Location = new System.Drawing.Point(201, 134);
+            this.picBox2.Name = "picBox2";
+            this.picBox2.Size = new System.Drawing.Size(57, 50);
+            this.picBox2.TabIndex = 35;
+            this.picBox2.TabStop = false;
+            // 
+            // picBox3
+            // 
+            this.picBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.picBox3.Location = new System.Drawing.Point(797, 12);
+            this.picBox3.Name = "picBox3";
+            this.picBox3.Size = new System.Drawing.Size(57, 50);
+            this.picBox3.TabIndex = 31;
+            this.picBox3.TabStop = false;
+            // 
+            // picBox1
+            // 
+            this.picBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.picBox1.Location = new System.Drawing.Point(201, 3);
+            this.picBox1.Name = "picBox1";
+            this.picBox1.Size = new System.Drawing.Size(57, 50);
+            this.picBox1.TabIndex = 27;
+            this.picBox1.TabStop = false;
+            // 
+            // chartEstadisticas
+            // 
+            this.chartEstadisticas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.Name = "ChartArea1";
+            this.chartEstadisticas.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartEstadisticas.Legends.Add(legend1);
+            this.chartEstadisticas.Location = new System.Drawing.Point(336, 3);
+            this.chartEstadisticas.Name = "chartEstadisticas";
+            this.chartEstadisticas.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series1.BorderColor = System.Drawing.Color.Silver;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.IsValueShownAsLabel = true;
+            series1.LabelForeColor = System.Drawing.Color.White;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartEstadisticas.Series.Add(series1);
+            this.chartEstadisticas.Size = new System.Drawing.Size(382, 190);
+            this.chartEstadisticas.TabIndex = 25;
+            this.chartEstadisticas.Text = "chart1";
             // 
             // txtBuscar
             // 
@@ -212,7 +366,7 @@
             this.btnRegistrosLibros.ShadowDecoration.Parent = this.btnRegistrosLibros;
             this.btnRegistrosLibros.Size = new System.Drawing.Size(161, 69);
             this.btnRegistrosLibros.TabIndex = 22;
-            this.btnRegistrosLibros.Text = "guna2Button3";
+            this.btnRegistrosLibros.Text = "Libros en Mora";
             this.btnRegistrosLibros.Click += new System.EventHandler(this.btnRegistrosLibros_Click);
             // 
             // btnStockLibros
@@ -229,7 +383,8 @@
             this.btnStockLibros.ShadowDecoration.Parent = this.btnStockLibros;
             this.btnStockLibros.Size = new System.Drawing.Size(161, 69);
             this.btnStockLibros.TabIndex = 21;
-            this.btnStockLibros.Text = "guna2Button2";
+            this.btnStockLibros.Text = "Stock de Libros";
+            this.btnStockLibros.Click += new System.EventHandler(this.btnStockLibros_Click);
             // 
             // btnRegistroUsuarios
             // 
@@ -245,204 +400,8 @@
             this.btnRegistroUsuarios.ShadowDecoration.Parent = this.btnRegistroUsuarios;
             this.btnRegistroUsuarios.Size = new System.Drawing.Size(161, 69);
             this.btnRegistroUsuarios.TabIndex = 20;
-            this.btnRegistroUsuarios.Text = "guna2Button1";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1063, 43);
-            this.panel2.TabIndex = 19;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(10, 7);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(154, 35);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Dashboard";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // charGrafico
-            // 
-            this.charGrafico.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.charGrafico.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.charGrafico.Legends.Add(legend1);
-            this.charGrafico.Location = new System.Drawing.Point(354, 49);
-            this.charGrafico.Name = "charGrafico";
-            this.charGrafico.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.IsValueShownAsLabel = true;
-            series1.LabelForeColor = System.Drawing.Color.White;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.charGrafico.Series.Add(series1);
-            this.charGrafico.Size = new System.Drawing.Size(302, 144);
-            this.charGrafico.TabIndex = 25;
-            this.charGrafico.Text = "chart1";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 98);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 20);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Total";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(89, 120);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 20);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "Total Suma";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.pictureBox2.Location = new System.Drawing.Point(29, 45);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(57, 50);
-            this.pictureBox2.TabIndex = 27;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Silver;
-            this.pictureBox1.Location = new System.Drawing.Point(19, 71);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(214, 81);
-            this.pictureBox1.TabIndex = 26;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(907, 120);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 20);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "Total Suma";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(843, 98);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 20);
-            this.label4.TabIndex = 32;
-            this.label4.Text = "Total";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.pictureBox3.Location = new System.Drawing.Point(847, 45);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(57, 50);
-            this.pictureBox3.TabIndex = 31;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Silver;
-            this.pictureBox4.Location = new System.Drawing.Point(837, 71);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(214, 81);
-            this.pictureBox4.TabIndex = 30;
-            this.pictureBox4.TabStop = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(89, 233);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 20);
-            this.label6.TabIndex = 37;
-            this.label6.Text = "Total Suma";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(25, 211);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 20);
-            this.label7.TabIndex = 36;
-            this.label7.Text = "Total";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.pictureBox5.Location = new System.Drawing.Point(29, 158);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(57, 50);
-            this.pictureBox5.TabIndex = 35;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.Silver;
-            this.pictureBox6.Location = new System.Drawing.Point(19, 184);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(214, 81);
-            this.pictureBox6.TabIndex = 34;
-            this.pictureBox6.TabStop = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(907, 233);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 20);
-            this.label8.TabIndex = 41;
-            this.label8.Text = "Total Suma";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(843, 211);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(42, 20);
-            this.label9.TabIndex = 40;
-            this.label9.Text = "Total";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.pictureBox7.Location = new System.Drawing.Point(847, 158);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(57, 50);
-            this.pictureBox7.TabIndex = 39;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.Color.Silver;
-            this.pictureBox8.Location = new System.Drawing.Point(837, 184);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(214, 81);
-            this.pictureBox8.TabIndex = 38;
-            this.pictureBox8.TabStop = false;
+            this.btnRegistroUsuarios.Text = "Usuarios en Mora";
+            this.btnRegistroUsuarios.Click += new System.EventHandler(this.btnRegistroUsuarios_Click);
             // 
             // FrmDashboard
             // 
@@ -453,19 +412,20 @@
             this.Name = "FrmDashboard";
             this.Text = "Dashboard";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartEstadisticas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgListado)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.charGrafico)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -473,29 +433,23 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2DataGridView dvgListado;
         private Guna.UI2.WinForms.Guna2Button btnRegistrosLibros;
         private Guna.UI2.WinForms.Guna2Button btnStockLibros;
         private Guna.UI2.WinForms.Guna2Button btnRegistroUsuarios;
         private Guna.UI2.WinForms.Guna2TextBox txtBuscar;
-        private System.Windows.Forms.DataVisualization.Charting.Chart charGrafico;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartEstadisticas;
+        private System.Windows.Forms.Label total1;
+        private System.Windows.Forms.PictureBox picBox1;
+        private System.Windows.Forms.Label total3;
+        private System.Windows.Forms.PictureBox picBox3;
+        private System.Windows.Forms.Label total4;
+        private System.Windows.Forms.PictureBox picBox4;
+        private System.Windows.Forms.Label total2;
+        private System.Windows.Forms.PictureBox picBox2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }

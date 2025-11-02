@@ -83,11 +83,11 @@
     <Compile Include="Formularios\FrmDashboard.Designer.cs">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FormLogin.cs">
+    <Compile Include="Formularios\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FormLogin.Designer.cs">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <Compile Include="Formularios\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmConexion.cs">
       <SubType>Form</SubType>
@@ -113,6 +113,12 @@
     <Compile Include="Formularios\FrmLibros.Designer.cs">
       <DependentUpon>FrmLibros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmRegistroLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmRegistroLogin.Designer.cs">
+      <DependentUpon>FrmRegistroLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,8 +140,8 @@
     <EmbeddedResource Include="Formularios\FrmDashboard.resx">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FormLogin.resx">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmConexion.resx">
       <DependentUpon>FrmConexion.cs</DependentUpon>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmLibros.resx">
       <DependentUpon>FrmLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmRegistroLogin.resx">
+      <DependentUpon>FrmRegistroLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
@@ -269,6 +278,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-control-panel-1001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_lock_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_lock_241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_lock_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gemini_Generated_Image_wa9p0swa9p0swa9p-Photoroom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gemini_Generated_Image_ytzwg7ytzwg7ytzw-Photoroom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gemini_Generated_Image_ytzwg7ytzwg7ytzw-Photoroom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gemini_Generated_Image_wa9p0swa9p0swa9p-Photoroom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-contraseña-481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_lock_321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_lock_322.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

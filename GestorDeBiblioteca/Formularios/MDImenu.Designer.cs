@@ -31,23 +31,26 @@
             this.components = new System.ComponentModel.Container();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panelSiderbar = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelSuperior = new System.Windows.Forms.Panel();
+            this.panelContenedor = new System.Windows.Forms.Panel();
+            this.btnBloquearMenu = new Guna.UI2.WinForms.Guna2Button();
+            this.picLogo = new System.Windows.Forms.PictureBox();
             this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
             this.btnSalir = new Guna.UI2.WinForms.Guna2Button();
             this.btnUsuario = new Guna.UI2.WinForms.Guna2Button();
             this.btnLibro = new Guna.UI2.WinForms.Guna2Button();
             this.btnPrestamo = new Guna.UI2.WinForms.Guna2Button();
             this.btnDevolucion = new Guna.UI2.WinForms.Guna2Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.picLogo = new System.Windows.Forms.PictureBox();
-            this.panelSuperior = new System.Windows.Forms.Panel();
-            this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelSiderbar.SuspendLayout();
+            this.panelSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSiderbar
             // 
             this.panelSiderbar.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panelSiderbar.Controls.Add(this.picLogo);
             this.panelSiderbar.Controls.Add(this.btnDashboard);
             this.panelSiderbar.Controls.Add(this.btnSalir);
             this.panelSiderbar.Controls.Add(this.btnUsuario);
@@ -55,13 +58,71 @@
             this.panelSiderbar.Controls.Add(this.btnPrestamo);
             this.panelSiderbar.Controls.Add(this.btnDevolucion);
             this.panelSiderbar.Controls.Add(this.label1);
-            this.panelSiderbar.Controls.Add(this.picLogo);
             this.panelSiderbar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSiderbar.Location = new System.Drawing.Point(0, 0);
-            this.panelSiderbar.Margin = new System.Windows.Forms.Padding(4);
             this.panelSiderbar.Name = "panelSiderbar";
-            this.panelSiderbar.Size = new System.Drawing.Size(221, 838);
+            this.panelSiderbar.Size = new System.Drawing.Size(166, 703);
             this.panelSiderbar.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(3, 133);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(165, 31);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Prestamos ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panelSuperior
+            // 
+            this.panelSuperior.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panelSuperior.Controls.Add(this.btnBloquearMenu);
+            this.panelSuperior.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSuperior.Location = new System.Drawing.Point(166, 0);
+            this.panelSuperior.Name = "panelSuperior";
+            this.panelSuperior.Size = new System.Drawing.Size(862, 43);
+            this.panelSuperior.TabIndex = 18;
+            this.panelSuperior.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSuperior_Paint);
+            // 
+            // panelContenedor
+            // 
+            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(166, 43);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(862, 660);
+            this.panelContenedor.TabIndex = 20;
+            // 
+            // btnBloquearMenu
+            // 
+            this.btnBloquearMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBloquearMenu.CheckedState.Parent = this.btnBloquearMenu;
+            this.btnBloquearMenu.CustomImages.Parent = this.btnBloquearMenu;
+            this.btnBloquearMenu.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnBloquearMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnBloquearMenu.ForeColor = System.Drawing.Color.White;
+            this.btnBloquearMenu.HoverState.Parent = this.btnBloquearMenu;
+            this.btnBloquearMenu.Image = global::GestorDeBiblioteca.Properties.Resources.icon_lock_322;
+            this.btnBloquearMenu.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnBloquearMenu.Location = new System.Drawing.Point(806, 3);
+            this.btnBloquearMenu.Name = "btnBloquearMenu";
+            this.btnBloquearMenu.ShadowDecoration.Parent = this.btnBloquearMenu;
+            this.btnBloquearMenu.Size = new System.Drawing.Size(34, 36);
+            this.btnBloquearMenu.TabIndex = 0;
+            this.btnBloquearMenu.Click += new System.EventHandler(this.btnBloquearMenu_Click);
+            // 
+            // picLogo
+            // 
+            this.picLogo.Image = global::GestorDeBiblioteca.Properties.Resources.Gemini_Generated_Image_wa9p0swa9p0swa9p_Photoroom1;
+            this.picLogo.Location = new System.Drawing.Point(-2, -25);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(170, 155);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLogo.TabIndex = 7;
+            this.picLogo.TabStop = false;
             // 
             // btnDashboard
             // 
@@ -74,11 +135,10 @@
             this.btnDashboard.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_control_panel_100;
             this.btnDashboard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDashboard.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnDashboard.Location = new System.Drawing.Point(0, 225);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDashboard.Location = new System.Drawing.Point(0, 183);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.ShadowDecoration.Parent = this.btnDashboard;
-            this.btnDashboard.Size = new System.Drawing.Size(221, 75);
+            this.btnDashboard.Size = new System.Drawing.Size(166, 61);
             this.btnDashboard.TabIndex = 1;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
@@ -94,11 +154,10 @@
             this.btnSalir.Image = global::GestorDeBiblioteca.Properties.Resources.icon_salida_48;
             this.btnSalir.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSalir.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSalir.Location = new System.Drawing.Point(0, 759);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalir.Location = new System.Drawing.Point(0, 617);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.ShadowDecoration.Parent = this.btnSalir;
-            this.btnSalir.Size = new System.Drawing.Size(221, 75);
+            this.btnSalir.Size = new System.Drawing.Size(166, 61);
             this.btnSalir.TabIndex = 1;
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -114,11 +173,10 @@
             this.btnUsuario.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_customer_100;
             this.btnUsuario.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnUsuario.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnUsuario.Location = new System.Drawing.Point(-3, 323);
-            this.btnUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUsuario.Location = new System.Drawing.Point(-2, 262);
             this.btnUsuario.Name = "btnUsuario";
             this.btnUsuario.ShadowDecoration.Parent = this.btnUsuario;
-            this.btnUsuario.Size = new System.Drawing.Size(221, 75);
+            this.btnUsuario.Size = new System.Drawing.Size(166, 61);
             this.btnUsuario.TabIndex = 5;
             this.btnUsuario.Text = "Usuarios";
             this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
@@ -134,11 +192,10 @@
             this.btnLibro.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_libros_100;
             this.btnLibro.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnLibro.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnLibro.Location = new System.Drawing.Point(0, 427);
-            this.btnLibro.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLibro.Location = new System.Drawing.Point(0, 347);
             this.btnLibro.Name = "btnLibro";
             this.btnLibro.ShadowDecoration.Parent = this.btnLibro;
-            this.btnLibro.Size = new System.Drawing.Size(221, 75);
+            this.btnLibro.Size = new System.Drawing.Size(166, 61);
             this.btnLibro.TabIndex = 1;
             this.btnLibro.Text = "Libros";
             this.btnLibro.Click += new System.EventHandler(this.btnLibro_Click);
@@ -154,11 +211,10 @@
             this.btnPrestamo.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_libros_100__1_;
             this.btnPrestamo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPrestamo.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnPrestamo.Location = new System.Drawing.Point(0, 533);
-            this.btnPrestamo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrestamo.Location = new System.Drawing.Point(0, 433);
             this.btnPrestamo.Name = "btnPrestamo";
             this.btnPrestamo.ShadowDecoration.Parent = this.btnPrestamo;
-            this.btnPrestamo.Size = new System.Drawing.Size(221, 75);
+            this.btnPrestamo.Size = new System.Drawing.Size(166, 61);
             this.btnPrestamo.TabIndex = 1;
             this.btnPrestamo.Text = "Prestamo";
             this.btnPrestamo.Click += new System.EventHandler(this.btnPrestamo_Click);
@@ -174,74 +230,29 @@
             this.btnDevolucion.Image = global::GestorDeBiblioteca.Properties.Resources.icon_actualizar_48;
             this.btnDevolucion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDevolucion.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnDevolucion.Location = new System.Drawing.Point(0, 647);
-            this.btnDevolucion.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDevolucion.Location = new System.Drawing.Point(0, 526);
             this.btnDevolucion.Name = "btnDevolucion";
             this.btnDevolucion.ShadowDecoration.Parent = this.btnDevolucion;
-            this.btnDevolucion.Size = new System.Drawing.Size(221, 75);
+            this.btnDevolucion.Size = new System.Drawing.Size(166, 61);
             this.btnDevolucion.TabIndex = 0;
             this.btnDevolucion.Text = "Devolucion";
             this.btnDevolucion.Click += new System.EventHandler(this.btnDevolucion_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(4, 138);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 39);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Prestamos ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // picLogo
-            // 
-            this.picLogo.Image = global::GestorDeBiblioteca.Properties.Resources.Logo__2_;
-            this.picLogo.Location = new System.Drawing.Point(-41, -37);
-            this.picLogo.Margin = new System.Windows.Forms.Padding(4);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(301, 254);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLogo.TabIndex = 7;
-            this.picLogo.TabStop = false;
-            // 
-            // panelSuperior
-            // 
-            this.panelSuperior.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panelSuperior.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSuperior.Location = new System.Drawing.Point(221, 0);
-            this.panelSuperior.Margin = new System.Windows.Forms.Padding(4);
-            this.panelSuperior.Name = "panelSuperior";
-            this.panelSuperior.Size = new System.Drawing.Size(1464, 43);
-            this.panelSuperior.TabIndex = 18;
-            // 
-            // panelContenedor
-            // 
-            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(221, 43);
-            this.panelContenedor.Margin = new System.Windows.Forms.Padding(4);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1464, 795);
-            this.panelContenedor.TabIndex = 20;
-            // 
             // MDImenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1685, 838);
+            this.ClientSize = new System.Drawing.Size(1028, 703);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.panelSuperior);
             this.Controls.Add(this.panelSiderbar);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MDImenu";
             this.Text = "MDImenu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelSiderbar.ResumeLayout(false);
             this.panelSiderbar.PerformLayout();
+            this.panelSuperior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);
 
@@ -260,6 +271,7 @@
         private Guna.UI2.WinForms.Guna2Button btnLibro;
         private Guna.UI2.WinForms.Guna2Button btnPrestamo;
         private Guna.UI2.WinForms.Guna2Button btnDashboard;
+        private Guna.UI2.WinForms.Guna2Button btnBloquearMenu;
     }
 }
 

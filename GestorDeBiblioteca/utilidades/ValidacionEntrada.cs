@@ -16,8 +16,9 @@ namespace app.Banco.Utilidades
             {
                 if(e.KeyChar == (char)Keys.Enter)
                 {
-                    e.Handled = true;
                     SendKeys.Send("{TAB}");
+                    e.Handled = true;
+                    
                 }
             }
             catch(Exception ex)

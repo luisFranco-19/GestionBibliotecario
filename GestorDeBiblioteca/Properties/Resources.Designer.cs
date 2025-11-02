@@ -83,6 +83,46 @@ namespace GestorDeBiblioteca.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_wa9p0swa9p0swa9p_Photoroom {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_wa9p0swa9p0swa9p-Photoroom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_wa9p0swa9p0swa9p_Photoroom1 {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_wa9p0swa9p0swa9p-Photoroom1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_ytzwg7ytzwg7ytzw_Photoroom {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_ytzwg7ytzwg7ytzw-Photoroom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_ytzwg7ytzwg7ytzw_Photoroom1 {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_ytzwg7ytzwg7ytzw-Photoroom1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_actualizar_48 {
             get {
                 object obj = ResourceManager.GetObject("icon_actualizar_48", resourceCulture);
@@ -96,6 +136,56 @@ namespace GestorDeBiblioteca.Properties {
         internal static System.Drawing.Bitmap icon_eliminar {
             get {
                 object obj = ResourceManager.GetObject("icon_eliminar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_lock_24 {
+            get {
+                object obj = ResourceManager.GetObject("icon_lock_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_lock_241 {
+            get {
+                object obj = ResourceManager.GetObject("icon_lock_241", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_lock_32 {
+            get {
+                object obj = ResourceManager.GetObject("icon_lock_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_lock_321 {
+            get {
+                object obj = ResourceManager.GetObject("icon_lock_321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_lock_322 {
+            get {
+                object obj = ResourceManager.GetObject("icon_lock_322", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -226,6 +316,16 @@ namespace GestorDeBiblioteca.Properties {
         internal static System.Drawing.Bitmap icons8_contraseña_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-contraseña-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_contraseña_481 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-contraseña-481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

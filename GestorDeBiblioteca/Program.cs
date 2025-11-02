@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestorDeBiblioteca;
 using app.Banco.Utilidades;
+using GestorDeBiblioteca.Formularios;
 
 namespace GestorDeBiblioteca
 {
@@ -33,7 +34,7 @@ namespace GestorDeBiblioteca
                     return;
                 }
             }
-            Application.Run(new MDImenu());
+            Application.Run(new FrmLogin());
         }
     }
 }
