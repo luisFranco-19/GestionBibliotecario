@@ -15,7 +15,7 @@ namespace GestorDeBiblioteca.Formularios
 {
     public partial class FrmDashboard : Form
     {
-        private DataTable datosOriginales; // 🔹 Guardará los datos completos de la vista actual
+        private DataTable datosOriginales;
         private string vistaActual = "";
         public FrmDashboard()
         {
@@ -24,7 +24,7 @@ namespace GestorDeBiblioteca.Formularios
         }
 
         #region Estilos y metodos del dataGrid
-        // Método general para cargar datos desde una vista
+      
         private void CargarVista(string nombreVista)
         {
             try
@@ -68,16 +68,16 @@ namespace GestorDeBiblioteca.Formularios
             serie.ChartType = SeriesChartType.Doughnut;
             serie.Font = new Font("Segoe UI", 11, FontStyle.Bold);
 
-            // 🔹 Muestra los valores en el gráfico
+            // valores del gráfico
             serie.IsValueShownAsLabel = true;
-            serie.LabelForeColor = Color.Black;   // Color del texto dentro del gráfico
-            serie.Label = "#VALX #VALY";        // Ejemplo: Azul (5)
-                                                  // Si quieres porcentaje también: "#VALX (#VALY) - #PERCENT{P1}"
+            serie.LabelForeColor = Color.Black;   
+            serie.Label = "#VALX #VALY";       
+                                               
 
-            // 🔹 Estilo del Doughnut
-            serie["PieLabelStyle"] = "Outside";   // Outside = texto afuera / Inside = dentro del gráfico
+            // Estilo del Doughnut
+            serie["PieLabelStyle"] = "Outside";   
             serie["DoughnutRadius"] = "60";
-            serie.SmartLabelStyle.Enabled = true; // Evita que se encimen las etiquetas
+            serie.SmartLabelStyle.Enabled = true; 
 
             switch (vistaActual)
             {
@@ -160,7 +160,7 @@ namespace GestorDeBiblioteca.Formularios
         {
             
 
-            // Si no hay datos, limpiar los labels
+            // Si no hay datos limpiar los labels
             if (dt == null || dt.Rows.Count == 0)
             {
                 total1.Text = "—";
@@ -172,7 +172,7 @@ namespace GestorDeBiblioteca.Formularios
 
             switch (vistaActual)
             {
-                // 🔹 VISTA: LIBROS EN MORA
+                // LIBROS EN MORA
                 case "vw_LibrosEnMora":
                     int totalLibros = dt.Rows.Count;
                     int totalPrestamos = dt.AsEnumerable().Sum(r => Convert.ToInt32(r["CopiasPrestadas"]));
@@ -185,7 +185,7 @@ namespace GestorDeBiblioteca.Formularios
                     total4.Text = $"✍️ Autores: {totalAutores}";
                     break;
 
-                // 🔹 VISTA: USUARIOS EN MORA
+                //  USUARIOS EN MORA
                 case "vw_UsuariosEnMora":
                     int totalUsuarios = dt.Rows.Count;
                     int totalLibrosPrestados = dt.AsEnumerable().Sum(r => Convert.ToInt32(r["CantidadLibrosPrestados"]));
@@ -198,7 +198,7 @@ namespace GestorDeBiblioteca.Formularios
                     total4.Text = $"📅 Hasta: {fechaMasReciente:dd/MM/yyyy}";
                     break;
 
-                // 🔹 VISTA: STOCK DE LIBROS
+                //  STOCK DE LIBROS
                 case "vw_StockLibros":
                     int totalTitulos = dt.Rows.Count;
                     int totalStock = dt.AsEnumerable().Sum(r => Convert.ToInt32(r["StockCopias"]));
@@ -213,7 +213,7 @@ namespace GestorDeBiblioteca.Formularios
             }
         }
 
-        // Método para configurar el DataGridView
+        
         private void ConfigurarDataGridView(DataTable dt)
         {
             dvgListado.AutoGenerateColumns = true;
@@ -222,7 +222,7 @@ namespace GestorDeBiblioteca.Formularios
 
             dvgListado.DataSource = dt;
 
-            // Ocultar todas las columnas que contengan "id" en su nombre
+           
             foreach (DataGridViewColumn col in dvgListado.Columns)
             {
                 if (col.Name.ToLower().Contains("id"))

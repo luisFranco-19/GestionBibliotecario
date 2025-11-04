@@ -1,6 +1,6 @@
 ﻿namespace GestorDeBiblioteca
 {
-    partial class FrmGestionDePrestamos
+    partial class FrmPrestamos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -57,8 +58,8 @@
             this.txtBuscarUsuario = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.FechaPrestamo = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrestamos)).BeginInit();
             this.BotonesLayout.SuspendLayout();
@@ -74,8 +75,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.dgvPrestamos);
-            this.panel3.Controls.Add(this.dtpFechaDevolucion);
             this.panel3.Controls.Add(this.BotonesLayout);
             this.panel3.Controls.Add(this.panelregistroLibros);
             this.panel3.Controls.Add(this.panelregistroUsuarios);
@@ -121,7 +122,7 @@
             this.dgvPrestamos.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPrestamos.EnableHeadersVisualStyles = false;
             this.dgvPrestamos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvPrestamos.Location = new System.Drawing.Point(510, 145);
+            this.dgvPrestamos.Location = new System.Drawing.Point(523, 153);
             this.dgvPrestamos.Name = "dgvPrestamos";
             this.dgvPrestamos.ReadOnly = true;
             this.dgvPrestamos.RowHeadersVisible = false;
@@ -161,13 +162,14 @@
             this.dtpFechaDevolucion.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaDevolucion.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dtpFechaDevolucion.HoverState.Parent = this.dtpFechaDevolucion;
-            this.dtpFechaDevolucion.Location = new System.Drawing.Point(825, 77);
+            this.dtpFechaDevolucion.Location = new System.Drawing.Point(844, 9);
             this.dtpFechaDevolucion.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpFechaDevolucion.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpFechaDevolucion.Name = "dtpFechaDevolucion";
             this.dtpFechaDevolucion.ShadowDecoration.Parent = this.dtpFechaDevolucion;
             this.dtpFechaDevolucion.Size = new System.Drawing.Size(265, 36);
             this.dtpFechaDevolucion.TabIndex = 66;
+            this.toolTip1.SetToolTip(this.dtpFechaDevolucion, "Fecha de devolucion del prestamo");
             this.dtpFechaDevolucion.Value = new System.DateTime(2025, 10, 25, 17, 16, 27, 136);
             // 
             // BotonesLayout
@@ -203,6 +205,7 @@
             this.btnAgregar.Size = new System.Drawing.Size(186, 33);
             this.btnAgregar.TabIndex = 63;
             this.btnAgregar.Text = "Agregar";
+            this.toolTip1.SetToolTip(this.btnAgregar, "Confirmar Prestamo");
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnCancelar
@@ -223,6 +226,7 @@
             this.btnCancelar.Size = new System.Drawing.Size(186, 33);
             this.btnCancelar.TabIndex = 64;
             this.btnCancelar.Text = "Cancelar";
+            this.toolTip1.SetToolTip(this.btnCancelar, "Cancelar Prestamo");
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // panelregistroLibros
@@ -498,21 +502,20 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.FechaPrestamo);
-            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.dtpFechaDevolucion);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1121, 56);
+            this.panel4.Size = new System.Drawing.Size(1121, 48);
             this.panel4.TabIndex = 20;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(10, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(288, 35);
@@ -520,39 +523,29 @@
             this.label1.Text = "Gestión de Prestamos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // FechaPrestamo
+            // label2
             // 
-            this.FechaPrestamo.AutoSize = true;
-            this.FechaPrestamo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FechaPrestamo.Location = new System.Drawing.Point(952, 9);
-            this.FechaPrestamo.Name = "FechaPrestamo";
-            this.FechaPrestamo.Size = new System.Drawing.Size(117, 25);
-            this.FechaPrestamo.TabIndex = 30;
-            this.FechaPrestamo.Text = "FechaActual";
-            this.FechaPrestamo.Visible = false;
-            this.FechaPrestamo.Click += new System.EventHandler(this.FechaPrestamo_Click);
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(609, 117);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(385, 24);
+            this.label2.TabIndex = 68;
+            this.label2.Text = "Historial de Prestamos del Usuario";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(776, 7);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(179, 25);
-            this.label7.TabIndex = 27;
-            this.label7.Text = "Fecha de Prestamo:";
-            this.label7.Visible = false;
-            // 
-            // FrmGestionDePrestamos
+            // FrmPrestamos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1121, 623);
             this.Controls.Add(this.panel3);
-            this.Name = "FrmGestionDePrestamos";
+            this.Name = "FrmPrestamos";
             this.Text = "FrmGestionDePrestamos";
             this.Load += new System.EventHandler(this.FrmGestionDePrestamos_Load);
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrestamos)).EndInit();
             this.BotonesLayout.ResumeLayout(false);
             this.panelregistroLibros.ResumeLayout(false);
@@ -572,8 +565,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label FechaPrestamo;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTituloLibro;
@@ -599,5 +590,7 @@
         private System.Windows.Forms.TableLayoutPanel BotonesLayout;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpFechaDevolucion;
         private Guna.UI2.WinForms.Guna2DataGridView dgvPrestamos;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label2;
     }
 }

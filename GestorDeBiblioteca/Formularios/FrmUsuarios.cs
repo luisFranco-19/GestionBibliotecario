@@ -271,7 +271,7 @@ namespace GestorDeBiblioteca
 
                     if (result > 0)
                     {
-                        MessageBox.Show("✅ Usuario eliminado con éxito.", "Información",
+                        MessageBox.Show(" Usuario eliminado con éxito.", "Información",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else

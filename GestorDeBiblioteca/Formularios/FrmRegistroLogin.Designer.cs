@@ -111,6 +111,7 @@
             this.btnIniciarSesion.Size = new System.Drawing.Size(111, 26);
             this.btnIniciarSesion.TabIndex = 19;
             this.btnIniciarSesion.Text = "Iniciar Secion";
+            this.toolTip1.SetToolTip(this.btnIniciarSesion, "Si tienes una cuenta inicia sesion");
             this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
             // 
             // labelIni

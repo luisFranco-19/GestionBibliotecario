@@ -115,6 +115,7 @@
             this.btnRegistrase.Size = new System.Drawing.Size(111, 26);
             this.btnRegistrase.TabIndex = 19;
             this.btnRegistrase.Text = "¿Registrarce?";
+            this.toolTip1.SetToolTip(this.btnRegistrase, "Si no tienes cuenta registrate");
             this.btnRegistrase.Click += new System.EventHandler(this.btnRegistrase_Click_1);
             // 
             // labelIni

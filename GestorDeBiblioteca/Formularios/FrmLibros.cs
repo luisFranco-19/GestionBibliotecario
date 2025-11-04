@@ -244,15 +244,13 @@ namespace GestorDeBiblioteca
             dgvListado.DefaultCellStyle.BackColor = Color.White;
             dgvListado.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
             dgvListado.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-            dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); // Color al seleccionar una columna
+            dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251);
             dgvListado.DefaultCellStyle.SelectionForeColor = Color.Black;
-            dgvListado.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Centrar texto en las celdas
+            dgvListado.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; 
 
 
             // Filas alternas 
             dgvListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
-
-
             dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvListado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvListado.MultiSelect = false;
@@ -486,7 +484,7 @@ namespace GestorDeBiblioteca
                     {
                         int.TryParse(dgvListado.CurrentRow.Cells[0].Value.ToString(), out int idUsuario);
 
-                        //int id = Convert.ToInt32(dgvListado.CurrentRow.Cells[0].Value.ToString());
+                        
                         Eliminar(idUsuario);
                         limpiarControles();
                         btnAceptar.Visible = true;
@@ -506,7 +504,7 @@ namespace GestorDeBiblioteca
             }
 
         }
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
             limpiarControles();
         }
@@ -564,7 +562,7 @@ namespace GestorDeBiblioteca
             dgvListado.DefaultCellStyle.BackColor = Color.White;
             dgvListado.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
             dgvListado.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-            dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); // Color al seleccionar una columna
+            dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); 
             dgvListado.DefaultCellStyle.SelectionForeColor = Color.Black;
 
             // Filas alternas 
@@ -596,10 +594,7 @@ namespace GestorDeBiblioteca
 
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            limpiarControles();
-        }
+       
 
         private void txtCantidad_TextChanged(object sender, EventArgs e)
         {

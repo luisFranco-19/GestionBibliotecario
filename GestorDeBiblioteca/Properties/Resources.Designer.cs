@@ -253,6 +253,16 @@ namespace GestorDeBiblioteca.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_actualizar_1001 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-actualizar-1001", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_agregar_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-agregar-100", resourceCulture);

@@ -52,7 +52,7 @@ namespace GestorDeBiblioteca.Formularios
                 string conexionStr = ConexionDB.ObtenerConexion();
                 using (SqlConnection conexion = new SqlConnection(conexionStr))
                 {
-                    // Comparación estricta de mayúsculas/minúsculas
+                    
                     string sql = @"SELECT idUsuarioLogin, password 
                                    FROM UsuarioLogin 
                                    WHERE nombreUsuario=@Usuario COLLATE Latin1_General_CS_AS AND estado=1";
@@ -103,9 +103,9 @@ namespace GestorDeBiblioteca.Formularios
                     cmd.ExecuteNonQuery();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                // Si falla registrar el intento, no rompe la aplicación
+                MessageBox.Show("Error; " + ex.Message);
             }
         }
 
@@ -165,23 +165,17 @@ namespace GestorDeBiblioteca.Formularios
         {
             try
             {
-                // Ocultar Login
                 this.Hide();
-
-                // Abrir Registro como modal
+               
                 FrmRegistroLogin registroLoginForm = new FrmRegistroLogin();
                 registroLoginForm.ShowDialog();
 
-                // Después de cerrar Registro, cerrar Login también si no quieres volver
                 this.Close();
-
-                // Si quieres volver al login en lugar de cerrar:
-                // this.Show();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al abrir el formulario de registro: " + ex.Message);
-                this.Show(); // Mostrar login de nuevo si hubo error
+                this.Show(); 
             }
         }
 

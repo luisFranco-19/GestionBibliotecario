@@ -101,11 +101,11 @@
     <Compile Include="Formularios\FrmDevoluciones.Designer.cs">
       <DependentUpon>FrmDevoluciones.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FrmGestionDePrestamos.cs">
+    <Compile Include="Formularios\FrmPrestamos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FrmGestionDePrestamos.Designer.cs">
-      <DependentUpon>FrmGestionDePrestamos.cs</DependentUpon>
+    <Compile Include="Formularios\FrmPrestamos.Designer.cs">
+      <DependentUpon>FrmPrestamos.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmLibros.cs">
       <SubType>Form</SubType>
@@ -149,8 +149,8 @@
     <EmbeddedResource Include="Formularios\FrmDevoluciones.resx">
       <DependentUpon>FrmDevoluciones.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmGestionDePrestamos.resx">
-      <DependentUpon>FrmGestionDePrestamos.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\FrmPrestamos.resx">
+      <DependentUpon>FrmPrestamos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmLibros.resx">
       <DependentUpon>FrmLibros.cs</DependentUpon>
@@ -308,6 +308,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_lock_322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-actualizar-1001.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -53,6 +54,7 @@
             this.btnRegistrosLibros = new Guna.UI2.WinForms.Guna2Button();
             this.btnStockLibros = new Guna.UI2.WinForms.Guna2Button();
             this.btnRegistroUsuarios = new Guna.UI2.WinForms.Guna2Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -367,6 +369,7 @@
             this.btnRegistrosLibros.Size = new System.Drawing.Size(161, 69);
             this.btnRegistrosLibros.TabIndex = 22;
             this.btnRegistrosLibros.Text = "Libros en Mora";
+            this.toolTip1.SetToolTip(this.btnRegistrosLibros, "Mostrar Registro");
             this.btnRegistrosLibros.Click += new System.EventHandler(this.btnRegistrosLibros_Click);
             // 
             // btnStockLibros
@@ -384,6 +387,7 @@
             this.btnStockLibros.Size = new System.Drawing.Size(161, 69);
             this.btnStockLibros.TabIndex = 21;
             this.btnStockLibros.Text = "Stock de Libros";
+            this.toolTip1.SetToolTip(this.btnStockLibros, "Mostar Registro");
             this.btnStockLibros.Click += new System.EventHandler(this.btnStockLibros_Click);
             // 
             // btnRegistroUsuarios
@@ -401,6 +405,7 @@
             this.btnRegistroUsuarios.Size = new System.Drawing.Size(161, 69);
             this.btnRegistroUsuarios.TabIndex = 20;
             this.btnRegistroUsuarios.Text = "Usuarios en Mora";
+            this.toolTip1.SetToolTip(this.btnRegistroUsuarios, "Mostrar Registro");
             this.btnRegistroUsuarios.Click += new System.EventHandler(this.btnRegistroUsuarios_Click);
             // 
             // FrmDashboard
@@ -451,5 +456,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

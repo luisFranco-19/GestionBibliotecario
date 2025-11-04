@@ -14,23 +14,23 @@ using System.Windows.Forms;
 
 namespace GestorDeBiblioteca
 {
-    public partial class FrmGestionDePrestamos : Form
+    public partial class FrmPrestamos : Form
     {
-        public FrmGestionDePrestamos()
+        public FrmPrestamos()
         {
             InitializeComponent();
         }
 
 
         #region Variables
-        private DataTable dtPrestamo;       // Libros seleccionados
-        private int? selectedUserId = null; // Usuario actual
+        private DataTable dtPrestamo;       
+        private int? selectedUserId = null; 
         #endregion
 
         #region Load
         private void FrmGestionDePrestamos_Load(object sender, EventArgs e)
         {
-            FechaPrestamo.Text = DateTime.Now.ToShortDateString();
+            //FechaPrestamo.Text = DateTime.Now.ToShortDateString();
             InicializarPrestamoTable();
             MostrarSoloBuscadorUsuario();
 
@@ -93,7 +93,6 @@ namespace GestorDeBiblioteca
         }
         #endregion
 
-
         #region Inicializar tabla de préstamos
         private void InicializarPrestamoTable()
         {
@@ -138,9 +137,9 @@ namespace GestorDeBiblioteca
             dgvPrestamos.DefaultCellStyle.BackColor = Color.White;
             dgvPrestamos.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
             dgvPrestamos.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-            dgvPrestamos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); // Color al seleccionar una columna
+            dgvPrestamos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); 
             dgvPrestamos.DefaultCellStyle.SelectionForeColor = Color.Black;
-            dgvPrestamos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Centrar texto en las celdas
+            dgvPrestamos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; 
 
 
             // Filas alternas 
@@ -156,8 +155,6 @@ namespace GestorDeBiblioteca
 
         
         #endregion
-
-
 
         #region Buscar Usuario
         private void BuscarUsuario()
@@ -222,77 +219,7 @@ namespace GestorDeBiblioteca
         #endregion
 
         #region Buscar Libro
-        //private void BuscarLibro()
-        //{
-        //    try
-        //    {
-        //        string connetionString = ConexionDB.ObtenerConexion();
-        //        using (SqlConnection conexion = new SqlConnection(connetionString))
-        //        {
-        //            string consulta = @"
-        //                SELECT TOP 1 l.idLibro, l.titulo, a.nombre AS autor, ISNULL(l.estado, '') AS estado, ISNULL(l.cantidad, 0) AS cantidad
-        //                FROM Libros l
-        //                INNER JOIN Autores a ON l.idAutor = a.idAutor
-        //                WHERE l.titulo LIKE @texto OR a.nombre LIKE @texto";
-
-        //            using (SqlCommand cmd = new SqlCommand(consulta, conexion))
-        //            {
-        //                cmd.Parameters.Add("@texto", SqlDbType.NVarChar, 200).Value = "%" + txtBuscarLibro.Text.Trim() + "%";
-        //                conexion.Open();
-        //                using (SqlDataReader reader = cmd.ExecuteReader())
-        //                {
-        //                    if (reader.Read())
-        //                    {
-        //                        int idLibro = reader.GetInt32(0);
-        //                        string titulo = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
-        //                        string autor = reader.IsDBNull(2) ? string.Empty : reader.GetString(2);
-        //                        string estado = reader.IsDBNull(3) ? string.Empty : reader.GetString(3);
-        //                        int cantidadDisponible = reader.IsDBNull(4) ? 0 : reader.GetInt32(4);
-
-        //                        lblTituloLibro.Text = titulo;
-        //                        lblAutorLibro.Text = autor;
-        //                        lblEstadoLibro.Text = estado;
-
-        //                        if (estado.Equals("Activo", StringComparison.OrdinalIgnoreCase) && cantidadDisponible > 0)
-        //                        {
-        //                            // No permitir agregar si ya existe en dtPrestamo (sea préstamo anterior o nuevo)
-        //                            bool yaPrestado = dtPrestamo.AsEnumerable()
-        //                                .Any(r => r.Field<int>("idLibro") == idLibro);
-
-        //                            if (yaPrestado)
-        //                            {
-        //                                MessageBox.Show("El usuario ya tiene (o ya ha agregado) este libro.", "Aviso",
-        //                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //                                return;
-        //                            }
-
-        //                            AgregarLibroAPrestamo(idLibro, titulo, autor);
-        //                            MostrarDatosLibro();
-        //                            btnAgregar.Focus();
-        //                        }
-        //                        else
-        //                        {
-        //                            MessageBox.Show("El libro no está disponible.");
-        //                        }
-        //                    }
-        //                    else
-        //                    {
-        //                        MessageBox.Show("Libro no encontrado.");
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error al buscar libro: " + ex.Message + "\n" + ex.StackTrace);
-        //    }
-
-        //}
-
-
-
-
+        
         private void BuscarLibro()
         {
             try
@@ -324,11 +251,11 @@ namespace GestorDeBiblioteca
                                 lblAutorLibro.Text = autor;
                                 lblEstadoLibro.Text = estado;
 
-                                // 🔸 VALIDAR FECHA DE DEVOLUCIÓN ANTES DE AGREGAR EL LIBRO
+                                //  VALIDAR FECHA DE DEVOLUCIÓN ANTES DE AGREGAR EL LIBRO
                                 if (dtpFechaDevolucion.Value.Date <= DateTime.Today.Date)
                                 {
                                     MessageBox.Show(
-                                        "Debe establecer una fecha de devolución válida (posterior a hoy) antes de agregar el libro.",
+                                        "Debe establecer una fecha de devolución válida antes de agregar el libro.",
                                         "Fecha inválida",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Warning
@@ -341,13 +268,13 @@ namespace GestorDeBiblioteca
 
                                 if (estado.Equals("Activo", StringComparison.OrdinalIgnoreCase) && cantidadDisponible > 0)
                                 {
-                                    // No permitir agregar si ya existe en dtPrestamo (sea préstamo anterior o nuevo)
+                                    
                                     bool yaPrestado = dtPrestamo.AsEnumerable()
                                         .Any(r => r.Field<int>("idLibro") == idLibro);
 
                                     if (yaPrestado)
                                     {
-                                        MessageBox.Show("El usuario ya tiene (o ya ha agregado) este libro.", "Aviso",
+                                        MessageBox.Show("El usuario ya tiene este libro.", "Aviso",
                                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         return;
                                     }
@@ -355,7 +282,7 @@ namespace GestorDeBiblioteca
                                     AgregarLibroAPrestamo(idLibro, titulo, autor);
                                     MostrarDatosLibro();
 
-                                    // ✅ Después de encontrar el libro, pasar el foco al botón Agregar
+                                    
                                     btnAgregar.Focus();
                                 }
                                 else
@@ -388,9 +315,6 @@ namespace GestorDeBiblioteca
         }
 
         #endregion
-
-       
-
 
         #region Manejo de Préstamos
         private void AgregarLibroAPrestamo(int idLibro, string titulo, string autor)
@@ -434,7 +358,7 @@ namespace GestorDeBiblioteca
                 return false;
             }
 
-            // Validar fecha de devolución si está marcada
+            // Validar fecha de devolución 
             if (dtpFechaDevolucion.Checked)
             {
                 DateTime fechaDevolucion = dtpFechaDevolucion.Value.Date;
@@ -455,7 +379,7 @@ namespace GestorDeBiblioteca
             DateTime fechaPrestamo = DateTime.Now;
             DateTime? fechaDevolucion = dtpFechaDevolucion.Value.Date;
 
-            // Validar que la fecha de devolución sea mayor a la fecha actual
+            // Validar que la fecha de devolución sea mayor 
             if (fechaDevolucion.HasValue && fechaDevolucion <= DateTime.Now.Date)
             {
                 MessageBox.Show("La fecha de devolución debe ser mayor a la fecha actual.", "Fecha inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -600,9 +524,6 @@ namespace GestorDeBiblioteca
 
         #endregion
 
-
-
-
         #region Botones de comando
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -618,7 +539,6 @@ namespace GestorDeBiblioteca
 
 
         #endregion
-
 
         #region None
         private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
@@ -662,6 +582,7 @@ namespace GestorDeBiblioteca
         }
         #endregion
 
+       
     }
 }
 

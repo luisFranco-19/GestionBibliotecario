@@ -55,6 +55,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lbFecha = new System.Windows.Forms.Label();
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -87,7 +88,7 @@
             this.tableLayoutPanel2.Controls.Add(this.btnAceptar, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnActualizar, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.btnCancelar, 0, 3);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(748, 61);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(774, 48);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
@@ -95,7 +96,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(168, 179);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(177, 192);
             this.tableLayoutPanel2.TabIndex = 68;
             // 
             // btnEliminar
@@ -111,12 +112,13 @@
             this.btnEliminar.HoverState.Parent = this.btnEliminar;
             this.btnEliminar.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_eliminar_100;
             this.btnEliminar.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnEliminar.Location = new System.Drawing.Point(3, 91);
+            this.btnEliminar.Location = new System.Drawing.Point(3, 99);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.ShadowDecoration.Parent = this.btnEliminar;
-            this.btnEliminar.Size = new System.Drawing.Size(162, 38);
+            this.btnEliminar.Size = new System.Drawing.Size(171, 42);
             this.btnEliminar.TabIndex = 66;
             this.btnEliminar.Text = "Eliminar";
+            this.toolTip1.SetToolTip(this.btnEliminar, "Eliminar Registro");
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
             // 
             // btnAceptar
@@ -135,9 +137,10 @@
             this.btnAceptar.Location = new System.Drawing.Point(3, 3);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.ShadowDecoration.Parent = this.btnAceptar;
-            this.btnAceptar.Size = new System.Drawing.Size(162, 38);
+            this.btnAceptar.Size = new System.Drawing.Size(171, 42);
             this.btnAceptar.TabIndex = 63;
             this.btnAceptar.Text = "Aceptar";
+            this.toolTip1.SetToolTip(this.btnAceptar, "Guaedar Registro");
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click_1);
             // 
             // btnActualizar
@@ -153,12 +156,13 @@
             this.btnActualizar.HoverState.Parent = this.btnActualizar;
             this.btnActualizar.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_actualizar_100;
             this.btnActualizar.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnActualizar.Location = new System.Drawing.Point(3, 47);
+            this.btnActualizar.Location = new System.Drawing.Point(3, 51);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.ShadowDecoration.Parent = this.btnActualizar;
-            this.btnActualizar.Size = new System.Drawing.Size(162, 38);
+            this.btnActualizar.Size = new System.Drawing.Size(171, 42);
             this.btnActualizar.TabIndex = 65;
             this.btnActualizar.Text = "Actualizar";
+            this.toolTip1.SetToolTip(this.btnActualizar, "Actualizar Registro");
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnCancelar
@@ -175,14 +179,15 @@
             this.btnCancelar.HoverState.Parent = this.btnCancelar;
             this.btnCancelar.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_cancelar_100__2_;
             this.btnCancelar.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnCancelar.Location = new System.Drawing.Point(3, 135);
+            this.btnCancelar.Location = new System.Drawing.Point(3, 147);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.PressedColor = System.Drawing.Color.White;
             this.btnCancelar.PressedDepth = 50;
             this.btnCancelar.ShadowDecoration.Parent = this.btnCancelar;
-            this.btnCancelar.Size = new System.Drawing.Size(162, 41);
+            this.btnCancelar.Size = new System.Drawing.Size(171, 42);
             this.btnCancelar.TabIndex = 64;
             this.btnCancelar.Text = "Cancelar";
+            this.toolTip1.SetToolTip(this.btnCancelar, "Cancelar Registro");
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
             // 
             // tableLayoutPanel1
@@ -350,7 +355,7 @@
             this.dgvListado.AllowUserToOrderColumns = true;
             this.dgvListado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvListado.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvListado.BackgroundColor = System.Drawing.Color.White;
             this.dgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListado.Location = new System.Drawing.Point(10, 255);
             this.dgvListado.Name = "dgvListado";
@@ -362,14 +367,14 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.lbFecha);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(963, 47);
+            this.panel2.Size = new System.Drawing.Size(963, 43);
             this.panel2.TabIndex = 19;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -377,7 +382,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label5.Location = new System.Drawing.Point(10, 7);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(241, 35);
@@ -390,7 +395,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label4.Location = new System.Drawing.Point(769, 7);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 25);
@@ -404,7 +409,7 @@
             this.lbFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbFecha.AutoSize = true;
             this.lbFecha.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFecha.ForeColor = System.Drawing.Color.White;
+            this.lbFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbFecha.Location = new System.Drawing.Point(832, 7);
             this.lbFecha.Name = "lbFecha";
             this.lbFecha.Size = new System.Drawing.Size(78, 25);
@@ -472,5 +477,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbFecha;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

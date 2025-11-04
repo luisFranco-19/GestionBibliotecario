@@ -21,16 +21,12 @@ namespace GestorDeBiblioteca.Formularios
 
             this.KeyPreview = true;
 
-            // Eventos del formulario
             this.KeyDown += ValidacionEntrada.ControlEsc;
 
-            // Asociar Enter a cada TextBox
             txtNombreUsuario.KeyPress += ValidacionEntrada.PasarFocus;
             txtEmail.KeyPress += ValidacionEntrada.PasarFocus;
             txtPassword.KeyPress += ValidacionEntrada.PasarFocus;
 
-
-            // Usar evento Shown para colocar focus
             this.Shown += FrmRegistroLogin_Shown;
         }
         private void FrmRegistroLogin_Shown(object sender, EventArgs e)
@@ -89,7 +85,6 @@ namespace GestorDeBiblioteca.Formularios
                     {
                         MessageBox.Show("Usuario registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // Cerrar este formulario y abrir MDImenu directamente
                         this.Close();
                         MDImenu menuForm = new MDImenu();
                         menuForm.Show();
@@ -139,12 +134,10 @@ namespace GestorDeBiblioteca.Formularios
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            // Limpiar todos los TextBox
             txtNombreUsuario.Clear();
             txtEmail.Clear();
             txtPassword.Clear();
 
-            // Poner el focus en el primer TextBox
             txtNombreUsuario.Focus();
         }
 
@@ -152,11 +145,9 @@ namespace GestorDeBiblioteca.Formularios
         {
             try
             {
-                this.Hide(); // Ocultar login
+                this.Hide(); 
                 FrmLogin loginForm = new FrmLogin();
                 loginForm.ShowDialog();
-
-                // Si quieres que Login cierre completamente cuando se abre Registro:
                 this.Close();
             }
             catch (Exception ex)

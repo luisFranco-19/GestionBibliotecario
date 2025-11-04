@@ -73,7 +73,7 @@ namespace GestorDeBiblioteca
         }
         private void btnPrestamo_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmGestionDePrestamos(), true);
+            AbrirFormulario(new FrmPrestamos(), true);
         }
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -81,7 +81,7 @@ namespace GestorDeBiblioteca
                          MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (resultado == DialogResult.Yes)
             {
-                Application.Exit(); // Cierra todos los formularios
+                Application.Exit(); 
             }
         }
         private void btnDevolucion_Click(object sender, EventArgs e)
@@ -96,9 +96,8 @@ namespace GestorDeBiblioteca
         {
             FrmLogin login = new FrmLogin();
             login.Show();
-            this.Hide();   // El Dashboard no se cierra, solo se oculta
+            this.Hide();  
 
-            //FrmDashboard.ActiveForm.Show();
 
         }
 

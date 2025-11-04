@@ -49,7 +49,7 @@ namespace GestorDeBiblioteca
                 return;
             }
 
-            //Crear objeto de configuracion
+            
             var parametros = new ParametrosDeConexion
             {
                 servidor = txtServidor.Text.Trim(),
