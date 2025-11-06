@@ -34,7 +34,7 @@ namespace GestorDeBiblioteca
                     return;
                 }
             }
-            Application.Run(new FrmLogin());
+            Application.Run(new MDImenu());
         }
     }
 }

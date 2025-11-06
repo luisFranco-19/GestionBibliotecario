@@ -101,13 +101,7 @@ namespace GestorDeBiblioteca
 
         }
 
-        #endregion
 
-        #region None
-        private void panelSuperior_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
         #endregion
     }
 }

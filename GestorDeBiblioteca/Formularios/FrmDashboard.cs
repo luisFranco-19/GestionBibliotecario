@@ -57,6 +57,9 @@ namespace GestorDeBiblioteca.Formularios
         {
             chartEstadisticas.Series.Clear();
             chartEstadisticas.Titles.Clear();
+            chartEstadisticas.Legends[0].Enabled = true;
+            chartEstadisticas.Legends[0].Font = new Font("Segoe UI", 10, FontStyle.Regular);
+            chartEstadisticas.Legends[0].Docking = Docking.Right;
 
             if (dt == null || dt.Rows.Count == 0)
             {
@@ -64,70 +67,75 @@ namespace GestorDeBiblioteca.Formularios
                 return;
             }
 
-            Series serie = new Series("Datos");
-            serie.ChartType = SeriesChartType.Doughnut;
-            serie.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+            // Estilos de fondo del gráfico
+            chartEstadisticas.BackColor = Color.FromArgb(255, 255, 255); // Blanco
+            chartEstadisticas.ChartAreas[0].BackColor = Color.White;
+            chartEstadisticas.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Segoe UI", 9);
+            chartEstadisticas.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Segoe UI", 9);
+            chartEstadisticas.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.FromArgb(210, 210, 210);
+            chartEstadisticas.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.FromArgb(210, 210, 210);
 
-            // valores del gráfico
-            serie.IsValueShownAsLabel = true;
-            serie.LabelForeColor = Color.Black;   
-            serie.Label = "#VALX #VALY";       
-                                               
+            Series serie = new Series
+            {
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                IsValueShownAsLabel = true,
+                LabelForeColor = Color.Black,
+                BorderColor = Color.White,
+                BorderWidth = 2
+            };
 
-            // Estilo del Doughnut
-            serie["PieLabelStyle"] = "Outside";   
-            serie["DoughnutRadius"] = "60";
-            serie.SmartLabelStyle.Enabled = true; 
+            // Paleta personalizada (colores combinados con el dashboard)
+            Color[] coloresDashboard =
+            {
+                    Color.FromArgb(54, 69, 79),   // gris azulado oscuro
+                    Color.FromArgb(93, 109, 126), // gris acero
+                    Color.FromArgb(72, 133, 184), // azul petróleo
+                    Color.FromArgb(100, 149, 237),// celeste suave
+                    Color.FromArgb(147, 197, 207),// azul gris claro
+                    Color.FromArgb(171, 183, 183),// gris cálido
+                    Color.FromArgb(88, 111, 124), // gris azulado medio
+                    Color.FromArgb(42, 87, 118),  // azul marino
+                    Color.FromArgb(64, 128, 128), // azul verdoso
+                    Color.FromArgb(192, 200, 207) // gris plateado
+    };
 
+            // Configuración visual según vista
             switch (vistaActual)
             {
-                case "vw_LibrosEnMora":
-                    var grupoLibros = dt.AsEnumerable()
-                        .Select(r => new
-                        {
-                            Libro = r["Titulo"].ToString(),
-                            Copias = Convert.ToInt32(r["CopiasPrestadas"])
-                        });
-
-                    foreach (var item in grupoLibros)
-                        serie.Points.AddXY(item.Libro, item.Copias);
-
-                    chartEstadisticas.Titles.Add("Libros Prestados ");
+                case "vw_Top10UsuariosPrestamos":
+                    chartEstadisticas.Titles.Add("Usuarios con más préstamos");
+                    serie.ChartType = SeriesChartType.Pie;
+                    foreach (DataRow r in dt.Rows)
+                        serie.Points.AddXY(r["Usuario"].ToString(), Convert.ToInt32(r["TotalPrestamos"]));
                     break;
 
-                case "vw_UsuariosEnMora":
-                    var grupoUsuarios = dt.AsEnumerable()
-                        .Select(r => new
-                        {
-                            Usuario = r["Usuarios"].ToString(),
-                            Cantidad = Convert.ToInt32(r["CantidadLibrosPrestados"])
-                        });
-
-                    foreach (var item in grupoUsuarios)
-                        serie.Points.AddXY(item.Usuario, item.Cantidad);
-
-                    chartEstadisticas.Titles.Add("Usuarios con Préstamos en Mora");
+                case "vw_Top10LibrosPopulares":
+                    chartEstadisticas.Titles.Add("Libros más populares");
+                    serie.ChartType = SeriesChartType.Pie;
+                    foreach (DataRow r in dt.Rows)
+                        serie.Points.AddXY(r["Libro"].ToString(), Convert.ToInt32(r["TotalPrestamos"]));
                     break;
 
-                case "vw_StockLibros":
-                    var grupoStock = dt.AsEnumerable()
-                        .Select(r => new
-                        {
-                            Libro = r["Titulo"].ToString(),
-                            Stock = Convert.ToInt32(r["CopiasDisponibles"])
-                        });
-
-                    foreach (var item in grupoStock)
-                        serie.Points.AddXY(item.Libro, item.Stock);
-
-                    chartEstadisticas.Titles.Add("Stock Actual de Libros");
+                case "vw_DistribucionUsuarios":
+                    chartEstadisticas.Titles.Add("Distribución de Usuarios");
+                    serie.ChartType = SeriesChartType.Bar;
+                    foreach (DataRow r in dt.Rows)
+                        serie.Points.AddXY(r["TipoUsuario"].ToString(), Convert.ToInt32(r["Total"]));
                     break;
             }
 
             chartEstadisticas.Series.Add(serie);
-            chartEstadisticas.Legends[0].Enabled = true;
-            chartEstadisticas.Legends[0].Font = new Font("Segoe UI", 10, FontStyle.Regular);
-            chartEstadisticas.Legends[0].Docking = Docking.Right;
+
+            // Aplicar los colores personalizados a cada punto del gráfico
+            for (int i = 0; i < serie.Points.Count; i++)
+            {
+                serie.Points[i].Color = coloresDashboard[i % coloresDashboard.Length];
+            }
+
+            // Ajuste visual general
+            chartEstadisticas.ChartAreas[0].AxisX.LabelStyle.Angle = -30;
+            chartEstadisticas.Titles[0].Font = new Font("Segoe UI Semibold", 12, FontStyle.Bold);
+            chartEstadisticas.Titles[0].ForeColor = Color.FromArgb(54, 69, 79);
         }
 
 
@@ -158,62 +166,47 @@ namespace GestorDeBiblioteca.Formularios
         }
         private void ActualizarTotales(DataTable dt)
         {
-            
-
-            // Si no hay datos limpiar los labels
             if (dt == null || dt.Rows.Count == 0)
             {
-                total1.Text = "—";
-                total2.Text = "—";
-                total3.Text = "—";
-                total4.Text = "—";
+                total1.Text = total2.Text = total3.Text = total4.Text = "—";
                 return;
             }
 
             switch (vistaActual)
             {
-                // LIBROS EN MORA
-                case "vw_LibrosEnMora":
-                    int totalLibros = dt.Rows.Count;
-                    int totalPrestamos = dt.AsEnumerable().Sum(r => Convert.ToInt32(r["CopiasPrestadas"]));
-                    int totalDisponibles = dt.AsEnumerable().Sum(r => Convert.ToInt32(r["CopiasDisponibles"]));
-                    int totalAutores = dt.AsEnumerable().Select(r => r["Autor"].ToString()).Distinct().Count();
-
-                    total1.Text = $"📚 Total Libros: {totalLibros}";
-                    total2.Text = $"📦 Copias Prestadas: {totalPrestamos}";
-                    total3.Text = $"✅ Copias Disponibles: {totalDisponibles}";
-                    total4.Text = $"✍️ Autores: {totalAutores}";
-                    break;
-
-                //  USUARIOS EN MORA
-                case "vw_UsuariosEnMora":
+                case "vw_Top10UsuariosPrestamos":
                     int totalUsuarios = dt.Rows.Count;
-                    int totalLibrosPrestados = dt.AsEnumerable().Sum(r => Convert.ToInt32(r["CantidadLibrosPrestados"]));
-                    DateTime fechaMasAntigua = dt.AsEnumerable().Min(r => Convert.ToDateTime(r["FechaPrestamo"]));
-                    DateTime fechaMasReciente = dt.AsEnumerable().Max(r => Convert.ToDateTime(r["FechaDevolucionEsperada"]));
+                    int totalPrestamosUsuarios = dt.AsEnumerable().Sum(r => Convert.ToInt32(r["TotalPrestamos"]));
 
-                    total1.Text = $"👥 Usuarios en Mora: {totalUsuarios}";
-                    total2.Text = $"📘 Libros Prestados: {totalLibrosPrestados}";
-                    total3.Text = $"📅 Desde: {fechaMasAntigua:dd/MM/yyyy}";
-                    total4.Text = $"📅 Hasta: {fechaMasReciente:dd/MM/yyyy}";
+                    total1.Text = $"👥 Usuarios Top: {totalUsuarios}";
+                    total2.Text = $"📘 Total de préstamos: {totalPrestamosUsuarios}";
+                    total3.Text = $"🏆 Promedio por usuario: {totalPrestamosUsuarios / totalUsuarios}";
+                    total4.Text = $"🗓️ Actualizado: {DateTime.Now:dd/MM/yyyy}";
                     break;
 
-                //  STOCK DE LIBROS
-                case "vw_StockLibros":
-                    int totalTitulos = dt.Rows.Count;
-                    int totalStock = dt.AsEnumerable().Sum(r => Convert.ToInt32(r["StockCopias"]));
-                    int totalPrestadosStock = dt.AsEnumerable().Sum(r => Convert.ToInt32(r["CopiasPrestadas"]));
-                    int totalDisponiblesStock = dt.AsEnumerable().Sum(r => Convert.ToInt32(r["CopiasDisponibles"]));
+                case "vw_Top10LibrosPopulares":
+                    int totalLibros = dt.Rows.Count;
+                    int totalPrestamosLibros = dt.AsEnumerable().Sum(r => Convert.ToInt32(r["TotalPrestamos"]));
 
-                    total1.Text = $"📚 Total Títulos: {totalTitulos}";
-                    total2.Text = $"📦 Stock Total: {totalStock}";
-                    total3.Text = $"📕 Prestados: {totalPrestadosStock}";
-                    total4.Text = $"✅ Disponibles: {totalDisponiblesStock}";
+                    total1.Text = $"📚 Libros Top: {totalLibros}";
+                    total2.Text = $"📦 Total préstamos: {totalPrestamosLibros}";
+                    total3.Text = $"⭐ Promedio por libro: {totalPrestamosLibros / totalLibros}";
+                    total4.Text = $"🗓️ Actualizado: {DateTime.Now:dd/MM/yyyy}";
+                    break;
+
+                case "vw_DistribucionUsuarios":
+                    int total = dt.AsEnumerable().Sum(r => Convert.ToInt32(r["Total"]));
+                    string detalle = string.Join(" | ", dt.AsEnumerable().Select(r => $"{r["TipoUsuario"]}: {r["Total"]}"));
+
+                    total1.Text = $"👥 Total usuarios: {total}";
+                    total2.Text = $"📊 {detalle}";
+                    total3.Text = $"🔍 {dt.Rows.Count} categorías";
+                    total4.Text = $"🗓️ Actualizado: {DateTime.Now:dd/MM/yyyy}";
                     break;
             }
         }
 
-        
+
         private void ConfigurarDataGridView(DataTable dt)
         {
             dvgListado.AutoGenerateColumns = true;
@@ -229,51 +222,67 @@ namespace GestorDeBiblioteca.Formularios
                     col.Visible = false;
             }
 
-            // Apariencia del DataGridView
+            //  Estilo del data
             dvgListado.BorderStyle = BorderStyle.None;
             dvgListado.BackgroundColor = Color.White;
             dvgListado.GridColor = Color.LightGray;
             dvgListado.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dvgListado.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dvgListado.RowHeadersVisible = false;
+             
+            //Encabezado 
             dvgListado.EnableHeadersVisualStyles = false;
-
-            dvgListado.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(33, 150, 243);
+            dvgListado.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(54, 69, 79);
             dvgListado.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dvgListado.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dvgListado.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dvgListado.ColumnHeadersHeight = 35;
 
+            // Filas 
             dvgListado.DefaultCellStyle.BackColor = Color.White;
             dvgListado.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
             dvgListado.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-            dvgListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251);
+            dvgListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(136, 155, 168); // Color al seleccionar una columna
             dvgListado.DefaultCellStyle.SelectionForeColor = Color.Black;
-            dvgListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
-            dvgListado.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            dvgListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            // Filas alternas 
+            dvgListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(219, 219, 219);
+
+            // CONFIGURACIÓN MEJORADA PARA EL PROBLEMA DEL COLOR AZUL
             dvgListado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dvgListado.MultiSelect = false;
             dvgListado.RowTemplate.Height = 30;
+
+            // Deshabilitar la selección de celdas individuales
+            dvgListado.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+
+            // Asegurar que solo se seleccionen filas completas
+            dvgListado.ColumnHeadersDefaultCellStyle.SelectionBackColor = dvgListado.ColumnHeadersDefaultCellStyle.BackColor;
+            dvgListado.ColumnHeadersDefaultCellStyle.SelectionForeColor = dvgListado.ColumnHeadersDefaultCellStyle.ForeColor;
+
+            // Deshabilitar el enfoque visual en celdas individuales
+            dvgListado.ShowCellToolTips = false;
+            dvgListado.StandardTab = true;
+             
+            dvgListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         #endregion
 
         #region Botones de comando
         private void btnRegistrosLibros_Click(object sender, EventArgs e)
         {
-            CargarVista("vw_LibrosEnMora");
+            CargarVista("vw_Top10UsuariosPrestamos");
             TotalesvistasNoOcultas();
         }
         private void btnRegistroUsuarios_Click(object sender, EventArgs e)
         {
-            CargarVista("vw_UsuariosEnMora");
+            CargarVista("vw_Top10LibrosPopulares");
             TotalesvistasNoOcultas();
 
         }
         private void btnStockLibros_Click(object sender, EventArgs e)
         {
-            CargarVista("vw_StockLibros");
+            CargarVista("vw_DistribucionUsuarios");
             TotalesvistasNoOcultas();
 
         }

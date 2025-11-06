@@ -138,40 +138,8 @@ namespace GestorDeBiblioteca
                 MessageBox.Show("Error al listar registros: " + ex);
             }
 
-            //  Estilo del data
-            dgvListado.BorderStyle = BorderStyle.None;
-            dgvListado.BackgroundColor = Color.White;
-            dgvListado.GridColor = Color.LightGray;
-            dgvListado.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvListado.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvListado.RowHeadersVisible = false;
 
-            //  Encabezado 
-            dgvListado.EnableHeadersVisualStyles = false;
-            dgvListado.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(33, 150, 243);
-            dgvListado.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgvListado.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dgvListado.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvListado.ColumnHeadersHeight = 35;
-
-            // Filas 
-            dgvListado.DefaultCellStyle.BackColor = Color.White;
-            dgvListado.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
-            dgvListado.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-            dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); // Color al seleccionar una columna
-            dgvListado.DefaultCellStyle.SelectionForeColor = Color.Black;
-            dgvListado.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Centrar texto en las celdas
-
-
-            // Filas alternas 
-            dgvListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
-
-
-            dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvListado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvListado.MultiSelect = false;
-            dgvListado.RowTemplate.Height = 30;
-
+           
         }
         private void formatoGrid()
         {
@@ -184,6 +152,50 @@ namespace GestorDeBiblioteca
             dgvListado.Columns[6].HeaderText = "CARGO"; dgvListado.Columns[6].Width = 90;
             dgvListado.Columns[7].HeaderText = "FECHA REGISTRO"; dgvListado.Columns[7].Width = 200;
 
+
+            //  Estilo del data
+            dgvListado.BorderStyle = BorderStyle.None;
+            dgvListado.BackgroundColor = Color.White;
+            dgvListado.GridColor = Color.LightGray;
+            dgvListado.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvListado.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvListado.RowHeadersVisible = false;
+
+            //  Encabezado 
+            dgvListado.EnableHeadersVisualStyles = false;
+            dgvListado.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(54, 69, 79);
+            dgvListado.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvListado.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvListado.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvListado.ColumnHeadersHeight = 35;
+
+            // Filas 
+            dgvListado.DefaultCellStyle.BackColor = Color.White;
+            dgvListado.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
+            dgvListado.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+            dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(136, 155, 168); // Color al seleccionar una columna
+            dgvListado.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            // Filas alternas 
+            dgvListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(219, 219, 219);
+
+            // CONFIGURACIÓN MEJORADA PARA EL PROBLEMA DEL COLOR AZUL
+            dgvListado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvListado.MultiSelect = false;
+            dgvListado.RowTemplate.Height = 30;
+
+            // Deshabilitar la selección de celdas individuales
+            dgvListado.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+
+            // Asegurar que solo se seleccionen filas completas
+            dgvListado.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgvListado.ColumnHeadersDefaultCellStyle.BackColor;
+            dgvListado.ColumnHeadersDefaultCellStyle.SelectionForeColor = dgvListado.ColumnHeadersDefaultCellStyle.ForeColor;
+
+            // Deshabilitar el enfoque visual en celdas individuales
+            dgvListado.ShowCellToolTips = false;
+            dgvListado.StandardTab = true;
+
+            dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void Actualizar(int idUsuario, string carnet, string nombre,string apellido, string telefono, string email, string cargo)
         {
@@ -247,38 +259,54 @@ namespace GestorDeBiblioteca
                 {
                     conexion.Open();
 
-                    string sqlCheck = "SELECT COUNT(*) FROM Prestamos WHERE idUsuario = @idUsuario";
+                    // 1️⃣ Verificar si tiene préstamos activos
+                    string sqlCheck = @"
+                    SELECT COUNT(*) 
+                    FROM Prestamos P
+                    INNER JOIN DetallePrestamos DP ON P.idPrestamo = DP.idPrestamo
+                    WHERE P.idUsuario = @idUsuario AND (DP.estado = 'Prestado' OR DP.fechaDevolucion IS NULL)";
+
                     SqlCommand checkCmd = new SqlCommand(sqlCheck, conexion);
                     checkCmd.Parameters.AddWithValue("@idUsuario", idUsuario);
                     int count = (int)checkCmd.ExecuteScalar();
 
                     if (count > 0)
                     {
-                        MessageBox.Show(
-                            "No se puede eliminar este usuario porque tiene libros en prestamo",
-                            "Advertencia",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning
-                        );
+                        MessageBox.Show("No se puede eliminar este usuario porque tiene préstamos pendientes.",
+                            "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
-                    string consultaSQL = "DELETE FROM Usuarios WHERE idUsuario = @idUsuario";
-                    SqlCommand command = new SqlCommand(consultaSQL, conexion);
-                    command.Parameters.AddWithValue("@idUsuario", idUsuario);
+                    // 2️⃣ Eliminar primero registros en DetallePrestamos
+                    string deleteDetalle = @"
+                    DELETE DP
+                    FROM DetallePrestamos DP
+                    INNER JOIN Prestamos P ON DP.idPrestamo = P.idPrestamo
+                    WHERE P.idUsuario = @idUsuario AND DP.estado = 'Devuelto'";
 
-                    int result = command.ExecuteNonQuery();
+                    SqlCommand cmdDetalle = new SqlCommand(deleteDetalle, conexion);
+                    cmdDetalle.Parameters.AddWithValue("@idUsuario", idUsuario);
+                    cmdDetalle.ExecuteNonQuery();
+
+                    // 3️⃣ Luego eliminar registros en Prestamos
+                        string deletePrestamos = @"
+                    DELETE FROM Prestamos
+                    WHERE idUsuario = @idUsuario";
+
+                    SqlCommand cmdPrestamo = new SqlCommand(deletePrestamos, conexion);
+                    cmdPrestamo.Parameters.AddWithValue("@idUsuario", idUsuario);
+                    cmdPrestamo.ExecuteNonQuery();
+
+                    // 4️⃣ Finalmente eliminar el usuario
+                    string deleteUsuario = @"DELETE FROM Usuarios WHERE idUsuario = @idUsuario";
+                    SqlCommand cmdUsuario = new SqlCommand(deleteUsuario, conexion);
+                    cmdUsuario.Parameters.AddWithValue("@idUsuario", idUsuario);
+                    int result = cmdUsuario.ExecuteNonQuery();
 
                     if (result > 0)
-                    {
-                        MessageBox.Show(" Usuario eliminado con éxito.", "Información",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                        MessageBox.Show("Usuario eliminado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
-                    {
-                        MessageBox.Show("No se pudo eliminar el usuario.", "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                        MessageBox.Show("No se pudo eliminar el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     listarRegistro();
                     limpiarControles();

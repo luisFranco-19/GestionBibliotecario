@@ -69,7 +69,7 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(58)))), ((int)(((byte)(79)))));
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Lucida Bright", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
@@ -172,7 +172,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel3.Controls.Add(this.iconCerrar, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.iconEliminar, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(623, 57);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(607, 57);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -185,8 +185,9 @@
             this.iconCerrar.BorderRadius = 6;
             this.iconCerrar.CheckedState.Parent = this.iconCerrar;
             this.iconCerrar.CustomImages.Parent = this.iconCerrar;
-            this.iconCerrar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.iconCerrar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconCerrar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.iconCerrar.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.iconCerrar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconCerrar.ForeColor = System.Drawing.Color.Black;
             this.iconCerrar.HoverState.Parent = this.iconCerrar;
             this.iconCerrar.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_cancelar_1001;
@@ -195,7 +196,7 @@
             this.iconCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.iconCerrar.Name = "iconCerrar";
             this.iconCerrar.ShadowDecoration.Parent = this.iconCerrar;
-            this.iconCerrar.Size = new System.Drawing.Size(189, 41);
+            this.iconCerrar.Size = new System.Drawing.Size(190, 44);
             this.iconCerrar.TabIndex = 4;
             this.iconCerrar.Text = "Cerrar";
             this.toolTip1.SetToolTip(this.iconCerrar, "Cerrar Ventana");
@@ -206,9 +207,10 @@
             this.iconEliminar.BorderRadius = 6;
             this.iconEliminar.CheckedState.Parent = this.iconEliminar;
             this.iconEliminar.CustomImages.Parent = this.iconEliminar;
-            this.iconEliminar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.iconEliminar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.iconEliminar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.iconEliminar.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.iconEliminar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconEliminar.ForeColor = System.Drawing.Color.Black;
             this.iconEliminar.HoverState.Parent = this.iconEliminar;
             this.iconEliminar.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_actualizar_1001;
             this.iconEliminar.ImageSize = new System.Drawing.Size(30, 30);
@@ -216,7 +218,7 @@
             this.iconEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.iconEliminar.Name = "iconEliminar";
             this.iconEliminar.ShadowDecoration.Parent = this.iconEliminar;
-            this.iconEliminar.Size = new System.Drawing.Size(188, 41);
+            this.iconEliminar.Size = new System.Drawing.Size(190, 44);
             this.iconEliminar.TabIndex = 4;
             this.iconEliminar.Text = "Devolver Prestamo";
             this.toolTip1.SetToolTip(this.iconEliminar, "osDevolver libros en prestami");

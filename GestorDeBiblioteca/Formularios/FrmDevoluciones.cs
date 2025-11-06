@@ -44,15 +44,15 @@ namespace GestorDeBiblioteca.Formularios
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
                     string consulta = @"
-                    SELECT *
-                    FROM vw_detallePrestamo
-                    ORDER BY 
-                        CASE Estado 
-                            WHEN 'Prestado' THEN 1
-                            WHEN 'Devuelto' THEN 2
-                            ELSE 3
-                        END,
-                        FechaPrestamo DESC;";
+                        SELECT *
+                        FROM vw_detallePrestamo
+                        ORDER BY 
+                            CASE Estado 
+                                WHEN 'Prestado' THEN 1
+                                WHEN 'Devuelto' THEN 2
+                                ELSE 3
+                            END,
+                            FechaPrestamo DESC;";
 
                     SqlDataAdapter adapter = new SqlDataAdapter(consulta, conexion);
                     DataTable dt = new DataTable();
@@ -84,31 +84,49 @@ namespace GestorDeBiblioteca.Formularios
             dgvListado.Columns.Add(new DataGridViewTextBoxColumn { Name = "IdLibro", DataPropertyName = "IdLibro", Visible = false });
 
             // Estilo general
+            //  Estilo del data
             dgvListado.BorderStyle = BorderStyle.None;
             dgvListado.BackgroundColor = Color.White;
             dgvListado.GridColor = Color.LightGray;
             dgvListado.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvListado.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvListado.RowHeadersVisible = false;
+
+            //  Encabezado 
             dgvListado.EnableHeadersVisualStyles = false;
-            dgvListado.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(33, 150, 243);
+            dgvListado.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(54, 69, 79);
             dgvListado.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgvListado.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvListado.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvListado.ColumnHeadersHeight = 35;
 
+            // Filas 
             dgvListado.DefaultCellStyle.BackColor = Color.White;
             dgvListado.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
             dgvListado.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-            dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251);
+            dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(136, 155, 168); // Color al seleccionar una columna
             dgvListado.DefaultCellStyle.SelectionForeColor = Color.Black;
-            dgvListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
-            dgvListado.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Centrar texto en las celdas
 
-            dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            // Filas alternas 
+            dgvListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(219, 219, 219);
+
+            // CONFIGURACIÓN MEJORADA PARA EL PROBLEMA DEL COLOR AZUL
             dgvListado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvListado.MultiSelect = false;
             dgvListado.RowTemplate.Height = 30;
+
+            // Deshabilitar la selección de celdas individuales
+            dgvListado.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+
+            // Asegurar que solo se seleccionen filas completas
+            dgvListado.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgvListado.ColumnHeadersDefaultCellStyle.BackColor;
+            dgvListado.ColumnHeadersDefaultCellStyle.SelectionForeColor = dgvListado.ColumnHeadersDefaultCellStyle.ForeColor;
+
+            // Deshabilitar el enfoque visual en celdas individuales
+            dgvListado.ShowCellToolTips = false;
+            dgvListado.StandardTab = true;
+
+            dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             // Asignar el evento para colorear filas DESPUÉS del enlace de datos
             dgvListado.DataBindingComplete += DgvListado_DataBindingComplete;

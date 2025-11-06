@@ -35,6 +35,7 @@
             this.btnCancelar = new Guna.UI2.WinForms.Guna2Button();
             this.btnEliminar = new Guna.UI2.WinForms.Guna2Button();
             this.btnAceptar = new Guna.UI2.WinForms.Guna2Button();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.dgvListado = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
@@ -66,13 +66,14 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.tableLayoutPanel2);
+            this.panel1.Controls.Add(this.txtId);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.dgvListado);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(924, 493);
+            this.panel1.Size = new System.Drawing.Size(924, 508);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -104,8 +105,8 @@
             this.btnActualizar.CheckedState.Parent = this.btnActualizar;
             this.btnActualizar.CustomImages.Parent = this.btnActualizar;
             this.btnActualizar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnActualizar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnActualizar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnActualizar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.Color.Black;
             this.btnActualizar.HoverState.Parent = this.btnActualizar;
             this.btnActualizar.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_actualizar_100;
@@ -126,8 +127,8 @@
             this.btnCancelar.CheckedState.Parent = this.btnCancelar;
             this.btnCancelar.CustomImages.Parent = this.btnCancelar;
             this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCancelar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.Black;
             this.btnCancelar.HoverState.Parent = this.btnCancelar;
             this.btnCancelar.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_aceptar_100;
@@ -148,8 +149,8 @@
             this.btnEliminar.CheckedState.Parent = this.btnEliminar;
             this.btnEliminar.CustomImages.Parent = this.btnEliminar;
             this.btnEliminar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEliminar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
             this.btnEliminar.HoverState.Parent = this.btnEliminar;
             this.btnEliminar.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_eliminar_100;
@@ -171,8 +172,8 @@
             this.btnAceptar.CheckedState.Parent = this.btnAceptar;
             this.btnAceptar.CustomImages.Parent = this.btnAceptar;
             this.btnAceptar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAceptar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnAceptar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAceptar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.Black;
             this.btnAceptar.HoverState.Parent = this.btnAceptar;
             this.btnAceptar.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_aceptar_100;
@@ -186,6 +187,16 @@
             this.toolTip1.SetToolTip(this.btnAceptar, "Guardar Registro");
             this.btnAceptar.Click += new System.EventHandler(this.btnAcepatr_Click);
             // 
+            // txtId
+            // 
+            this.txtId.BackColor = System.Drawing.Color.White;
+            this.txtId.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.txtId.Location = new System.Drawing.Point(837, 248);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(75, 29);
+            this.txtId.TabIndex = 41;
+            this.txtId.Visible = false;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -193,7 +204,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.2627F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.7373F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 267F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label10, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtAñoPublicacion, 2, 1);
@@ -231,7 +242,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(418, 0);
+            this.label10.Location = new System.Drawing.Point(415, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(176, 25);
             this.label10.TabIndex = 46;
@@ -241,9 +252,9 @@
             // 
             this.txtAñoPublicacion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtAñoPublicacion.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.txtAñoPublicacion.Location = new System.Drawing.Point(418, 32);
+            this.txtAñoPublicacion.Location = new System.Drawing.Point(415, 32);
             this.txtAñoPublicacion.Name = "txtAñoPublicacion";
-            this.txtAñoPublicacion.Size = new System.Drawing.Size(262, 29);
+            this.txtAñoPublicacion.Size = new System.Drawing.Size(265, 29);
             this.txtAñoPublicacion.TabIndex = 47;
             // 
             // txtTitulos
@@ -252,16 +263,16 @@
             this.txtTitulos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitulos.Location = new System.Drawing.Point(3, 32);
             this.txtTitulos.Name = "txtTitulos";
-            this.txtTitulos.Size = new System.Drawing.Size(203, 29);
+            this.txtTitulos.Size = new System.Drawing.Size(201, 29);
             this.txtTitulos.TabIndex = 3;
             // 
             // txtCantidad
             // 
             this.txtCantidad.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCantidad.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.txtCantidad.Location = new System.Drawing.Point(418, 123);
+            this.txtCantidad.Location = new System.Drawing.Point(415, 123);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(262, 29);
+            this.txtCantidad.Size = new System.Drawing.Size(265, 29);
             this.txtCantidad.TabIndex = 51;
             this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
             // 
@@ -269,7 +280,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(212, 86);
+            this.label9.Location = new System.Drawing.Point(210, 86);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(69, 25);
             this.label9.TabIndex = 48;
@@ -291,14 +302,14 @@
             this.txtAutor.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.txtAutor.Location = new System.Drawing.Point(3, 123);
             this.txtAutor.Name = "txtAutor";
-            this.txtAutor.Size = new System.Drawing.Size(203, 29);
+            this.txtAutor.Size = new System.Drawing.Size(201, 29);
             this.txtAutor.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(212, 0);
+            this.label3.Location = new System.Drawing.Point(210, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 25);
             this.label3.TabIndex = 42;
@@ -308,16 +319,16 @@
             // 
             this.txtNacionalidad.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtNacionalidad.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.txtNacionalidad.Location = new System.Drawing.Point(212, 32);
+            this.txtNacionalidad.Location = new System.Drawing.Point(210, 32);
             this.txtNacionalidad.Name = "txtNacionalidad";
-            this.txtNacionalidad.Size = new System.Drawing.Size(200, 29);
+            this.txtNacionalidad.Size = new System.Drawing.Size(199, 29);
             this.txtNacionalidad.TabIndex = 43;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(418, 86);
+            this.label8.Location = new System.Drawing.Point(415, 86);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(69, 25);
             this.label8.TabIndex = 50;
@@ -328,9 +339,9 @@
             this.cmbEstado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbEstado.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(212, 123);
+            this.cmbEstado.Location = new System.Drawing.Point(210, 123);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(200, 29);
+            this.cmbEstado.Size = new System.Drawing.Size(199, 29);
             this.cmbEstado.TabIndex = 49;
             // 
             // dgvListado
@@ -341,13 +352,13 @@
             this.dgvListado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvListado.BackgroundColor = System.Drawing.Color.White;
+            this.dgvListado.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListado.Location = new System.Drawing.Point(16, 267);
+            this.dgvListado.Location = new System.Drawing.Point(23, 296);
             this.dgvListado.Name = "dgvListado";
             this.dgvListado.ReadOnly = true;
             this.dgvListado.RowHeadersWidth = 51;
-            this.dgvListado.Size = new System.Drawing.Size(896, 223);
+            this.dgvListado.Size = new System.Drawing.Size(896, 173);
             this.dgvListado.TabIndex = 38;
             this.dgvListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListado_CellContentClick);
             this.dgvListado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListado_CellDoubleClick);
@@ -356,9 +367,8 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(58)))), ((int)(((byte)(79)))));
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.txtId);
             this.panel2.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -369,23 +379,13 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Lucida Bright", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(7, 7);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(389, 34);
             this.label5.TabIndex = 3;
             this.label5.Text = "Registro de libros admin";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtId
-            // 
-            this.txtId.BackColor = System.Drawing.Color.White;
-            this.txtId.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.txtId.Location = new System.Drawing.Point(441, 7);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(75, 29);
-            this.txtId.TabIndex = 41;
-            this.txtId.Visible = false;
             // 
             // errorIcono
             // 
@@ -395,7 +395,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(924, 493);
+            this.ClientSize = new System.Drawing.Size(924, 508);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -405,6 +405,7 @@
             this.Load += new System.EventHandler(this.FrmLibros_Load);
             this.Shown += new System.EventHandler(this.FrmLibros_Shown);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

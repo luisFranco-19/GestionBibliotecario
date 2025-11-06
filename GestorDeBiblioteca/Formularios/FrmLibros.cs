@@ -224,6 +224,7 @@ namespace GestorDeBiblioteca
             dgvListado.Columns[6].HeaderText = "COPIAS";
             dgvListado.Columns[6].Width = 150;
 
+
             //  Estilo del data
             dgvListado.BorderStyle = BorderStyle.None;
             dgvListado.BackgroundColor = Color.White;
@@ -234,7 +235,7 @@ namespace GestorDeBiblioteca
 
             //  Encabezado 
             dgvListado.EnableHeadersVisualStyles = false;
-            dgvListado.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(33, 150, 243);
+            dgvListado.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(54, 69, 79);
             dgvListado.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgvListado.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvListado.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -244,18 +245,29 @@ namespace GestorDeBiblioteca
             dgvListado.DefaultCellStyle.BackColor = Color.White;
             dgvListado.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
             dgvListado.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-            dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251);
+            dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(136, 155, 168); // Color al seleccionar una columna
             dgvListado.DefaultCellStyle.SelectionForeColor = Color.Black;
-            dgvListado.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; 
-
 
             // Filas alternas 
-            dgvListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
-            dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(219, 219, 219);
+
+            // CONFIGURACIÓN MEJORADA PARA EL PROBLEMA DEL COLOR AZUL
             dgvListado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvListado.MultiSelect = false;
             dgvListado.RowTemplate.Height = 30;
 
+            // Deshabilitar la selección de celdas individuales
+            dgvListado.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+
+            // Asegurar que solo se seleccionen filas completas
+            dgvListado.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgvListado.ColumnHeadersDefaultCellStyle.BackColor;
+            dgvListado.ColumnHeadersDefaultCellStyle.SelectionForeColor = dgvListado.ColumnHeadersDefaultCellStyle.ForeColor;
+
+            // Deshabilitar el enfoque visual en celdas individuales
+            dgvListado.ShowCellToolTips = false;
+            dgvListado.StandardTab = true;
+
+            dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void Actualizar(int idLibro, string titulo, string nombreAutor, string nacionalidad, string estado, string fechaPublicacion, string cantidad)
         {
@@ -340,21 +352,26 @@ namespace GestorDeBiblioteca
         {
             try
             {
-                string connetionString = ConexionDB.ObtenerConexion();
+                string connectionString = ConexionDB.ObtenerConexion();
 
-                using (SqlConnection conexion = new SqlConnection(connetionString))
+                using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
                     conexion.Open();
 
-                    string sqlCheck = "SELECT COUNT(*) FROM DetallePrestamos WHERE idLibro = @idLibro";
+                    //  Verificar si el libro tiene préstamos ACTIVOS (sin devolver)
+                    string sqlCheck = @"
+                    SELECT COUNT(*) 
+                    FROM DetallePrestamos 
+                    WHERE idLibro = @idLibro AND fechaDevolucion IS NULL";
+
                     SqlCommand checkCmd = new SqlCommand(sqlCheck, conexion);
                     checkCmd.Parameters.AddWithValue("@idLibro", idLibro);
-                    int count = (int)checkCmd.ExecuteScalar();
+                    int countPrestamosActivos = (int)checkCmd.ExecuteScalar();
 
-                    if (count > 0)
+                    if (countPrestamosActivos > 0)
                     {
                         MessageBox.Show(
-                            "No se puede eliminar este libro porque esta en prestamo",
+                            "No se puede eliminar este libro porque tiene préstamos activos.",
                             "Advertencia",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning
@@ -362,30 +379,38 @@ namespace GestorDeBiblioteca
                         return;
                     }
 
-                    string consultaSQL = "DELETE FROM Libros WHERE idLibro = @idLibro";
-                    SqlCommand command = new SqlCommand(consultaSQL, conexion);
-                    command.Parameters.AddWithValue("@idLibro", idLibro);
+                    // 2️ Si tiene préstamos pero ya están devueltos, eliminar historial antes
+                    string deleteDetalle = @"DELETE FROM DetallePrestamos WHERE idLibro = @idLibro";
+                    SqlCommand cmdDetalle = new SqlCommand(deleteDetalle, conexion);
+                    cmdDetalle.Parameters.AddWithValue("@idLibro", idLibro);
+                    cmdDetalle.ExecuteNonQuery();
 
-                    int result = command.ExecuteNonQuery();
+                    string deletePrestamos = @"
+                                    DELETE FROM Prestamos 
+                                    WHERE idPrestamo NOT IN (SELECT idPrestamo FROM DetallePrestamos)
+                                                                    ";
+                    SqlCommand cmdPrestamos = new SqlCommand(deletePrestamos, conexion);
+                    cmdPrestamos.ExecuteNonQuery();
+
+                    // 3️⃣ Eliminar el libro
+                    string deleteLibro = @"DELETE FROM Libros WHERE idLibro = @idLibro";
+                    SqlCommand cmdLibro = new SqlCommand(deleteLibro, conexion);
+                    cmdLibro.Parameters.AddWithValue("@idLibro", idLibro);
+                    int result = cmdLibro.ExecuteNonQuery();
 
                     if (result > 0)
-                    {
-                        MessageBox.Show(" libro eliminado con éxito.", "Información",
+                        MessageBox.Show("Libro eliminado con éxito.", "Información",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
                     else
-                    {
                         MessageBox.Show("No se pudo eliminar el libro.", "Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
 
-                    listarRegistro();
-                    limpiarControles();
+                    listarRegistro(); // Recargar DataGridView
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error inesperado al eliminar: " + ex.Message);
+                MessageBox.Show("Error inesperado al eliminar libro: " + ex.Message);
             }
         }
 
@@ -541,38 +566,6 @@ namespace GestorDeBiblioteca
             {
                 MessageBox.Show("Error al cargar el registro para editar: " + ex.Message);
             }
-
-            //  Estilo del data
-            dgvListado.BorderStyle = BorderStyle.None;
-            dgvListado.BackgroundColor = Color.White;
-            dgvListado.GridColor = Color.LightGray;
-            dgvListado.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvListado.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvListado.RowHeadersVisible = false;
-
-            //  Encabezado 
-            dgvListado.EnableHeadersVisualStyles = false;
-            dgvListado.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(33, 150, 243);
-            dgvListado.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgvListado.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dgvListado.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvListado.ColumnHeadersHeight = 35;
-
-            // Filas 
-            dgvListado.DefaultCellStyle.BackColor = Color.White;
-            dgvListado.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
-            dgvListado.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-            dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); 
-            dgvListado.DefaultCellStyle.SelectionForeColor = Color.Black;
-
-            // Filas alternas 
-            dgvListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
-
-
-            dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvListado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvListado.MultiSelect = false;
-            dgvListado.RowTemplate.Height = 30;
 
         }
         #endregion

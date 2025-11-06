@@ -127,7 +127,7 @@ namespace GestorDeBiblioteca
 
             //  Encabezado 
             dgvPrestamos.EnableHeadersVisualStyles = false;
-            dgvPrestamos.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(33, 150, 243);
+            dgvPrestamos.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(54, 69, 79);
             dgvPrestamos.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgvPrestamos.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvPrestamos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -137,19 +137,29 @@ namespace GestorDeBiblioteca
             dgvPrestamos.DefaultCellStyle.BackColor = Color.White;
             dgvPrestamos.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
             dgvPrestamos.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-            dgvPrestamos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); 
+            dgvPrestamos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(136, 155, 168); // Color al seleccionar una columna
             dgvPrestamos.DefaultCellStyle.SelectionForeColor = Color.Black;
-            dgvPrestamos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; 
-
 
             // Filas alternas 
-            dgvPrestamos.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
+            dgvPrestamos.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(219, 219, 219);
 
-
-            dgvPrestamos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            // CONFIGURACIÓN MEJORADA PARA EL PROBLEMA DEL COLOR AZUL
             dgvPrestamos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPrestamos.MultiSelect = false;
             dgvPrestamos.RowTemplate.Height = 30;
+
+            // Deshabilitar la selección de celdas individuales
+            dgvPrestamos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+
+            // Asegurar que solo se seleccionen filas completas
+            dgvPrestamos.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgvPrestamos.ColumnHeadersDefaultCellStyle.BackColor;
+            dgvPrestamos.ColumnHeadersDefaultCellStyle.SelectionForeColor = dgvPrestamos.ColumnHeadersDefaultCellStyle.ForeColor;
+
+            // Deshabilitar el enfoque visual en celdas individuales
+            dgvPrestamos.ShowCellToolTips = false;
+            dgvPrestamos.StandardTab = true;
+
+            dgvPrestamos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
 
@@ -207,7 +217,7 @@ namespace GestorDeBiblioteca
         }
 
 
-        private void txtBuscarUsuario_KeyDown_1(object sender, KeyEventArgs e)
+        private void txtBuscarUsuario_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -219,7 +229,7 @@ namespace GestorDeBiblioteca
         #endregion
 
         #region Buscar Libro
-        
+
         private void BuscarLibro()
         {
             try
@@ -580,9 +590,9 @@ namespace GestorDeBiblioteca
         {
 
         }
+
         #endregion
 
-       
     }
 }
 
