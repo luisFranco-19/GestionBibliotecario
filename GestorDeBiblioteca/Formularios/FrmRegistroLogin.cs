@@ -36,70 +36,50 @@ namespace GestorDeBiblioteca.Formularios
 
 
         #region Metodos
-        private bool UsuarioExiste(string nombreUsuario, string email)
-        {
-            bool existe = false;
-            try
-            {
-                string conexionStr = ConexionDB.ObtenerConexion();
-                using (SqlConnection conexion = new SqlConnection(conexionStr))
-                {
-                    string sql = "SELECT COUNT(*) FROM UsuarioLogin WHERE nombreUsuario=@Usuario OR email=@Email";
-                    SqlCommand cmd = new SqlCommand(sql, conexion);
-                    cmd.Parameters.AddWithValue("@Usuario", nombreUsuario);
-                    cmd.Parameters.AddWithValue("@Email", email);
-                    conexion.Open();
-                    int count = (int)cmd.ExecuteScalar();
-                    existe = count > 0;
-                }
-            }
-            catch { }
-            return existe;
-        }
 
+
+        #region Metodos
 
         private void GuardarUsuario(string nombreUsuario, string email, string password)
         {
             try
             {
-                if (UsuarioExiste(nombreUsuario, email))
-                {
-                    MessageBox.Show("El nombre de usuario o email ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
                 string conexionStr = ConexionDB.ObtenerConexion();
                 using (SqlConnection conexion = new SqlConnection(conexionStr))
                 {
-                    string sql = "INSERT INTO UsuarioLogin (nombreUsuario, email, password, estado) " +
-                                 "VALUES (@NombreUsuario, @Email, @Password, 1)";
-                    SqlCommand cmd = new SqlCommand(sql, conexion);
-                    cmd.Parameters.AddWithValue("@NombreUsuario", nombreUsuario);
-                    cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.Parameters.AddWithValue("@Password", ObtenerSHA256(password));
-
                     conexion.Open();
-                    int result = cmd.ExecuteNonQuery();
 
-                    if (result > 0)
+                    using (SqlCommand cmd = new SqlCommand("sp_InsertarUsuarioLogin", conexion))
                     {
-                        MessageBox.Show("Usuario registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                        this.Close();
-                        MDImenu menuForm = new MDImenu();
-                        menuForm.Show();
+                        cmd.Parameters.AddWithValue("@NombreUsuario", nombreUsuario);
+                        cmd.Parameters.AddWithValue("@Email", email);
+                        // Guardamos la contraseña tal cual
+                        cmd.Parameters.AddWithValue("@Password", password);
+
+                        cmd.ExecuteNonQuery();
                     }
-                    else
-                    {
-                        MessageBox.Show("No se pudo registrar el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+
+                    MessageBox.Show("Usuario registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+
+                    MDImenu menuForm = new MDImenu();
+                    menuForm.Show();
                 }
+            }
+            catch (SqlException sqlEx)
+            {
+                // Manejar error de duplicidad (RAISERROR)
+                MessageBox.Show("Error al registrar usuario: " + sqlEx.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al registrar usuario: " + ex.Message);
+                MessageBox.Show("Error inesperado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        #endregion
 
 
         private string ObtenerSHA256(string texto)

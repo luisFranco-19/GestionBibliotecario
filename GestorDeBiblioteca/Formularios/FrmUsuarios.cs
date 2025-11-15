@@ -1,4 +1,6 @@
 ﻿using app.Banco.Utilidades;
+using FontAwesome.Sharp;
+using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,10 +8,13 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace GestorDeBiblioteca
 {
@@ -19,10 +24,14 @@ namespace GestorDeBiblioteca
         {
             InitializeComponent();
 
-            this.KeyPreview = true;
-            this.KeyPress += ValidacionEntrada.PasarFocus;
-            this.KeyDown += ValidacionEntrada.ControlEsc;
+            // eventos de teclado
+            this.KeyPreview = true; // interseccion antes de resivir los controladores hijos
 
+            //controles hijos 
+            this.KeyPress += ValidacionEntrada.PasarFocus; // pasar el focus
+            this.KeyDown += ValidacionEntrada.ControlEsc; // cerrar con ESC
+
+            //Orden logico de la tabulacion de los campos
             txtCarnet.TabIndex = 0;
             txtNombres.TabIndex = 1;
             txtApellidos.TabIndex = 2;
@@ -36,14 +45,16 @@ namespace GestorDeBiblioteca
         
         private void FrmUsuarios_Load(object sender, EventArgs e)
         {
-
+            //Mostramos la fecha actual
             lbFecha.Text = DateTime.Now.ToShortDateString();
 
-            cbmCargos.Items.Add("Docente");
-            cbmCargos.Items.Add("Alumno");
+            //Inicialisar los valores del ComboBox de cargos
+            //cbmCargos.Items.Add("Docente");
+            //cbmCargos.Items.Add("Alumno");
             cbmCargos.SelectedIndex = 0;
-            listarRegistro();
 
+            listarRegistro();
+            //Focus inicial en carnet
             this.ActiveControl = txtCarnet;
             txtCarnet.Focus();
         }
@@ -51,84 +62,189 @@ namespace GestorDeBiblioteca
         #region Metodos
         private bool validarControl()
         {
-            errorIcono.Clear();
+            errorIcono.Clear(); // Limpiamos errores previos
 
+            // creamos una lista en donde estaran los controladores del formulario
             var controles = new List<Control> { txtNombres, txtApellidos, txtTelefonos, txtEmail, cbmCargos };
-            bool esValido = true;
-            foreach (Control control in controles)
+
+            bool esValido = true;// Declaracion de una variable booleana que indica si los datos son validos
+
+            // Recorre todos los controles y verifica si están vacios
+            foreach (Control control in this.Controls)
             {
-                if (control.Text.Trim() == string.Empty)
+                if (control is Guna.UI2.WinForms.Guna2TextBox txt)
                 {
-                    errorIcono.SetError(control, "Este campo es requerido");
-                    esValido = false;
-
+                    if (string.IsNullOrWhiteSpace(txt.Text))
+                    {
+                        errorIcono.SetError(txt, "Este campo es requerido");
+                        esValido = false;
+                    }
                 }
-                txtCarnet.Focus();
             }
-            if (!esValido)
-                return false;
+;
 
-            return true;
+            return esValido;
+            //Si algún campo está vacio, devuelve false.
+            //Si todos están llenos, devuelve true
 
         }
-
-        private void Aceptar(string carnet, string nombre,string apellidos, string telefono, string email, string cargo)
+        private void Aceptar(string carnet, string nombre, string apellidos, string telefono, string email, string cargo)
         {
-           
-
             try
             {
-                string connetionString = ConexionDB.ObtenerConexion();
-                using (SqlConnection conexion = new SqlConnection(connetionString))
-                {
-                    string consultaSQL = "INSERT INTO Usuarios (carnet, nombre, apellido, telefono, email, cargo, fechaRegistro) " +
-                                        "VALUES (@Carnet, @Nombre, @Apellido, @Telefono, @Email, @Cargo, @FechaRegistro)";
+                string connectionString = ConexionDB.ObtenerConexion();////se Obtiene la cadena de conexión configurada en la clase y
+                                                                       //guardala en una variable para poder usarla en una conexión con SQL Server
 
-                    SqlCommand command = new SqlCommand(consultaSQL, conexion);
+                using (SqlConnection conexion = new SqlConnection(connectionString))//garantiza que la conexión se
+                                                                                    //cierre automáticamente al terminar, aunque haya errores.
+
+                //Crea un comando SQL temporal que ejecutara el procedimiento almacenado
+                //usando la conexión abierta (conexion)
+                using (SqlCommand command = new SqlCommand("sp_InsertarUsuario", conexion))
+                {
+                    command.CommandType = CommandType.StoredProcedure;//Se le indica que el comando que se ejecutara sera un
+                                                                      //procedimiento almacenado y no una consulta
+
+                    //Creacion de variables que enviaran los valores de esas variables al procedimiento almacenado en SQL
                     command.Parameters.AddWithValue("@Carnet", carnet);
                     command.Parameters.AddWithValue("@Nombre", nombre);
                     command.Parameters.AddWithValue("@Apellido", apellidos);
                     command.Parameters.AddWithValue("@Telefono", telefono);
                     command.Parameters.AddWithValue("@Email", email);
                     command.Parameters.AddWithValue("@Cargo", cargo);
+
                     command.Parameters.AddWithValue("@FechaRegistro", DateTime.Now);
+                    conexion.Open(); //Abrimos la conexion para ejecutar el comando
 
-                    conexion.Open();
-                    int result = command.ExecuteNonQuery();
+                    int result = command.ExecuteNonQuery();// nos devuelve el número de filas afectadas
 
+                    //Si se inserto al menos un registro,
+                    //mostramos el mensaje de exito, actualiza la lista el data gripd y limpia los campos
                     if (result > 0)
                     {
-                        MessageBox.Show("Registro almacenado con exito.", "Informacion", MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
+                        MessageBox.Show("Registro almacenado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         listarRegistro();
                         limpiarControles();
                     }
                     else
                     {
-                        MessageBox.Show("No se puede guardar el registro.", "Error", MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
+                        MessageBox.Show("No se pudo guardar el registro.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex) //problemas con la base de datos
             {
-                MessageBox.Show("Error inesperado: " + ex);
+                MessageBox.Show("Error de SQL: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex) //Cualquier otro error inesperado
+            {
+                MessageBox.Show("Error inesperado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void Actualizar(int idUsuario, string carnet, string nombre, string apellido, string telefono, string email, string cargo)
+        {
+            try
+            {
+                string connectionString = ConexionDB.ObtenerConexion();
+
+                using (SqlConnection conexion = new SqlConnection(connectionString))
+                using (SqlCommand command = new SqlCommand("sp_ActualizarUsuario", conexion))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                    command.Parameters.AddWithValue("@Carnet", carnet);
+                    command.Parameters.AddWithValue("@Nombre", nombre);
+                    command.Parameters.AddWithValue("@Apellido", apellido);
+                    command.Parameters.AddWithValue("@Telefono", telefono);
+                    command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@Cargo", cargo);
+
+                    conexion.Open();
+                    int result = command.ExecuteNonQuery();// nos devuelve el número de filas afectadas
+
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Registro actualizado con éxito.", "Información",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        listarRegistro();
+                        limpiarControles();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo actualizar el registro.", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error de SQL: " + ex.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error inesperado al actualizar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Eliminar(int idUsuario)// como parametro el metodo resive el ID del Usuario
+        {
+            try
+            {
+                string connectionString = ConexionDB.ObtenerConexion();// Optenemos la cadena de conexion con la base de datos
+
+                using (SqlConnection conexion = new SqlConnection(connectionString)) // creamos una conexion con el procedimeinto almacenado
+                using (SqlCommand command = new SqlCommand("sp_EliminarUsuario", conexion))// aqui ejecutamos el procedimiento almacenado 
+                {
+                    //Indica que se usaremos el procedimiento almacenado y
+                    //se enviara el parametro @IdUsuario con el valor del usuario a eliminar.
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@IdUsuario", idUsuario);
+
+
+                    conexion.Open();//Abre la conexion y ejecuta el procedimiento.
+                    command.ExecuteNonQuery();//ejecuta la instrucción sin devolver filas y lugo mostramos el mensaje
+
+                    MessageBox.Show("Usuario eliminado con éxito.", "Información",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //Limpiamos las cajas de texto y limpiamos el Datagripw
+                    listarRegistro();
+                    limpiarControles();
+                }
+            }
+            catch (SqlException ex)//problemas de conexión o restricciones de la base de datos.
+            {
+                
+                MessageBox.Show("No se pudo eliminar el usuario: " + ex.Message,
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)//cualquier otro error inesperado que no sea SQL.
+            {
+                MessageBox.Show("Error inesperado al eliminar: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
         private void listarRegistro()
         {
             try
             {
                 string connetionString = ConexionDB.ObtenerConexion();
 
-                using (SqlConnection conexion = new SqlConnection(connetionString))
+                using (SqlConnection conexion = new SqlConnection(connetionString))//Crea una conexion SQL que se
+                                                                                   //cierra automaticamente al terminar
                 {
                     string consultaSql = "SELECT * FROM Usuarios";
-                    SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion);
-                    DataTable dt = new DataTable();
+                    SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion); //ejecuta la consulta y se
+                                                                                        //llena el DataTable con los resultados.
+                    DataTable dt = new DataTable();//contiene todos los
+                                                   //registros de la tabla
                     adapter.Fill(dt);
 
-                    dgvListado.DataSource = dt;
+                    dgvListado.DataSource = dt;//Mostramos los datos en el DataGridView
                     formatoGrid();
                 }
 
@@ -143,6 +259,7 @@ namespace GestorDeBiblioteca
         }
         private void formatoGrid()
         {
+            //Cambio de los nombres de los encabezado y el ancho de cada columna.
             dgvListado.Columns[0].Visible = false; // idUsuario
             dgvListado.Columns[1].HeaderText = "CARNET"; dgvListado.Columns[1].Width = 100;
             dgvListado.Columns[2].HeaderText = "NOMBRE"; dgvListado.Columns[2].Width = 180;
@@ -154,32 +271,36 @@ namespace GestorDeBiblioteca
 
 
             //  Estilo del data
+            //Quita los bordes innecesarios y define colores de fondo y de líneas.
             dgvListado.BorderStyle = BorderStyle.None;
-            dgvListado.BackgroundColor = Color.White;
-            dgvListado.GridColor = Color.LightGray;
+            dgvListado.BackgroundColor = System.Drawing.Color.White;
+            dgvListado.GridColor = System.Drawing.Color.Gray;
             dgvListado.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvListado.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvListado.RowHeadersVisible = false;
 
             //  Encabezado 
+            //Cambia color, fuente y alineación del encabezado.
+            //Desactiva estilos visuales predeterminados  la personalizacion.
             dgvListado.EnableHeadersVisualStyles = false;
-            dgvListado.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(54, 69, 79);
-            dgvListado.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvListado.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(54, 69, 79);
+            dgvListado.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
             dgvListado.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvListado.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvListado.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Centrar texto en las celdas
             dgvListado.ColumnHeadersHeight = 35;
 
             // Filas 
-            dgvListado.DefaultCellStyle.BackColor = Color.White;
-            dgvListado.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
+            dgvListado.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            dgvListado.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(50, 50, 50);//Define colores de texto y fondo.
             dgvListado.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-            dgvListado.DefaultCellStyle.SelectionBackColor = Color.FromArgb(136, 155, 168); // Color al seleccionar una columna
-            dgvListado.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dgvListado.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(136, 155, 168); // Color al seleccionar una columna
+            dgvListado.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
 
             // Filas alternas 
-            dgvListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(219, 219, 219);
+            dgvListado.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(219, 219, 219);
 
-            // CONFIGURACIÓN MEJORADA PARA EL PROBLEMA DEL COLOR AZUL
+            // CONFIGURACIÓN MEJORADA 
             dgvListado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvListado.MultiSelect = false;
             dgvListado.RowTemplate.Height = 30;
@@ -196,126 +317,6 @@ namespace GestorDeBiblioteca
             dgvListado.StandardTab = true;
 
             dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }
-        private void Actualizar(int idUsuario, string carnet, string nombre,string apellido, string telefono, string email, string cargo)
-        {
-            try
-            {
-                string connetionString = ConexionDB.ObtenerConexion();
-
-                using (SqlConnection conexion = new SqlConnection(connetionString))
-                {
-                    string consultaSQL = "UPDATE Usuarios " +
-                      "SET carnet = @Carnet, " +
-                          "nombre = @Nombre," +
-                          "apellido = @Apellido, " +
-                          "telefono = @Telefono, " +
-                          "cargo = @Cargo, " +
-                          "email = @Email " +
-                      "WHERE idUsuario = @idUsuario";
-
-
-                    SqlCommand command = new SqlCommand(consultaSQL, conexion);
-                    command.Parameters.AddWithValue("@idUsuario", idUsuario);
-                    command.Parameters.AddWithValue("@Carnet", carnet);
-                    command.Parameters.AddWithValue("@Nombre", nombre);
-                    command.Parameters.AddWithValue("@Apellido", apellido);
-                    command.Parameters.AddWithValue("@Telefono", telefono);
-                    command.Parameters.AddWithValue("@Email", email);
-                    command.Parameters.AddWithValue("@Cargo", cargo);
-                    conexion.Open();
-
-                    int result = command.ExecuteNonQuery();
-
-                    if (result > 0)
-                    {
-                        MessageBox.Show("Registro alctualizado con exito.", "Informacion", MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se puede actualizar el registro.", "Error", MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                    }
-
-                    listarRegistro();
-                    limpiarControles();
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error inesperado al actualizar: " + ex);
-            }
-        }
-        private void Eliminar(int idUsuario)
-        {
-            try
-            {
-                string connetionString = ConexionDB.ObtenerConexion();
-
-                using (SqlConnection conexion = new SqlConnection(connetionString))
-                {
-                    conexion.Open();
-
-                    // 1️⃣ Verificar si tiene préstamos activos
-                    string sqlCheck = @"
-                    SELECT COUNT(*) 
-                    FROM Prestamos P
-                    INNER JOIN DetallePrestamos DP ON P.idPrestamo = DP.idPrestamo
-                    WHERE P.idUsuario = @idUsuario AND (DP.estado = 'Prestado' OR DP.fechaDevolucion IS NULL)";
-
-                    SqlCommand checkCmd = new SqlCommand(sqlCheck, conexion);
-                    checkCmd.Parameters.AddWithValue("@idUsuario", idUsuario);
-                    int count = (int)checkCmd.ExecuteScalar();
-
-                    if (count > 0)
-                    {
-                        MessageBox.Show("No se puede eliminar este usuario porque tiene préstamos pendientes.",
-                            "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    // 2️⃣ Eliminar primero registros en DetallePrestamos
-                    string deleteDetalle = @"
-                    DELETE DP
-                    FROM DetallePrestamos DP
-                    INNER JOIN Prestamos P ON DP.idPrestamo = P.idPrestamo
-                    WHERE P.idUsuario = @idUsuario AND DP.estado = 'Devuelto'";
-
-                    SqlCommand cmdDetalle = new SqlCommand(deleteDetalle, conexion);
-                    cmdDetalle.Parameters.AddWithValue("@idUsuario", idUsuario);
-                    cmdDetalle.ExecuteNonQuery();
-
-                    // 3️⃣ Luego eliminar registros en Prestamos
-                        string deletePrestamos = @"
-                    DELETE FROM Prestamos
-                    WHERE idUsuario = @idUsuario";
-
-                    SqlCommand cmdPrestamo = new SqlCommand(deletePrestamos, conexion);
-                    cmdPrestamo.Parameters.AddWithValue("@idUsuario", idUsuario);
-                    cmdPrestamo.ExecuteNonQuery();
-
-                    // 4️⃣ Finalmente eliminar el usuario
-                    string deleteUsuario = @"DELETE FROM Usuarios WHERE idUsuario = @idUsuario";
-                    SqlCommand cmdUsuario = new SqlCommand(deleteUsuario, conexion);
-                    cmdUsuario.Parameters.AddWithValue("@idUsuario", idUsuario);
-                    int result = cmdUsuario.ExecuteNonQuery();
-
-                    if (result > 0)
-                        MessageBox.Show("Usuario eliminado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("No se pudo eliminar el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    listarRegistro();
-                    limpiarControles();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error inesperado al eliminar: " + ex.Message);
-            }
         }
         private void limpiarControles()
         {
@@ -335,33 +336,36 @@ namespace GestorDeBiblioteca
         #region Botones de Comando
         private void btnAceptar_Click_1(object sender, EventArgs e)
         {
+            //borra todos los mensajes de error previos
             errorIcono.Clear();
             bool datosValidos = true;
 
-            foreach (Control control in tableLayoutPanel1.Controls)
+            foreach (Control control in tableLayoutPanel1.Controls)//recorre todos los controles
             {
-                if (control is Guna.UI2.WinForms.Guna2TextBox gunaTextBox)
+                if (control is Guna.UI2.WinForms.Guna2TextBox gunaTextBox)//Si este control es una caja de texto (de tipo Guna2TextBox),
+                                                                          //entonces verifica si el campo está vacío o lleno solo de espacios.
                 {
                     if (string.IsNullOrWhiteSpace(gunaTextBox.Text))
                     {
-                        errorIcono.SetError(gunaTextBox, "Esre campo es obligatorio. ");
-                        datosValidos = false;
+                        errorIcono.SetError(gunaTextBox, "Este campo es obligatorio. ");
+                        datosValidos = false;//marca que falta información.
                     }
                 }
             }
-
+            //Si datosValidos es false, significa que al menos un campo estaba vacio.
             if (!datosValidos)
             {
                 MessageBox.Show("Informacion incompleta, seran remarcados los datos que faltan. ",
                     "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
+                return;//salir del método (no se ejecuta nada mas hasta que se llenen los datos).
             }
 
             try
             {
                 if (validarControl())
                 {
-                    string carnet = txtCarnet.Text.Trim();
+                    string carnet = txtCarnet.Text.Trim();//Cada valor se toma del campo correspondiente y
+                                                          //se usa .Trim() para quitar espacios al inicio o final.
                     string nombre = txtNombres.Text.Trim();
                     string apellidos = txtApellidos.Text.Trim();
                     string telefono = txtTelefonos.Text.Trim();
@@ -369,8 +373,8 @@ namespace GestorDeBiblioteca
                     string cargo = cbmCargos.Text.Trim();
 
 
-                    Aceptar(carnet, nombre, apellidos, telefono, email, cargo);
-                    limpiarControles();
+                    Aceptar(carnet, nombre, apellidos, telefono, email, cargo);// Llamamos al metodo aceptar
+                    limpiarControles();//Limpiamos las cajas de texto
                 }
                 else
                 {
@@ -384,13 +388,40 @@ namespace GestorDeBiblioteca
                 MessageBox.Show("Se ha generado un error inesperado" + ex);
             }
         }
+        
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+            //borra todos los mensajes de error previos
+            errorIcono.Clear();
+            bool datosValidos = true;
+
+            foreach (Control control in tableLayoutPanel1.Controls)//recorre todos los controles
+            {
+                if (control is Guna.UI2.WinForms.Guna2TextBox gunaTextBox)//Si este control es una caja de texto (de tipo Guna2TextBox),
+                                                                          //entonces verifica si el campo está vacío o lleno solo de espacios.
+                {
+                    if (string.IsNullOrWhiteSpace(gunaTextBox.Text))
+                    {
+                        errorIcono.SetError(gunaTextBox, "Este campo es obligatorio. ");
+                        datosValidos = false;//marca que falta información.
+                    }
+                }
+            }
+            //Si datosValidos es false, significa que al menos un campo estaba vacio.
+            if (!datosValidos)
+            {
+                MessageBox.Show("Informacion incompleta, seran remarcados los datos que faltan. ",
+                    "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;//salir del método (no se ejecuta nada mas hasta que se llenen los datos).
+            }
+
             try
             {
                 if (validarControl())
                 {
+                    //Obtener los datos de las Variables y se preparan para enviarse al metodo
+                    //que se actualizara en la base de datos.
                     string carnet = txtCarnet.Text.Trim();
                     string nombre = txtNombres.Text.Trim();
                     string apellidos = txtApellidos.Text.Trim();
@@ -398,17 +429,21 @@ namespace GestorDeBiblioteca
                     string email = txtEmail.Text.Trim();
                     string cargo = cbmCargos.Text.Trim();
 
+                    // Si el Id esta vasio No hay ningún ID cargado,  entonces significa que es un nuevo usuario.
                     if (string.IsNullOrWhiteSpace(txtId.Text))
                     {
+                        //Llamamos al metodo Aceptar para Insertar un Usuario
                         Aceptar(carnet, nombre, apellidos, telefono, email, cargo);
                     }
                     else
-                    {
-                        int.TryParse(txtId.Text, out int idUsuario);
+                    {   // De lo contrario si el ID tiene un valor y significa que se ha seleccionado un usuario existente desde la tabla
+                        int.TryParse(txtId.Text, out int idUsuario);//convierte el texto del ID a nnmero entero.
+
+                        //Luego llama al metodo Actualizar pasando el idUsuario junto con los demas datos
                         Actualizar(idUsuario, carnet, nombre, apellidos, telefono, email, cargo);
 
                     }
-
+                    //Escondemos el Boton Acepatar Ala ahora de Actualizar un registro
                     btnAceptar.Visible = true;
 
                 }
@@ -424,7 +459,7 @@ namespace GestorDeBiblioteca
         }
 
         private void btnEliminar_Click_1(object sender, EventArgs e)
-        {
+        {   //Verificamos si hay una fila Selecionada en el DataGrid
             if (dgvListado.SelectedRows.Count > 0)
             {
                 try
@@ -432,9 +467,10 @@ namespace GestorDeBiblioteca
                     if (MessageBox.Show("Seguro que desea eliminar este registro?", "Confirmacion", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        int.TryParse(dgvListado.CurrentRow.Cells[0].Value.ToString(), out int idUsuario);
+                        int.TryParse(dgvListado.CurrentRow.Cells[0].Value.ToString(), out int idUsuario);//Obtenemos el ID del Usuario Selecionado
+                        //Toma el valor de la primera columna (Cells[0]) de la fila seleccionada
+                        //convertir el texto a numerico entero sin causar error si el valor no es Ententero y lo hacemos con un TryParse 
 
-                        //int id = Convert.ToInt32(dgvListado.CurrentRow.Cells[0].Value.ToString());
                         Eliminar(idUsuario);
                         limpiarControles();
                         btnAceptar.Visible = true;
@@ -465,26 +501,32 @@ namespace GestorDeBiblioteca
         {
             try
             {
+                //Comprueba que el DataGridView tenga al menos una fila con registros.
                 if (dgvListado.Rows.Count > 0)
                 {
 
-                    if (!int.TryParse(dgvListado.CurrentRow.Cells[0].Value?.ToString(), out int idUsuario))
-                    {
+                    if (!int.TryParse(dgvListado.CurrentRow.Cells[0].Value?.ToString(), out int idUsuario))//Obtenemos el ID del Usuario Selecionado
+                    {   //Toma el valor de la primera columna (Cells[0]) de la fila seleccionada
+                        //convertir el texto a numerico entero sin causar error si el valor no es Ententero y lo hacemos con un TryParse 
+
                         MessageBox.Show("El ID no es Valido", "Informacion", MessageBoxButtons.OK,
-                            MessageBoxIcon.Exclamation);
+                            MessageBoxIcon.Exclamation);//Si el valor no es un número valido, muestra un mensaje y sale del metodo
                         return;
                     }
 
 
-
+                    //se copian los valores de la fila seleccionada en las cajas de texto correspondientes
                     txtId.Text = idUsuario.ToString();
-                    txtCarnet.Text = dgvListado.CurrentRow.Cells[1].Value?.ToString() ?? "";
+                    txtCarnet.Text = dgvListado.CurrentRow.Cells[1].Value?.ToString() ?? "";//dgvListado.CurrentRow.Cells[] obtiene el valor de
+                                                                                            //cada celda
+
                     txtNombres.Text = dgvListado.CurrentRow.Cells[2].Value?.ToString() ?? "";
                     txtApellidos.Text = dgvListado.CurrentRow.Cells[3].Value?.ToString() ?? "";
                     txtTelefonos.Text = dgvListado.CurrentRow.Cells[4].Value?.ToString() ?? "";
                     txtEmail.Text = dgvListado.CurrentRow.Cells[5].Value?.ToString() ?? "";
                     cbmCargos.Text = dgvListado.CurrentRow.Cells[6].Value?.ToString() ?? "";
 
+                    //Asi, las cajas de texto del formulario se rellenan automaticamente con los datos de la fila seleccionada.
                     btnAceptar.Visible = false;
                 }
 

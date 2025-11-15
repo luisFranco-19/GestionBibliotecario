@@ -52,30 +52,19 @@ namespace GestorDeBiblioteca.Formularios
                 string conexionStr = ConexionDB.ObtenerConexion();
                 using (SqlConnection conexion = new SqlConnection(conexionStr))
                 {
-                    
-                    string sql = @"SELECT idUsuarioLogin, password 
-                                   FROM UsuarioLogin 
-                                   WHERE nombreUsuario=@Usuario COLLATE Latin1_General_CS_AS AND estado=1";
-
-                    SqlCommand cmd = new SqlCommand(sql, conexion);
-                    cmd.Parameters.AddWithValue("@Usuario", usuario);
-
                     conexion.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
 
-                    if (reader.Read())
+                    using (SqlCommand cmd = new SqlCommand("sp_ValidarLogin", conexion))
                     {
-                        string passwordHash = reader["password"].ToString();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@NombreUsuario", usuario);
+                        cmd.Parameters.AddWithValue("@Password", password); // En texto plano
 
-                        if (VerificarPassword(password, passwordHash))
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        if (reader.Read())
                         {
-                            idUsuarioLogin = Convert.ToInt32(reader["idUsuarioLogin"]);
-                            RegistrarInicioSesion(idUsuarioLogin, true);
-                        }
-                        else
-                        {
-                            idUsuarioLogin = 0;
-                            RegistrarInicioSesion(Convert.ToInt32(reader["idUsuarioLogin"]), false);
+                            idUsuarioLogin = Convert.ToInt32(reader["IdUsuarioLogin"]);
+                            RegistrarInicioSesion(idUsuarioLogin, idUsuarioLogin > 0);
                         }
                     }
                 }
@@ -109,10 +98,6 @@ namespace GestorDeBiblioteca.Formularios
             }
         }
 
-        private bool VerificarPassword(string passwordIngresado, string passwordHash)
-        {
-            return ObtenerSHA256(passwordIngresado).Equals(passwordHash);
-        }
 
         private string ObtenerSHA256(string texto)
         {

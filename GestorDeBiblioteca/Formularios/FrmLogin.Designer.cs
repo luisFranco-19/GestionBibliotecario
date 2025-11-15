@@ -37,9 +37,9 @@
             this.Welcome = new System.Windows.Forms.Label();
             this.btnCancelar = new Guna.UI2.WinForms.Guna2Button();
             this.btnAceptar = new Guna.UI2.WinForms.Guna2Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureUser = new System.Windows.Forms.PictureBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             this.SuspendLayout();
@@ -182,22 +182,22 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_contraseña_48;
-            this.pictureBox3.Location = new System.Drawing.Point(29, 170);
+            this.pictureBox3.Image = global::GestorDeBiblioteca.Properties.Resources.locked;
+            this.pictureBox3.Location = new System.Drawing.Point(55, 170);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(44, 52);
-            this.pictureBox3.TabIndex = 16;
+            this.pictureBox3.Size = new System.Drawing.Size(32, 36);
+            this.pictureBox3.TabIndex = 23;
             this.pictureBox3.TabStop = false;
             // 
             // pictureUser
             // 
-            this.pictureUser.Image = global::GestorDeBiblioteca.Properties.Resources.user;
-            this.pictureUser.Location = new System.Drawing.Point(29, 96);
+            this.pictureUser.Image = global::GestorDeBiblioteca.Properties.Resources.user1;
+            this.pictureUser.Location = new System.Drawing.Point(55, 112);
             this.pictureUser.Margin = new System.Windows.Forms.Padding(2);
             this.pictureUser.Name = "pictureUser";
-            this.pictureUser.Size = new System.Drawing.Size(54, 53);
-            this.pictureUser.TabIndex = 15;
+            this.pictureUser.Size = new System.Drawing.Size(32, 37);
+            this.pictureUser.TabIndex = 22;
             this.pictureUser.TabStop = false;
             // 
             // FrmLogin
@@ -206,13 +206,13 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(390, 356);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureUser);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.btnRegistrase);
             this.Controls.Add(this.labelIni);
             this.Controls.Add(this.Welcome);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureUser);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -235,10 +235,10 @@
         private Guna.UI2.WinForms.Guna2Button btnRegistrase;
         private System.Windows.Forms.Label labelIni;
         private System.Windows.Forms.Label Welcome;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureUser;
         private Guna.UI2.WinForms.Guna2Button btnCancelar;
         private Guna.UI2.WinForms.Guna2Button btnAceptar;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureUser;
     }
 }

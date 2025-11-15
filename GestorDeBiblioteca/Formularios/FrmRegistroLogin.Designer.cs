@@ -36,11 +36,13 @@
             this.Welcome = new System.Windows.Forms.Label();
             this.btnCancelar = new Guna.UI2.WinForms.Guna2Button();
             this.btnAceptar = new Guna.UI2.WinForms.Guna2Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureUser = new System.Windows.Forms.PictureBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureUser = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             this.SuspendLayout();
@@ -176,26 +178,6 @@
             this.toolTip1.SetToolTip(this.btnAceptar, "Registrar Sesion");
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_contraseña_48;
-            this.pictureBox3.Location = new System.Drawing.Point(11, 194);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(44, 52);
-            this.pictureBox3.TabIndex = 16;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureUser
-            // 
-            this.pictureUser.Image = global::GestorDeBiblioteca.Properties.Resources.user;
-            this.pictureUser.Location = new System.Drawing.Point(11, 76);
-            this.pictureUser.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureUser.Name = "pictureUser";
-            this.pictureUser.Size = new System.Drawing.Size(54, 53);
-            this.pictureUser.TabIndex = 15;
-            this.pictureUser.TabStop = false;
-            // 
             // guna2Elipse1
             // 
             this.guna2Elipse1.BorderRadius = 15;
@@ -226,12 +208,43 @@
             this.txtPassword.Size = new System.Drawing.Size(234, 36);
             this.txtPassword.TabIndex = 22;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GestorDeBiblioteca.Properties.Resources.gmail1;
+            this.pictureBox1.Location = new System.Drawing.Point(46, 150);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 36);
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::GestorDeBiblioteca.Properties.Resources.locked;
+            this.pictureBox3.Location = new System.Drawing.Point(46, 210);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(32, 36);
+            this.pictureBox3.TabIndex = 16;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureUser
+            // 
+            this.pictureUser.Image = global::GestorDeBiblioteca.Properties.Resources.user1;
+            this.pictureUser.Location = new System.Drawing.Point(46, 92);
+            this.pictureUser.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureUser.Name = "pictureUser";
+            this.pictureUser.Size = new System.Drawing.Size(32, 37);
+            this.pictureUser.TabIndex = 15;
+            this.pictureUser.TabStop = false;
+            // 
             // FrmRegistroLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(390, 356);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtNombreUsuario);
@@ -247,6 +260,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRegistroLogin";
             this.Shown += new System.EventHandler(this.FrmRegistroLogin_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
             this.ResumeLayout(false);
@@ -268,5 +282,6 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

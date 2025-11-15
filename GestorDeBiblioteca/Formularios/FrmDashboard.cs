@@ -24,7 +24,7 @@ namespace GestorDeBiblioteca.Formularios
         }
 
         #region Estilos y metodos del dataGrid
-      
+
         private void CargarVista(string nombreVista)
         {
             try
@@ -215,7 +215,7 @@ namespace GestorDeBiblioteca.Formularios
 
             dvgListado.DataSource = dt;
 
-           
+
             foreach (DataGridViewColumn col in dvgListado.Columns)
             {
                 if (col.Name.ToLower().Contains("id"))
@@ -229,13 +229,15 @@ namespace GestorDeBiblioteca.Formularios
             dvgListado.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dvgListado.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dvgListado.RowHeadersVisible = false;
-             
+
             //Encabezado 
             dvgListado.EnableHeadersVisualStyles = false;
             dvgListado.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(54, 69, 79);
             dvgListado.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dvgListado.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dvgListado.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dvgListado.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Centrar texto en las celdas
+
             dvgListado.ColumnHeadersHeight = 35;
 
             // Filas 
@@ -248,7 +250,7 @@ namespace GestorDeBiblioteca.Formularios
             // Filas alternas 
             dvgListado.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(219, 219, 219);
 
-            // CONFIGURACIÓN MEJORADA PARA EL PROBLEMA DEL COLOR AZUL
+            // CONFIGURACIÓN MEJORADA 
             dvgListado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dvgListado.MultiSelect = false;
             dvgListado.RowTemplate.Height = 30;
@@ -263,7 +265,7 @@ namespace GestorDeBiblioteca.Formularios
             // Deshabilitar el enfoque visual en celdas individuales
             dvgListado.ShowCellToolTips = false;
             dvgListado.StandardTab = true;
-             
+
             dvgListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         #endregion
@@ -291,38 +293,63 @@ namespace GestorDeBiblioteca.Formularios
         #region Buscador
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
+            // Si la tabla original de datos está vacía o no ha sido cargada, no hacemos nada
             if (datosOriginales == null) return;
 
+            // Guardamos el texto que el usuario ha escrito en el cuadro de búsqueda
+            // y lo convertimos a minúsculas para hacer una comparación sin distinción de mayúsculas/minúsculas
             string filtro = txtBuscar.Text.Trim().ToLower();
 
+            // Si el cuadro de búsqueda está vacío, mostramos todos los datos nuevamente
             if (string.IsNullOrEmpty(filtro))
             {
+                // Restauramos la tabla completa
                 dvgListado.DataSource = datosOriginales;
+
+                // Actualizamos el gráfico con todos los datos
                 ActualizarGrafico(datosOriginales);
                 return;
             }
 
+            // Si el usuario escribió algo, filtramos las filas que contengan el texto ingresado
+            // AsEnumerable() convierte el DataTable en una colección para poder usar LINQ
             var resultados = datosOriginales.AsEnumerable()
-                .Where(row => row.ItemArray.Any(
-                    campo => campo.ToString().ToLower().Contains(filtro)
+                .Where(row => row.ItemArray.Any( // Recorre cada fila y cada campo
+                    campo => campo.ToString().ToLower().Contains(filtro)  // Busca coincidencias con el texto ingresado
+
                 ));
 
+            // Si se encontraron resultados que coincidan con el texto de búsqueda
             if (resultados.Any())
             {
+                // Creamos un nuevo DataTable con las filas filtradas
                 DataTable filtrada = resultados.CopyToDataTable();
+
+                // Mostramos los resultados filtrados en el DataGridView
                 dvgListado.DataSource = filtrada;
+
+                // Actualizamos el gráfico solo con los datos filtrados
                 ActualizarGrafico(filtrada);
             }
             else
             {
-                dvgListado.DataSource = datosOriginales.Clone();
+                // Si no se encontró ninguna coincidencia, mostramos una tabla vacía
+                dvgListado.DataSource = datosOriginales.Clone(); // Crea la estructura vacía de la tabla
+
+                // Limpiamos el gráfico, eliminando series y títulos anteriores
                 chartEstadisticas.Series.Clear();
                 chartEstadisticas.Titles.Clear();
+
+                // Mostramos un título en el gráfico que diga "Sin resultados"
                 chartEstadisticas.Titles.Add("Sin resultados");
             }
         }
-    }
 
         #endregion
-    
+
+        private void FrmDashboard_Load(object sender, EventArgs e)
+        {
+            btnRegistroUsuarios_Click(sender, e);
+        }
+    }
 }

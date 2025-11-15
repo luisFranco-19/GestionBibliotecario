@@ -23,8 +23,8 @@ namespace GestorDeBiblioteca
 
 
         #region Variables
-        private DataTable dtPrestamo;       
-        private int? selectedUserId = null; 
+        private DataTable dtPrestamo;//tabla en memoria para el manejo de datos del prestamos
+        private int? selectedUserId = null; //variable para guardar el ID del usuario seleccionado
         #endregion
 
         #region Load
@@ -96,23 +96,31 @@ namespace GestorDeBiblioteca
         #region Inicializar tabla de préstamos
         private void InicializarPrestamoTable()
         {
-            dtPrestamo = new DataTable();
+            dtPrestamo = new DataTable();// creamos una tabla temporal
+            //Se crean las columnas de la tabla y se le establece los nombres de cada columna
+            //el typeof espesifica el tipo de esa columan de datos que puede alamacenar
             dtPrestamo.Columns.Add("idLibro", typeof(int));
             dtPrestamo.Columns.Add("Cantidad", typeof(int));
             dtPrestamo.Columns.Add("Autor", typeof(string));
             dtPrestamo.Columns.Add("Titulo", typeof(string));
             dtPrestamo.Columns.Add("NuevoPrestamo", typeof(bool));
 
+            //Cada vez que agregues una fila nueva Cantidad comenzará en 1 y NuevoPrestamo comenzará en true
             dtPrestamo.Columns["Cantidad"].DefaultValue = 1;
             dtPrestamo.Columns["NuevoPrestamo"].DefaultValue = true;
 
+            //Muestra la tabla dtPrestamo en el DataGridView dgvPrestamos,
+            //haciendo que las filas y columnas se vean automaticamente en la interfaz.
             dgvPrestamos.DataSource = dtPrestamo;
 
+            //Ocultamos columnas que no se mostrarn en la tabla ya que hay columnas que seran datos
+            //internos no visibles para el usuario
             if (dgvPrestamos.Columns["idLibro"] != null)
                 dgvPrestamos.Columns["idLibro"].Visible = false;
             if (dgvPrestamos.Columns["NuevoPrestamo"] != null)
                 dgvPrestamos.Columns["NuevoPrestamo"].Visible = false;
 
+            //ajustar ancho de columnas visibles
             dgvPrestamos.Columns["Cantidad"].Width = 80;
             dgvPrestamos.Columns["Autor"].Width = 150;
             dgvPrestamos.Columns["Titulo"].Width = 241;
@@ -131,6 +139,8 @@ namespace GestorDeBiblioteca
             dgvPrestamos.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgvPrestamos.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvPrestamos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvPrestamos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Centrar texto en las celdas
+
             dgvPrestamos.ColumnHeadersHeight = 35;
 
             // Filas 
@@ -171,33 +181,43 @@ namespace GestorDeBiblioteca
         {
             try
             {
-                string connetionString = ConexionDB.ObtenerConexion();
-                using (SqlConnection conexion = new SqlConnection(connetionString))
+                string connetionString = ConexionDB.ObtenerConexion();//Llamamos la clase de la conexion
+                using (SqlConnection conexion = new SqlConnection(connetionString))//creamos un objeto para conectarse a la base de datos y luego de eso
                 {
+                    //con el using asegura que la conexion se cierre automaticamente al terminar.
+
+                    //Consulta solo el primer usuario que coincida
+                    //Busca coincidencias en carnet, nombre o apellido
                     string consulta = @"
                         SELECT TOP 1 idUsuario, carnet, nombre, apellido
                         FROM Usuarios
                         WHERE carnet LIKE @texto OR nombre LIKE @texto OR apellido LIKE @texto";
 
+
                     using (SqlCommand cmd = new SqlCommand(consulta, conexion))
                     {
+                        //"%"+texto+"%"  permite coincidencias parciales antes y después del texto.
                         cmd.Parameters.Add("@texto", SqlDbType.NVarChar, 200).Value = "%" + txtBuscarUsuario.Text.Trim() + "%";
                         conexion.Open();
-                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        using (SqlDataReader reader = cmd.ExecuteReader())//permite leer fila por fila el resultado.
                         {
-                            if (reader.Read())
+                            if (reader.Read())//intenta leer la primera fila
                             {
-                                int idUsuario = reader.GetInt32(0);
+                                int idUsuario = reader.GetInt32(0);//obtiene el idUsuario
 
-                                string carnet = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
+                                string carnet = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);//verifica si la columna tiene valor nulo
+                                                                                                        //para evitar errores
                                 string nombre = reader.IsDBNull(2) ? string.Empty : reader.GetString(2);
                                 string apellido = reader.IsDBNull(3) ? string.Empty : reader.GetString(3);
 
-                                selectedUserId = idUsuario;
+                                //Actualiza variables e interfaz 
+                                selectedUserId = idUsuario;//se guarda el ID del usuario seleccionado
+                                //muestran datos
                                 lblCarnetUsuario.Text = carnet;
                                 lblNombreUsuario.Text = nombre + " " + apellido;
 
                                 MostrarDatosUsuario();
+
                                 CargarPrestamosUsuario(selectedUserId.Value);
                                 MostrarBuscadorLibros();
                             }
@@ -219,9 +239,11 @@ namespace GestorDeBiblioteca
 
         private void txtBuscarUsuario_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)//verifica si la tecla presionada es Enter.
             {
+                //Llama al metodo BuscarUsuario para realizar la busqueda del usuario en la base de datos.
                 BuscarUsuario();
+                //Evita que la tecla Enter haga su acción predeterminada
                 e.SuppressKeyPress = true;
             }
         }
@@ -275,13 +297,18 @@ namespace GestorDeBiblioteca
                                     return;
                                 }
 
-
+                                //comprueba si el libro esta activo, ignorando mayusculas y minusculas
+                                //asegura que hay al menos una copia disponible para prestar.
+                                //Solo si ambas condiciones son verdaderas, entra al bloque.
                                 if (estado.Equals("Activo", StringComparison.OrdinalIgnoreCase) && cantidadDisponible > 0)
                                 {
                                     
-                                    bool yaPrestado = dtPrestamo.AsEnumerable()
+                                    bool yaPrestado = dtPrestamo.AsEnumerable()//se convierte la tabla de prestamos en una secuencia enumerable
+                                        //verifica si alguna fila tiene el mismo idLibro
+                                        //Si el usuario ya tiene ese libro en la lista de prestamos yaPrestado sera true
                                         .Any(r => r.Field<int>("idLibro") == idLibro);
 
+                                    //Si yaPrestado es true entra en el bloque del IF
                                     if (yaPrestado)
                                     {
                                         MessageBox.Show("El usuario ya tiene este libro.", "Aviso",
@@ -289,10 +316,10 @@ namespace GestorDeBiblioteca
                                         return;
                                     }
 
-                                    AgregarLibroAPrestamo(idLibro, titulo, autor);
-                                    MostrarDatosLibro();
+                                    AgregarLibroAPrestamo(idLibro, titulo, autor);//agrega el libro a dtPrestamo
+                                    MostrarDatosLibro();//actualiza la información del libro en la interfaz
 
-                                    
+
                                     btnAgregar.Focus();
                                 }
                                 else
@@ -329,9 +356,10 @@ namespace GestorDeBiblioteca
         #region Manejo de Préstamos
         private void AgregarLibroAPrestamo(int idLibro, string titulo, string autor)
         {
-            DataRow existente = dtPrestamo.AsEnumerable()
-                .FirstOrDefault(r => r.Field<int>("idLibro") == idLibro);
-
+            DataRow existente = dtPrestamo.AsEnumerable()//convierte la tabla en una lista enumerable para usar
+                .FirstOrDefault(r => r.Field<int>("idLibro") == idLibro);//busca la primera fila donde el idLibro coincida
+                                                                         //con el libro que quieres agregar
+            //Evita agregar el mismo libro dos veces.
             if (existente != null)
             {
                 MessageBox.Show("Este libro ya fue agregado a los préstamos actuales.", "Aviso",
@@ -339,18 +367,22 @@ namespace GestorDeBiblioteca
                 return;
             }
 
+            //Crear nueva fila para el libro
             DataRow fila = dtPrestamo.NewRow();
             fila["idLibro"] = idLibro;
             fila["Cantidad"] = 1;
             fila["Titulo"] = titulo;
             fila["Autor"] = autor;
-            fila["NuevoPrestamo"] = true;
-            dtPrestamo.Rows.Add(fila);
+            fila["NuevoPrestamo"] = true;//indica que es un prestamo nuevo
+            dtPrestamo.Rows.Add(fila);//La fila se agrega a la tabla en memoria, que luego se muestra automáticamente en el DataGridView
         }
 
         private void QuitarLibroSeleccionado()
         {
-            if (dgvPrestamos.CurrentRow != null)
+            if (dgvPrestamos.CurrentRow != null)//Verifica que haya una fila seleccionada actualmente.
+                //CurrentRow es la fila que el usuario ha seleccionado o en la que está el foco
+
+                //btiene la posición de la fila seleccionada y se elimina esa fila de la tabla vinculada.
                 dgvPrestamos.Rows.RemoveAt(dgvPrestamos.CurrentRow.Index);
         }
 

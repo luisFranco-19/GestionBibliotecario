@@ -14,6 +14,8 @@ namespace GestorDeBiblioteca
     public partial class MDImenu : Form
     {
         private Form formularioActivo = null;
+        private bool menuExpandido = true;
+
 
         public MDImenu()
         {
@@ -100,8 +102,37 @@ namespace GestorDeBiblioteca
 
 
         }
+        private void btnHamburger_Click(object sender, EventArgs e)
+        {
+            // alterna el estado del menú
+            if (menuExpandido)
+            {
+                // si está visible, lo ocultamos
+                panelSiderbar.Visible = false;
+                menuExpandido = false;
+            }
+            else
+            {
+                // si está oculto, lo mostramos
+                panelSiderbar.Visible = true;
+                menuExpandido = true;
+            }
+        }
+
+        private void btnBroma_Click(object sender, EventArgs e)
+        {
+            Form1 frm = new Form1();
+            frm.Show();
+            
+
+        }
 
 
         #endregion
+
+        private void MDImenu_Load(object sender, EventArgs e)
+        {
+            btnDashboard_Click(sender, e);
+        }
     }
 }

@@ -98,6 +98,8 @@ namespace GestorDeBiblioteca.Formularios
             dgvListado.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgvListado.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvListado.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvListado.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Centrar texto en las celdas
+
             dgvListado.ColumnHeadersHeight = 35;
 
             // Filas 

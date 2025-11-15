@@ -428,6 +428,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmDashboard";
             this.Text = "Dashboard";
+            this.Load += new System.EventHandler(this.FrmDashboard_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox1)).EndInit();
