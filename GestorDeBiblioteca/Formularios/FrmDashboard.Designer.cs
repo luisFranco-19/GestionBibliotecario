@@ -29,15 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.picBox2 = new System.Windows.Forms.PictureBox();
-            this.picBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.total2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -46,26 +44,28 @@
             this.total4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.total1 = new System.Windows.Forms.Label();
+            this.chartEstadisticas = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.dvgListado = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.picBox2 = new System.Windows.Forms.PictureBox();
+            this.picBox1 = new System.Windows.Forms.PictureBox();
             this.picBox4 = new System.Windows.Forms.PictureBox();
             this.picBox3 = new System.Windows.Forms.PictureBox();
-            this.chartEstadisticas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
-            this.dvgListado = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btnRegistrosLibros = new Guna.UI2.WinForms.Guna2Button();
             this.btnStockLibros = new Guna.UI2.WinForms.Guna2Button();
             this.btnRegistroUsuarios = new Guna.UI2.WinForms.Guna2Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartEstadisticas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgListado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -91,26 +91,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1063, 514);
             this.panel1.TabIndex = 3;
-            // 
-            // picBox2
-            // 
-            this.picBox2.BackColor = System.Drawing.Color.White;
-            this.picBox2.Image = global::GestorDeBiblioteca.Properties.Resources.dash;
-            this.picBox2.Location = new System.Drawing.Point(3, 158);
-            this.picBox2.Name = "picBox2";
-            this.picBox2.Size = new System.Drawing.Size(63, 52);
-            this.picBox2.TabIndex = 47;
-            this.picBox2.TabStop = false;
-            // 
-            // picBox1
-            // 
-            this.picBox1.BackColor = System.Drawing.Color.White;
-            this.picBox1.Image = global::GestorDeBiblioteca.Properties.Resources.boars;
-            this.picBox1.Location = new System.Drawing.Point(3, 8);
-            this.picBox1.Name = "picBox1";
-            this.picBox1.Size = new System.Drawing.Size(67, 59);
-            this.picBox1.TabIndex = 46;
-            this.picBox1.TabStop = false;
             // 
             // tableLayoutPanel4
             // 
@@ -219,91 +199,45 @@
             this.total1.Text = "total1";
             this.total1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // picBox4
-            // 
-            this.picBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picBox4.BackColor = System.Drawing.Color.White;
-            this.picBox4.Image = global::GestorDeBiblioteca.Properties.Resources.business_report;
-            this.picBox4.Location = new System.Drawing.Point(988, 144);
-            this.picBox4.Name = "picBox4";
-            this.picBox4.Size = new System.Drawing.Size(63, 66);
-            this.picBox4.TabIndex = 39;
-            this.picBox4.TabStop = false;
-            // 
-            // picBox3
-            // 
-            this.picBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picBox3.BackColor = System.Drawing.Color.White;
-            this.picBox3.Image = global::GestorDeBiblioteca.Properties.Resources._char;
-            this.picBox3.Location = new System.Drawing.Point(984, 0);
-            this.picBox3.Name = "picBox3";
-            this.picBox3.Size = new System.Drawing.Size(67, 67);
-            this.picBox3.TabIndex = 31;
-            this.picBox3.TabStop = false;
-            // 
             // chartEstadisticas
             // 
             this.chartEstadisticas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.chartEstadisticas.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartEstadisticas.Legends.Add(legend1);
+            chartArea2.Area3DStyle.Enable3D = true;
+            chartArea2.Area3DStyle.Inclination = 20;
+            chartArea2.Area3DStyle.IsRightAngleAxes = false;
+            chartArea2.Area3DStyle.PointDepth = 200;
+            chartArea2.Area3DStyle.Rotation = 15;
+            chartArea2.Name = "ChartArea1";
+            this.chartEstadisticas.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartEstadisticas.Legends.Add(legend2);
             this.chartEstadisticas.Location = new System.Drawing.Point(327, 3);
             this.chartEstadisticas.Name = "chartEstadisticas";
             this.chartEstadisticas.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series1.BorderColor = System.Drawing.Color.Silver;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Color = System.Drawing.Color.WhiteSmoke;
-            series1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.IsValueShownAsLabel = true;
-            series1.LabelForeColor = System.Drawing.Color.WhiteSmoke;
-            series1.Legend = "Legend1";
-            series1.MarkerBorderColor = System.Drawing.Color.WhiteSmoke;
-            series1.Name = "Series1";
-            this.chartEstadisticas.Series.Add(series1);
+            series2.BorderColor = System.Drawing.Color.Silver;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Color = System.Drawing.Color.WhiteSmoke;
+            series2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.IsValueShownAsLabel = true;
+            series2.LabelForeColor = System.Drawing.Color.WhiteSmoke;
+            series2.Legend = "Legend1";
+            series2.MarkerBorderColor = System.Drawing.Color.WhiteSmoke;
+            series2.Name = "Series1";
+            this.chartEstadisticas.Series.Add(series2);
             this.chartEstadisticas.Size = new System.Drawing.Size(400, 190);
             this.chartEstadisticas.TabIndex = 25;
             this.chartEstadisticas.Text = "chart1";
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBuscar.BorderColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txtBuscar.BorderRadius = 8;
-            this.txtBuscar.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBuscar.DefaultText = "";
-            this.txtBuscar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBuscar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBuscar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBuscar.DisabledState.Parent = this.txtBuscar;
-            this.txtBuscar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBuscar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBuscar.FocusedState.Parent = this.txtBuscar;
-            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBuscar.HoverState.Parent = this.txtBuscar;
-            this.txtBuscar.Location = new System.Drawing.Point(170, 201);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.PasswordChar = '\0';
-            this.txtBuscar.PlaceholderText = "Buscar registro...";
-            this.txtBuscar.SelectedText = "";
-            this.txtBuscar.ShadowDecoration.Parent = this.txtBuscar;
-            this.txtBuscar.Size = new System.Drawing.Size(838, 38);
-            this.txtBuscar.TabIndex = 24;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // dvgListado
             // 
             this.dvgListado.AllowUserToAddRows = false;
             this.dvgListado.AllowUserToDeleteRows = false;
             this.dvgListado.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dvgListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dvgListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dvgListado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dvgListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -311,23 +245,23 @@
             this.dvgListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dvgListado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dvgListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dvgListado.ColumnHeadersHeight = 4;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvgListado.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvgListado.DefaultCellStyle = dataGridViewCellStyle6;
             this.dvgListado.EnableHeadersVisualStyles = false;
             this.dvgListado.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dvgListado.Location = new System.Drawing.Point(170, 247);
@@ -360,6 +294,78 @@
             this.dvgListado.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dvgListado.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // picBox2
+            // 
+            this.picBox2.BackColor = System.Drawing.Color.White;
+            this.picBox2.Image = global::GestorDeBiblioteca.Properties.Resources.dash;
+            this.picBox2.Location = new System.Drawing.Point(3, 158);
+            this.picBox2.Name = "picBox2";
+            this.picBox2.Size = new System.Drawing.Size(63, 52);
+            this.picBox2.TabIndex = 47;
+            this.picBox2.TabStop = false;
+            // 
+            // picBox1
+            // 
+            this.picBox1.BackColor = System.Drawing.Color.White;
+            this.picBox1.Image = global::GestorDeBiblioteca.Properties.Resources.boars;
+            this.picBox1.Location = new System.Drawing.Point(3, 8);
+            this.picBox1.Name = "picBox1";
+            this.picBox1.Size = new System.Drawing.Size(67, 59);
+            this.picBox1.TabIndex = 46;
+            this.picBox1.TabStop = false;
+            // 
+            // picBox4
+            // 
+            this.picBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picBox4.BackColor = System.Drawing.Color.White;
+            this.picBox4.Image = global::GestorDeBiblioteca.Properties.Resources.business_report;
+            this.picBox4.Location = new System.Drawing.Point(988, 144);
+            this.picBox4.Name = "picBox4";
+            this.picBox4.Size = new System.Drawing.Size(63, 66);
+            this.picBox4.TabIndex = 39;
+            this.picBox4.TabStop = false;
+            // 
+            // picBox3
+            // 
+            this.picBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picBox3.BackColor = System.Drawing.Color.White;
+            this.picBox3.Image = global::GestorDeBiblioteca.Properties.Resources._char;
+            this.picBox3.Location = new System.Drawing.Point(984, 0);
+            this.picBox3.Name = "picBox3";
+            this.picBox3.Size = new System.Drawing.Size(67, 67);
+            this.picBox3.TabIndex = 31;
+            this.picBox3.TabStop = false;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBuscar.BorderColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtBuscar.BorderRadius = 8;
+            this.txtBuscar.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBuscar.DefaultText = "";
+            this.txtBuscar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBuscar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBuscar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBuscar.DisabledState.Parent = this.txtBuscar;
+            this.txtBuscar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBuscar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBuscar.FocusedState.Parent = this.txtBuscar;
+            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBuscar.HoverState.Parent = this.txtBuscar;
+            this.txtBuscar.IconLeft = global::GestorDeBiblioteca.Properties.Resources.icons8_search_241;
+            this.txtBuscar.Location = new System.Drawing.Point(170, 201);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.PasswordChar = '\0';
+            this.txtBuscar.PlaceholderText = "Buscar registro...";
+            this.txtBuscar.SelectedText = "";
+            this.txtBuscar.ShadowDecoration.Parent = this.txtBuscar;
+            this.txtBuscar.Size = new System.Drawing.Size(838, 38);
+            this.txtBuscar.TabIndex = 24;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
             // btnRegistrosLibros
             // 
             this.btnRegistrosLibros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -371,14 +377,15 @@
             this.btnRegistrosLibros.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrosLibros.ForeColor = System.Drawing.Color.White;
             this.btnRegistrosLibros.HoverState.Parent = this.btnRegistrosLibros;
-            this.btnRegistrosLibros.Image = global::GestorDeBiblioteca.Properties.Resources.people;
+            this.btnRegistrosLibros.Image = global::GestorDeBiblioteca.Properties.Resources.group;
+            this.btnRegistrosLibros.ImageSize = new System.Drawing.Size(30, 30);
             this.btnRegistrosLibros.Location = new System.Drawing.Point(3, 247);
             this.btnRegistrosLibros.Name = "btnRegistrosLibros";
             this.btnRegistrosLibros.ShadowDecoration.Parent = this.btnRegistrosLibros;
             this.btnRegistrosLibros.Size = new System.Drawing.Size(161, 69);
             this.btnRegistrosLibros.TabIndex = 22;
-            this.btnRegistrosLibros.Text = "Usuarios ";
-            this.toolTip1.SetToolTip(this.btnRegistrosLibros, "Mostrar registro de usaurios con mas prestamos");
+            this.btnRegistrosLibros.Text = "Lectores";
+            this.toolTip1.SetToolTip(this.btnRegistrosLibros, "Mostrar usuarios mas concurrentes");
             this.btnRegistrosLibros.Click += new System.EventHandler(this.btnRegistrosLibros_Click);
             // 
             // btnStockLibros
@@ -391,13 +398,15 @@
             this.btnStockLibros.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStockLibros.ForeColor = System.Drawing.Color.White;
             this.btnStockLibros.HoverState.Parent = this.btnStockLibros;
+            this.btnStockLibros.Image = global::GestorDeBiblioteca.Properties.Resources.category;
+            this.btnStockLibros.ImageSize = new System.Drawing.Size(30, 30);
             this.btnStockLibros.Location = new System.Drawing.Point(3, 435);
             this.btnStockLibros.Name = "btnStockLibros";
             this.btnStockLibros.ShadowDecoration.Parent = this.btnStockLibros;
             this.btnStockLibros.Size = new System.Drawing.Size(161, 69);
             this.btnStockLibros.TabIndex = 21;
-            this.btnStockLibros.Text = "Distribucion Usuarios";
-            this.toolTip1.SetToolTip(this.btnStockLibros, "Mostar Registro");
+            this.btnStockLibros.Text = "Categorías";
+            this.toolTip1.SetToolTip(this.btnStockLibros, "Mostrar distribucion de lectores");
             this.btnStockLibros.Click += new System.EventHandler(this.btnStockLibros_Click);
             // 
             // btnRegistroUsuarios
@@ -410,14 +419,15 @@
             this.btnRegistroUsuarios.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistroUsuarios.ForeColor = System.Drawing.Color.White;
             this.btnRegistroUsuarios.HoverState.Parent = this.btnRegistroUsuarios;
-            this.btnRegistroUsuarios.Image = global::GestorDeBiblioteca.Properties.Resources.open_book;
+            this.btnRegistroUsuarios.Image = global::GestorDeBiblioteca.Properties.Resources.stack_of_books;
+            this.btnRegistroUsuarios.ImageSize = new System.Drawing.Size(30, 30);
             this.btnRegistroUsuarios.Location = new System.Drawing.Point(3, 339);
             this.btnRegistroUsuarios.Name = "btnRegistroUsuarios";
             this.btnRegistroUsuarios.ShadowDecoration.Parent = this.btnRegistroUsuarios;
             this.btnRegistroUsuarios.Size = new System.Drawing.Size(161, 69);
             this.btnRegistroUsuarios.TabIndex = 20;
-            this.btnRegistroUsuarios.Text = "Libros";
-            this.toolTip1.SetToolTip(this.btnRegistroUsuarios, "Mostrar registro mas prestados");
+            this.btnRegistroUsuarios.Text = "Ejemplares";
+            this.toolTip1.SetToolTip(this.btnRegistroUsuarios, "Mostrar libros mas usados");
             this.btnRegistroUsuarios.Click += new System.EventHandler(this.btnRegistroUsuarios_Click);
             // 
             // FrmDashboard
@@ -430,8 +440,6 @@
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.FrmDashboard_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -440,10 +448,12 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartEstadisticas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgListado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox3)).EndInit();
             this.ResumeLayout(false);
 
         }

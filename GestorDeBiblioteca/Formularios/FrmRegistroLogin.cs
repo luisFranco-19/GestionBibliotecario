@@ -35,7 +35,7 @@ namespace GestorDeBiblioteca.Formularios
         }
 
 
-        #region Metodos
+        
 
 
         #region Metodos
@@ -62,10 +62,13 @@ namespace GestorDeBiblioteca.Formularios
                     }
 
                     MessageBox.Show("Usuario registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
 
+                    
                     MDImenu menuForm = new MDImenu();
+                    menuForm.FormClosed += (s, args) => this.Close();  
                     menuForm.Show();
+                    
+
                 }
             }
             catch (SqlException sqlEx)
@@ -94,7 +97,7 @@ namespace GestorDeBiblioteca.Formularios
             }
         }
 
-        #endregion
+      
 
         #region Botones de Comando
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -137,8 +140,24 @@ namespace GestorDeBiblioteca.Formularios
             }
         }
 
+
         #endregion
 
-        
+        private void txtPassword_IconRightClick(object sender, EventArgs e)
+        {
+            if (txtPassword.PasswordChar == '\0')
+            {
+                txtPassword.PasswordChar = '●';
+            }
+            else
+            {
+                txtPassword.PasswordChar = '\0';
+            }
+        }
+
+        private void iconCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtUsuario = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnRegistrase = new Guna.UI2.WinForms.Guna2Button();
             this.labelIni = new System.Windows.Forms.Label();
@@ -38,8 +37,11 @@
             this.btnCancelar = new Guna.UI2.WinForms.Guna2Button();
             this.btnAceptar = new Guna.UI2.WinForms.Guna2Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.iconCerrar = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureUser = new System.Windows.Forms.PictureBox();
+            this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.iconCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             this.SuspendLayout();
@@ -48,31 +50,6 @@
             // 
             this.guna2Elipse1.BorderRadius = 15;
             this.guna2Elipse1.TargetControl = this;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.BorderRadius = 10;
-            this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPassword.DefaultText = "";
-            this.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPassword.DisabledState.Parent = this.txtPassword;
-            this.txtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPassword.FocusedState.Parent = this.txtPassword;
-            this.txtPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPassword.HoverState.Parent = this.txtPassword;
-            this.txtPassword.Location = new System.Drawing.Point(93, 170);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '\0';
-            this.txtPassword.PlaceholderText = "Password";
-            this.txtPassword.SelectedText = "";
-            this.txtPassword.ShadowDecoration.Parent = this.txtPassword;
-            this.txtPassword.Size = new System.Drawing.Size(218, 36);
-            this.txtPassword.TabIndex = 21;
             // 
             // txtUsuario
             // 
@@ -108,11 +85,11 @@
             this.btnRegistrase.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrase.ForeColor = System.Drawing.Color.Black;
             this.btnRegistrase.HoverState.Parent = this.btnRegistrase;
-            this.btnRegistrase.Location = new System.Drawing.Point(129, 319);
+            this.btnRegistrase.Location = new System.Drawing.Point(97, 309);
             this.btnRegistrase.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegistrase.Name = "btnRegistrase";
             this.btnRegistrase.ShadowDecoration.Parent = this.btnRegistrase;
-            this.btnRegistrase.Size = new System.Drawing.Size(111, 26);
+            this.btnRegistrase.Size = new System.Drawing.Size(162, 36);
             this.btnRegistrase.TabIndex = 19;
             this.btnRegistrase.Text = "¿Registrarce?";
             this.toolTip1.SetToolTip(this.btnRegistrase, "Si no tienes cuenta registrate");
@@ -180,6 +157,17 @@
             this.toolTip1.SetToolTip(this.btnAceptar, "Registrar Sesion");
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // iconCerrar
+            // 
+            this.iconCerrar.Image = global::GestorDeBiblioteca.Properties.Resources.ss;
+            this.iconCerrar.Location = new System.Drawing.Point(344, 11);
+            this.iconCerrar.Name = "iconCerrar";
+            this.iconCerrar.Size = new System.Drawing.Size(34, 37);
+            this.iconCerrar.TabIndex = 24;
+            this.iconCerrar.TabStop = false;
+            this.toolTip1.SetToolTip(this.iconCerrar, "Cerrar app");
+            this.iconCerrar.Click += new System.EventHandler(this.iconCerrar_Click);
+            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::GestorDeBiblioteca.Properties.Resources.locked;
@@ -200,12 +188,41 @@
             this.pictureUser.TabIndex = 22;
             this.pictureUser.TabStop = false;
             // 
+            // txtPassword
+            // 
+            this.txtPassword.BorderRadius = 10;
+            this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPassword.DefaultText = "";
+            this.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPassword.DisabledState.Parent = this.txtPassword;
+            this.txtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPassword.FocusedState.Parent = this.txtPassword;
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPassword.HoverState.Parent = this.txtPassword;
+            this.txtPassword.IconRight = global::GestorDeBiblioteca.Properties.Resources.view;
+            this.txtPassword.IconRightCursor = System.Windows.Forms.Cursors.Hand;
+            this.txtPassword.Location = new System.Drawing.Point(93, 170);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '●';
+            this.txtPassword.PlaceholderText = "Password";
+            this.txtPassword.SelectedText = "";
+            this.txtPassword.ShadowDecoration.Parent = this.txtPassword;
+            this.txtPassword.Size = new System.Drawing.Size(218, 36);
+            this.txtPassword.TabIndex = 21;
+            this.txtPassword.IconRightClick += new System.EventHandler(this.txtPassword_IconRightClick);
+            // 
             // FrmLogin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(390, 356);
+            this.Controls.Add(this.iconCerrar);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureUser);
             this.Controls.Add(this.txtPassword);
@@ -218,9 +235,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmLogin";
+            this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLogin";
             this.Shown += new System.EventHandler(this.FrmLogin_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.iconCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
             this.ResumeLayout(false);
@@ -240,5 +259,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureUser;
+        private System.Windows.Forms.PictureBox iconCerrar;
     }
 }

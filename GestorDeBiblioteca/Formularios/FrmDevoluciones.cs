@@ -1,4 +1,5 @@
 ﻿using app.Banco.Utilidades;
+using GestorDeBiblioteca.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,7 @@ namespace GestorDeBiblioteca.Formularios
             InitializeComponent();
             this.KeyPress += ValidacionEntrada.PasarFocus;
             this.KeyDown += ValidacionEntrada.ControlEsc;
-            txtBuscar.Focus();
+            
         }
 
         public FrmDevoluciones(int idPrestamo, string carnet, string nombre, string telefono, string cargo, int fechaRegistro)
@@ -33,6 +34,7 @@ namespace GestorDeBiblioteca.Formularios
         private void FrmDev_Load(object sender, EventArgs e)
         {
             CargarPrestamos();
+            txtBuscar.Focus();
         }
 
         #region Métodos de carga y DataGridView
@@ -343,11 +345,24 @@ namespace GestorDeBiblioteca.Formularios
         private void iconCerrar_Click_1(object sender, EventArgs e)
         {
             Close();
+
+            
+
         }
+
+
 
         #endregion
 
+        private void iconReporte_Click(object sender, EventArgs e)
+        {
+            //FrmReportesDevoluciones frm = new FrmReportesDevoluciones();
+            //frm.ShowDialog();
 
-        
+            using (var formularioReporte = new FrmReportesDevoluciones())
+            {
+                MostrarModal.MostraConCap(this, formularioReporte);
+            }
+        }
     }
 }

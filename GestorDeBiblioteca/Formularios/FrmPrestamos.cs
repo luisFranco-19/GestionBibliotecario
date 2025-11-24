@@ -33,6 +33,10 @@ namespace GestorDeBiblioteca
             //FechaPrestamo.Text = DateTime.Now.ToShortDateString();
             InicializarPrestamoTable();
             MostrarSoloBuscadorUsuario();
+            BotonesLayout.Visible = true;
+            btnAgregar.Enabled = false;
+
+            dtpFechaDevolucion.Value = DateTime.Today;
 
 
         }
@@ -49,7 +53,7 @@ namespace GestorDeBiblioteca
             lblAutorLibro.Visible = false;
             lblEstadoLibro.Visible = false;
 
-            BotonesLayout.Visible = false;
+            
             Carnet.Visible = true;
             Nombre.Visible = true;
             panelregistroLibros.Visible = true;
@@ -89,7 +93,7 @@ namespace GestorDeBiblioteca
             Titulo.Visible = true;
             Autor.Visible = true;
             Estado.Visible = true;
-            BotonesLayout.Visible = true;
+            
         }
         #endregion
 
@@ -284,7 +288,7 @@ namespace GestorDeBiblioteca
                                 lblEstadoLibro.Text = estado;
 
                                 //  VALIDAR FECHA DE DEVOLUCIÓN ANTES DE AGREGAR EL LIBRO
-                                if (dtpFechaDevolucion.Value.Date <= DateTime.Today.Date)
+                                if (dtpFechaDevolucion.Value.Date < DateTime.Today.Date)
                                 {
                                     MessageBox.Show(
                                         "Debe establecer una fecha de devolución válida antes de agregar el libro.",
@@ -313,6 +317,7 @@ namespace GestorDeBiblioteca
                                     {
                                         MessageBox.Show("El usuario ya tiene este libro.", "Aviso",
                                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        txtBuscarLibro.Clear();
                                         return;
                                     }
 
@@ -347,6 +352,7 @@ namespace GestorDeBiblioteca
             if (e.KeyCode == Keys.Enter)
             {
                 BuscarLibro();
+                btnAgregar.Enabled = true;
                 e.SuppressKeyPress = true;
             }
         }
@@ -400,13 +406,13 @@ namespace GestorDeBiblioteca
                 return false;
             }
 
-            // Validar fecha de devolución 
             if (dtpFechaDevolucion.Checked)
             {
                 DateTime fechaDevolucion = dtpFechaDevolucion.Value.Date;
-                if (fechaDevolucion <= DateTime.Now.Date)
+                if (fechaDevolucion < DateTime.Today.Date)
                 {
-                    MessageBox.Show("La fecha de devolución debe ser mayor a la fecha actual.", "Fecha inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("La fecha de devolución no puede ser anterior a hoy.", "Fecha inválida",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
             }
@@ -422,9 +428,10 @@ namespace GestorDeBiblioteca
             DateTime? fechaDevolucion = dtpFechaDevolucion.Value.Date;
 
             // Validar que la fecha de devolución sea mayor 
-            if (fechaDevolucion.HasValue && fechaDevolucion <= DateTime.Now.Date)
+            if (fechaDevolucion.HasValue && fechaDevolucion < DateTime.Now.Date)
             {
-                MessageBox.Show("La fecha de devolución debe ser mayor a la fecha actual.", "Fecha inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("La fecha de devolución debe ser mayor a la fecha actual.", "Fecha inválida",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             try
@@ -576,6 +583,13 @@ namespace GestorDeBiblioteca
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             QuitarLibroSeleccionado();
+            txtBuscarUsuario.Clear();
+            txtBuscarLibro.Clear();
+            txtBuscarUsuario.Focus();
+            MostrarBuscadorLibros();
+            MostrarSoloBuscadorUsuario();
+
+            btnAgregar.Enabled = false;
 
         }
 

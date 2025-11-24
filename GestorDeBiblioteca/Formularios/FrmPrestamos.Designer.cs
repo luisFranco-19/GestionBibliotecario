@@ -29,15 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.dtpFechaDevolucion = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.dgvPrestamos = new Guna.UI2.WinForms.Guna2DataGridView();
             this.BotonesLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAgregar = new Guna.UI2.WinForms.Guna2Button();
-            this.btnCancelar = new Guna.UI2.WinForms.Guna2Button();
             this.panelregistroLibros = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.Titulo = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -47,7 +46,6 @@
             this.lblTituloLibro = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblEstadoLibro = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtBuscarLibro = new Guna.UI2.WinForms.Guna2TextBox();
             this.panelregistroUsuarios = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Nombre = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -57,8 +55,10 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtpFechaDevolucion = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnAgregar = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCancelar = new Guna.UI2.WinForms.Guna2Button();
+            this.txtBuscarLibro = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtBuscarUsuario = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrestamos)).BeginInit();
@@ -96,19 +96,39 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(599, 117);
+            this.label2.Location = new System.Drawing.Point(615, 126);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(385, 24);
             this.label2.TabIndex = 68;
             this.label2.Text = "Historial de Prestamos del Usuario";
+            // 
+            // dtpFechaDevolucion
+            // 
+            this.dtpFechaDevolucion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpFechaDevolucion.BackColor = System.Drawing.Color.White;
+            this.dtpFechaDevolucion.BorderRadius = 16;
+            this.dtpFechaDevolucion.CheckedState.Parent = this.dtpFechaDevolucion;
+            this.dtpFechaDevolucion.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(128)))));
+            this.dtpFechaDevolucion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaDevolucion.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpFechaDevolucion.HoverState.Parent = this.dtpFechaDevolucion;
+            this.dtpFechaDevolucion.Location = new System.Drawing.Point(780, 54);
+            this.dtpFechaDevolucion.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpFechaDevolucion.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpFechaDevolucion.Name = "dtpFechaDevolucion";
+            this.dtpFechaDevolucion.ShadowDecoration.Parent = this.dtpFechaDevolucion;
+            this.dtpFechaDevolucion.Size = new System.Drawing.Size(329, 36);
+            this.dtpFechaDevolucion.TabIndex = 66;
+            this.toolTip1.SetToolTip(this.dtpFechaDevolucion, "Fecha de devolucion del prestamo");
+            this.dtpFechaDevolucion.Value = new System.DateTime(2025, 10, 25, 17, 16, 27, 136);
             // 
             // dgvPrestamos
             // 
             this.dgvPrestamos.AllowUserToAddRows = false;
             this.dgvPrestamos.AllowUserToDeleteRows = false;
             this.dgvPrestamos.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvPrestamos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvPrestamos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPrestamos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPrestamos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -116,23 +136,23 @@
             this.dgvPrestamos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPrestamos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvPrestamos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPrestamos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPrestamos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPrestamos.ColumnHeadersHeight = 4;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPrestamos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPrestamos.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvPrestamos.EnableHeadersVisualStyles = false;
             this.dgvPrestamos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvPrestamos.Location = new System.Drawing.Point(523, 153);
@@ -171,56 +191,14 @@
             this.BotonesLayout.ColumnCount = 2;
             this.BotonesLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.BotonesLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.BotonesLayout.Controls.Add(this.btnAgregar, 0, 0);
             this.BotonesLayout.Controls.Add(this.btnCancelar, 1, 0);
-            this.BotonesLayout.Location = new System.Drawing.Point(17, 580);
+            this.BotonesLayout.Controls.Add(this.btnAgregar, 0, 0);
+            this.BotonesLayout.Location = new System.Drawing.Point(20, 542);
             this.BotonesLayout.Name = "BotonesLayout";
             this.BotonesLayout.RowCount = 1;
             this.BotonesLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.BotonesLayout.Size = new System.Drawing.Size(385, 40);
+            this.BotonesLayout.Size = new System.Drawing.Size(385, 54);
             this.BotonesLayout.TabIndex = 65;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.White;
-            this.btnAgregar.BorderRadius = 6;
-            this.btnAgregar.CheckedState.Parent = this.btnAgregar;
-            this.btnAgregar.CustomImages.Parent = this.btnAgregar;
-            this.btnAgregar.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.HoverState.Parent = this.btnAgregar;
-            this.btnAgregar.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_agregar_1001;
-            this.btnAgregar.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnAgregar.Location = new System.Drawing.Point(3, 3);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.ShadowDecoration.Parent = this.btnAgregar;
-            this.btnAgregar.Size = new System.Drawing.Size(186, 33);
-            this.btnAgregar.TabIndex = 63;
-            this.btnAgregar.Text = "Agregar";
-            this.toolTip1.SetToolTip(this.btnAgregar, "Confirmar Prestamo");
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.White;
-            this.btnCancelar.BorderRadius = 6;
-            this.btnCancelar.CheckedState.Parent = this.btnCancelar;
-            this.btnCancelar.CustomImages.Parent = this.btnCancelar;
-            this.btnCancelar.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
-            this.btnCancelar.HoverState.Parent = this.btnCancelar;
-            this.btnCancelar.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_cancelar_100__2_;
-            this.btnCancelar.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnCancelar.Location = new System.Drawing.Point(195, 3);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.ShadowDecoration.Parent = this.btnCancelar;
-            this.btnCancelar.Size = new System.Drawing.Size(186, 33);
-            this.btnCancelar.TabIndex = 64;
-            this.btnCancelar.Text = "Cancelar";
-            this.toolTip1.SetToolTip(this.btnCancelar, "Cancelar Prestamo");
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // panelregistroLibros
             // 
@@ -231,7 +209,7 @@
             this.panelregistroLibros.Controls.Add(this.tableLayoutPanel4);
             this.panelregistroLibros.CustomBorderColor = System.Drawing.Color.White;
             this.panelregistroLibros.CustomBorderThickness = new System.Windows.Forms.Padding(1);
-            this.panelregistroLibros.Location = new System.Drawing.Point(16, 331);
+            this.panelregistroLibros.Location = new System.Drawing.Point(16, 290);
             this.panelregistroLibros.Name = "panelregistroLibros";
             this.panelregistroLibros.ShadowDecoration.Parent = this.panelregistroLibros;
             this.panelregistroLibros.Size = new System.Drawing.Size(431, 246);
@@ -333,39 +311,10 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.00001F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(431, 58);
             this.tableLayoutPanel4.TabIndex = 61;
             this.tableLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel4_Paint);
-            // 
-            // txtBuscarLibro
-            // 
-            this.txtBuscarLibro.BorderColor = System.Drawing.Color.Silver;
-            this.txtBuscarLibro.BorderRadius = 8;
-            this.txtBuscarLibro.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBuscarLibro.DefaultText = "";
-            this.txtBuscarLibro.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBuscarLibro.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBuscarLibro.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBuscarLibro.DisabledState.Parent = this.txtBuscarLibro;
-            this.txtBuscarLibro.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBuscarLibro.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBuscarLibro.FocusedState.Parent = this.txtBuscarLibro;
-            this.txtBuscarLibro.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarLibro.ForeColor = System.Drawing.Color.Black;
-            this.txtBuscarLibro.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBuscarLibro.HoverState.Parent = this.txtBuscarLibro;
-            this.txtBuscarLibro.IconLeft = global::GestorDeBiblioteca.Properties.Resources.icons8_search_24;
-            this.txtBuscarLibro.Location = new System.Drawing.Point(4, 4);
-            this.txtBuscarLibro.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBuscarLibro.Name = "txtBuscarLibro";
-            this.txtBuscarLibro.PasswordChar = '\0';
-            this.txtBuscarLibro.PlaceholderText = "Buscar libro...";
-            this.txtBuscarLibro.SelectedText = "";
-            this.txtBuscarLibro.ShadowDecoration.Parent = this.txtBuscarLibro;
-            this.txtBuscarLibro.Size = new System.Drawing.Size(406, 41);
-            this.txtBuscarLibro.TabIndex = 62;
-            this.txtBuscarLibro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscarLibro_KeyDown);
             // 
             // panelregistroUsuarios
             // 
@@ -377,7 +326,7 @@
             this.panelregistroUsuarios.Controls.Add(this.tableLayoutPanel3);
             this.panelregistroUsuarios.CustomBorderColor = System.Drawing.SystemColors.InactiveCaption;
             this.panelregistroUsuarios.CustomBorderThickness = new System.Windows.Forms.Padding(1);
-            this.panelregistroUsuarios.Location = new System.Drawing.Point(16, 95);
+            this.panelregistroUsuarios.Location = new System.Drawing.Point(16, 64);
             this.panelregistroUsuarios.Name = "panelregistroUsuarios";
             this.panelregistroUsuarios.ShadowDecoration.Parent = this.panelregistroUsuarios;
             this.panelregistroUsuarios.Size = new System.Drawing.Size(431, 211);
@@ -481,25 +430,78 @@
             this.label1.Text = "Gestión de Prestamos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // dtpFechaDevolucion
+            // btnAgregar
             // 
-            this.dtpFechaDevolucion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpFechaDevolucion.BackColor = System.Drawing.Color.White;
-            this.dtpFechaDevolucion.BorderRadius = 16;
-            this.dtpFechaDevolucion.CheckedState.Parent = this.dtpFechaDevolucion;
-            this.dtpFechaDevolucion.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(128)))));
-            this.dtpFechaDevolucion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaDevolucion.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpFechaDevolucion.HoverState.Parent = this.dtpFechaDevolucion;
-            this.dtpFechaDevolucion.Location = new System.Drawing.Point(827, 54);
-            this.dtpFechaDevolucion.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpFechaDevolucion.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpFechaDevolucion.Name = "dtpFechaDevolucion";
-            this.dtpFechaDevolucion.ShadowDecoration.Parent = this.dtpFechaDevolucion;
-            this.dtpFechaDevolucion.Size = new System.Drawing.Size(282, 36);
-            this.dtpFechaDevolucion.TabIndex = 66;
-            this.toolTip1.SetToolTip(this.dtpFechaDevolucion, "Fecha de devolucion del prestamo");
-            this.dtpFechaDevolucion.Value = new System.DateTime(2025, 10, 25, 17, 16, 27, 136);
+            this.btnAgregar.BackColor = System.Drawing.Color.White;
+            this.btnAgregar.BorderRadius = 6;
+            this.btnAgregar.CheckedState.Parent = this.btnAgregar;
+            this.btnAgregar.CustomImages.Parent = this.btnAgregar;
+            this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAgregar.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregar.HoverState.Parent = this.btnAgregar;
+            this.btnAgregar.Image = global::GestorDeBiblioteca.Properties.Resources.eed2;
+            this.btnAgregar.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnAgregar.Location = new System.Drawing.Point(3, 3);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.ShadowDecoration.Parent = this.btnAgregar;
+            this.btnAgregar.Size = new System.Drawing.Size(186, 48);
+            this.btnAgregar.TabIndex = 63;
+            this.btnAgregar.Text = "Agregar";
+            this.toolTip1.SetToolTip(this.btnAgregar, "Confirmar Prestamo");
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
+            this.btnCancelar.BorderRadius = 6;
+            this.btnCancelar.CheckedState.Parent = this.btnCancelar;
+            this.btnCancelar.CustomImages.Parent = this.btnCancelar;
+            this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCancelar.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.HoverState.Parent = this.btnCancelar;
+            this.btnCancelar.Image = global::GestorDeBiblioteca.Properties.Resources.sasad3;
+            this.btnCancelar.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnCancelar.Location = new System.Drawing.Point(195, 3);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.ShadowDecoration.Parent = this.btnCancelar;
+            this.btnCancelar.Size = new System.Drawing.Size(187, 48);
+            this.btnCancelar.TabIndex = 64;
+            this.btnCancelar.Text = "Cancelar";
+            this.toolTip1.SetToolTip(this.btnCancelar, "Cancelar Prestamo");
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // txtBuscarLibro
+            // 
+            this.txtBuscarLibro.BorderColor = System.Drawing.Color.Silver;
+            this.txtBuscarLibro.BorderRadius = 8;
+            this.txtBuscarLibro.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBuscarLibro.DefaultText = "";
+            this.txtBuscarLibro.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBuscarLibro.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBuscarLibro.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBuscarLibro.DisabledState.Parent = this.txtBuscarLibro;
+            this.txtBuscarLibro.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBuscarLibro.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBuscarLibro.FocusedState.Parent = this.txtBuscarLibro;
+            this.txtBuscarLibro.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarLibro.ForeColor = System.Drawing.Color.Black;
+            this.txtBuscarLibro.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBuscarLibro.HoverState.Parent = this.txtBuscarLibro;
+            this.txtBuscarLibro.IconLeft = global::GestorDeBiblioteca.Properties.Resources.icons8_search_24;
+            this.txtBuscarLibro.Location = new System.Drawing.Point(4, 4);
+            this.txtBuscarLibro.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscarLibro.Name = "txtBuscarLibro";
+            this.txtBuscarLibro.PasswordChar = '\0';
+            this.txtBuscarLibro.PlaceholderText = "Buscar libro...";
+            this.txtBuscarLibro.SelectedText = "";
+            this.txtBuscarLibro.ShadowDecoration.Parent = this.txtBuscarLibro;
+            this.txtBuscarLibro.Size = new System.Drawing.Size(406, 41);
+            this.txtBuscarLibro.TabIndex = 62;
+            this.txtBuscarLibro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscarLibro_KeyDown);
             // 
             // txtBuscarUsuario
             // 

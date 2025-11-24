@@ -20,7 +20,7 @@ FROM
     INNER JOIN Prestamos p ON dp.idPrestamo = p.idPrestamo
     INNER JOIN Usuarios u ON p.idUsuario = u.idUsuario
     INNER JOIN Libros l ON dp.idLibro = l.idLibro;
-GO;
+GO
 
 
 
@@ -30,10 +30,23 @@ ORDER BY
     CASE Estado 
         WHEN 'Prestado' THEN 1
         WHEN 'Devuelto' THEN 2
-        ELSE 3
+        ELSE 2
     END,
     FechaPrestamo DESC;
-GO;
+GO
+
+SELECT 
+    Carnet,
+    NombreUsuario,
+    Cargo,
+    TituloLibro,
+    Cantidad,
+    FechaPrestamo,
+    FechaDevolucion,
+    Estado
+FROM vw_detallePrestamo
+WHERE Estado = 'Prestado';
+GO
 -- Mostrar el historial de libros no devueltos por el usuario o que estan 
 -- en prestamo 
 
@@ -370,10 +383,14 @@ BEGIN
         BEGIN TRANSACTION;
 
         -- Verificar préstamos activos
-        IF EXISTS (SELECT 1 FROM DetallePrestamos WHERE idLibro = @IdLibro AND fechaDevolucion IS NULL)
-        BEGIN
+        IF EXISTS (
+            SELECT 1 
+            FROM DetallePrestamos 
+            WHERE idLibro = @IdLibro 
+              AND Estado = 'Prestado')
+           BEGIN
             RAISERROR('No se puede eliminar este libro porque tiene préstamos activos.', 16, 1);
-            ROLLBACK TRANSACTION;
+            --ROLLBACK TRANSACTION;
             RETURN;
         END;
 
@@ -400,7 +417,11 @@ BEGIN
 END;
 GO
 
+SELECT idPrestamo, idLibro, fechaDevolucion
+FROM DetallePrestamos
+WHERE idLibro = 1
 
+SELECT * FROM historialErrores
 /*
 Procedimiento almacenado El login
 */
@@ -461,10 +482,18 @@ BEGIN
           AND password = @Password
           AND estado = 1;
 
-        SELECT @IdUsuario AS IdUsuarioLogin;
+        -- SOLO devolver resultado si se encontró un usuario válido
+        IF @IdUsuario > 0
+        BEGIN
+            SELECT @IdUsuario AS IdUsuarioLogin;
+        END
+        ELSE
+        BEGIN
+            -- No devolver ningún registro cuando el login falla
+            SELECT CAST(NULL AS INT) AS IdUsuarioLogin WHERE 1 = 0;
+        END
     END TRY
     BEGIN CATCH
-        -- Guardar error en historial
         INSERT INTO historialErrores(descripcion)
         VALUES (ERROR_MESSAGE());
 
@@ -473,3 +502,40 @@ BEGIN
 END;
 GO
 
+CREATE OR ALTER PROC sp_ReporteStockLibros AS
+SELECT 
+  
+    l.titulo AS Titulo, 
+    a.nombre AS Autor,
+    a.nacionalidad AS NacionalidadAutor, 
+    l.estado AS EstadoLibro,
+    l.anioPublicacion AS FechaPublicacion, 
+    l.cantidad AS Cantidad
+FROM 
+    Libros l 
+INNER JOIN Autores a ON l.idAutor = a.idAutor;
+
+GO
+
+
+CREATE OR ALTER PROC sp_ReportePrestamo
+AS
+SELECT 
+ 
+    u.carnet AS Carnet,
+    u.nombre + ' ' + u.apellido AS NombreUsuario,
+    u.cargo AS Cargo,
+    l.titulo AS TituloLibro,
+    dp.cantidad AS Cantidad,
+    CAST(p.fechaPrestamo AS DATE) AS FechaPrestamo,
+    CAST(dp.fechaDevolucion AS DATE) AS FechaDevolucion,
+    dp.estado AS Estado
+FROM 
+    DetallePrestamos dp
+    INNER JOIN Prestamos p ON dp.idPrestamo = p.idPrestamo
+    INNER JOIN Usuarios u ON p.idUsuario = u.idUsuario
+    INNER JOIN Libros l ON dp.idLibro = l.idLibro
+    WHERE dp.estado = 'Prestado'
+GO
+
+EXEC sp_ReportePrestamo

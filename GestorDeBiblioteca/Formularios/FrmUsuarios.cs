@@ -54,6 +54,7 @@ namespace GestorDeBiblioteca
             cbmCargos.SelectedIndex = 0;
 
             listarRegistro();
+            btnEliminar.Enabled = false;
             //Focus inicial en carnet
             this.ActiveControl = txtCarnet;
             txtCarnet.Focus();
@@ -81,8 +82,7 @@ namespace GestorDeBiblioteca
                     }
                 }
             }
-;
-
+           
             return esValido;
             //Si algún campo está vacio, devuelve false.
             //Si todos están llenos, devuelve true
@@ -237,7 +237,7 @@ namespace GestorDeBiblioteca
                 using (SqlConnection conexion = new SqlConnection(connetionString))//Crea una conexion SQL que se
                                                                                    //cierra automaticamente al terminar
                 {
-                    string consultaSql = "SELECT * FROM Usuarios";
+                    string consultaSql = "SELECT * FROM Usuarios ORDER BY IdUsuario DESC";
                     SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion); //ejecuta la consulta y se
                                                                                         //llena el DataTable con los resultados.
                     DataTable dt = new DataTable();//contiene todos los
@@ -336,7 +336,6 @@ namespace GestorDeBiblioteca
         #region Botones de Comando
         private void btnAceptar_Click_1(object sender, EventArgs e)
         {
-            //borra todos los mensajes de error previos
             errorIcono.Clear();
             bool datosValidos = true;
 
@@ -375,6 +374,9 @@ namespace GestorDeBiblioteca
 
                     Aceptar(carnet, nombre, apellidos, telefono, email, cargo);// Llamamos al metodo aceptar
                     limpiarControles();//Limpiamos las cajas de texto
+                    txtCarnet.Focus();
+                    btnEliminar.Enabled = false;
+
                 }
                 else
                 {
@@ -445,6 +447,10 @@ namespace GestorDeBiblioteca
                     }
                     //Escondemos el Boton Acepatar Ala ahora de Actualizar un registro
                     btnAceptar.Visible = true;
+                    txtCarnet.Focus();
+                    btnEliminar.Enabled = false;
+
+
 
                 }
                 else
@@ -474,6 +480,9 @@ namespace GestorDeBiblioteca
                         Eliminar(idUsuario);
                         limpiarControles();
                         btnAceptar.Visible = true;
+                        txtCarnet.Focus();
+                        btnEliminar.Enabled = false;
+
                     }
 
                 }
@@ -492,6 +501,11 @@ namespace GestorDeBiblioteca
         private void btnCancelar_Click_1(object sender, EventArgs e)
         {
             limpiarControles();
+            btnAceptar.Visible = true;
+            txtCarnet.Focus();
+            btnEliminar.Enabled = false;
+            btnAceptar.Enabled = true;
+
         }
 
         #endregion
@@ -527,7 +541,8 @@ namespace GestorDeBiblioteca
                     cbmCargos.Text = dgvListado.CurrentRow.Cells[6].Value?.ToString() ?? "";
 
                     //Asi, las cajas de texto del formulario se rellenan automaticamente con los datos de la fila seleccionada.
-                    btnAceptar.Visible = false;
+                    btnEliminar.Enabled = true;
+                    btnAceptar.Enabled = false;
                 }
 
             }

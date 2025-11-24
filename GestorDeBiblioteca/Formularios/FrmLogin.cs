@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace GestorDeBiblioteca.Formularios
 {
     public partial class FrmLogin : Form
@@ -58,13 +59,13 @@ namespace GestorDeBiblioteca.Formularios
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@NombreUsuario", usuario);
-                        cmd.Parameters.AddWithValue("@Password", password); // En texto plano
+                        cmd.Parameters.AddWithValue("@Password", password); 
 
                         SqlDataReader reader = cmd.ExecuteReader();
                         if (reader.Read())
                         {
                             idUsuarioLogin = Convert.ToInt32(reader["IdUsuarioLogin"]);
-                            RegistrarInicioSesion(idUsuarioLogin, idUsuarioLogin > 0);
+                            RegistrarInicioSesion(idUsuarioLogin, true);
                         }
                     }
                 }
@@ -154,8 +155,8 @@ namespace GestorDeBiblioteca.Formularios
                
                 FrmRegistroLogin registroLoginForm = new FrmRegistroLogin();
                 registroLoginForm.ShowDialog();
-
-                this.Close();
+                this.Hide();
+                //this.Close();
             }
             catch (Exception ex)
             {
@@ -166,5 +167,21 @@ namespace GestorDeBiblioteca.Formularios
 
         #endregion
 
+        private void txtPassword_IconRightClick(object sender, EventArgs e)
+        {
+            if (txtPassword.PasswordChar == '\0')
+            {
+                txtPassword.PasswordChar = '●';
+            }
+            else
+            {
+                txtPassword.PasswordChar = '\0';
+            }
+        }
+
+        private void iconCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

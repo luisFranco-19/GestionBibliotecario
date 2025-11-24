@@ -57,9 +57,14 @@ namespace GestorDeBiblioteca.Formularios
         {
             chartEstadisticas.Series.Clear();
             chartEstadisticas.Titles.Clear();
+         
             chartEstadisticas.Legends[0].Enabled = true;
             chartEstadisticas.Legends[0].Font = new Font("Segoe UI", 10, FontStyle.Regular);
             chartEstadisticas.Legends[0].Docking = Docking.Right;
+            chartEstadisticas.Legends[0].ForeColor = Color.FromArgb(54, 69, 79); // COLOR PERSONALIZADO
+            chartEstadisticas.Legends[0].TitleForeColor = Color.FromArgb(54, 69, 79); //  COLOR DEL TÍTULO
+
+            chartEstadisticas.Legends[0].BackColor = Color.White;
 
             if (dt == null || dt.Rows.Count == 0)
             {
@@ -77,6 +82,7 @@ namespace GestorDeBiblioteca.Formularios
 
             Series serie = new Series
             {
+                Name = "Datos",
                 Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 IsValueShownAsLabel = true,
                 LabelForeColor = Color.Black,
@@ -107,6 +113,8 @@ namespace GestorDeBiblioteca.Formularios
                     serie.ChartType = SeriesChartType.Pie;
                     foreach (DataRow r in dt.Rows)
                         serie.Points.AddXY(r["Usuario"].ToString(), Convert.ToInt32(r["TotalPrestamos"]));
+                    txtBuscar.Visible = true;
+                    txtBuscar.Focus();
                     break;
 
                 case "vw_Top10LibrosPopulares":
@@ -114,6 +122,8 @@ namespace GestorDeBiblioteca.Formularios
                     serie.ChartType = SeriesChartType.Pie;
                     foreach (DataRow r in dt.Rows)
                         serie.Points.AddXY(r["Libro"].ToString(), Convert.ToInt32(r["TotalPrestamos"]));
+                    txtBuscar.Visible = true;
+                    txtBuscar.Focus();
                     break;
 
                 case "vw_DistribucionUsuarios":
@@ -121,6 +131,7 @@ namespace GestorDeBiblioteca.Formularios
                     serie.ChartType = SeriesChartType.Bar;
                     foreach (DataRow r in dt.Rows)
                         serie.Points.AddXY(r["TipoUsuario"].ToString(), Convert.ToInt32(r["Total"]));
+                    txtBuscar.Visible = false;
                     break;
             }
 
@@ -349,7 +360,8 @@ namespace GestorDeBiblioteca.Formularios
 
         private void FrmDashboard_Load(object sender, EventArgs e)
         {
-            btnRegistroUsuarios_Click(sender, e);
+            btnRegistrosLibros_Click(sender, e);
+            txtBuscar.Focus();
         }
     }
 }

@@ -7,11 +7,27 @@
     <ProjectGuid>{61C885B0-A4DF-4003-853B-ED5EB6DE36AB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>GestorDeBiblioteca</RootNamespace>
-    <AssemblyName>GestorDeBiblioteca</AssemblyName>
+    <AssemblyName>Gestor Bibliotecario</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\LuisFranco\Documents\ExamenFinal\BibliotecaApp\Instalado\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +47,24 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>books_12939107.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>CABA03E79438685B5618D51A15284E5D6F490009</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>GestorDeBiblioteca_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
@@ -155,8 +189,35 @@
     <Compile Include="Formularios\MDImenu.Designer.cs">
       <DependentUpon>MDImenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrigenDatos\DtsConexion.cs">
+      <DependentUpon>DtsConexion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OrigenDatos\DtsConexion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DtsConexion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OrigenDatos\DtsConexion1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DtsConexion1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OrigenDatos\Servicios.cs" />
+    <Compile Include="OrigenDatos\Servicios1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\FrmReportesDevoluciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FrmReportesDevoluciones.Designer.cs">
+      <DependentUpon>FrmReportesDevoluciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FrmReportesLibros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FrmReportesLibros.Designer.cs">
+      <DependentUpon>FrmReportesLibros.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="utilidades\ConexionDB.cs" />
     <Compile Include="utilidades\MostrarModal.cs" />
@@ -192,7 +253,6 @@
     <EmbeddedResource Include="Formularios\MDImenu.resx">
       <DependentUpon>MDImenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -203,6 +263,38 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\FrmReportesDevoluciones.resx">
+      <DependentUpon>FrmReportesDevoluciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FrmReportesLibros.resx">
+      <DependentUpon>FrmReportesLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptListadoDevoluciones.rdlc" />
+    <EmbeddedResource Include="Reportes\RptListadoLibros.rdlc" />
+    <None Include="app.manifest" />
+    <None Include="GestorDeBiblioteca_TemporaryKey.pfx" />
+    <None Include="OrigenDatos\DtsConexion.xsc">
+      <DependentUpon>DtsConexion.xsd</DependentUpon>
+    </None>
+    <None Include="OrigenDatos\DtsConexion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DtsConexion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="OrigenDatos\DtsConexion.xss">
+      <DependentUpon>DtsConexion.xsd</DependentUpon>
+    </None>
+    <None Include="OrigenDatos\DtsConexion1.xsc">
+      <DependentUpon>DtsConexion1.xsd</DependentUpon>
+    </None>
+    <None Include="OrigenDatos\DtsConexion1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DtsConexion1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="OrigenDatos\DtsConexion1.xss">
+      <DependentUpon>DtsConexion1.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -411,6 +503,39 @@
     <None Include="Resources\icon_error_50.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\open-book1.png" />
+    <None Include="Resources\reportesPdf.png" />
+    <None Include="Resources\reportesPdf1.png" />
+    <None Include="Resources\file.png" />
+    <None Include="Resources\file1.png" />
+    <None Include="Resources\view.png" />
+    <None Include="Resources\return.png" />
+    <None Include="Resources\return1.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\close1.png" />
+    <None Include="Resources\eed.png" />
+    <None Include="Resources\sasad.png" />
+    <None Include="Resources\update.png" />
+    <None Include="Resources\folder1.png" />
+    <None Include="Resources\eed1.png" />
+    <None Include="Resources\update1.png" />
+    <None Include="Resources\sasad1.png" />
+    <None Include="Resources\folder2.png" />
+    <None Include="Resources\sasad2.png" />
+    <None Include="Resources\icons8-search-241.png" />
+    <None Include="Resources\book.png" />
+    <None Include="Resources\stack-of-books.png" />
+    <None Include="Resources\category.png" />
+    <None Include="Resources\group.png" />
+    <None Include="Resources\eed2.png" />
+    <None Include="Resources\sasad3.png" />
+    <Content Include="books_12939107.ico" />
+    <Content Include="library_1837945.ico" />
+    <None Include="Resources\close2.png" />
+    <None Include="Resources\emergency-exit.png" />
+    <None Include="Resources\ss.png" />
+    <None Include="Resources\carpeta1.png" />
+    <None Include="Resources\menu1.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -424,6 +549,18 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

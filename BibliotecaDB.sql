@@ -111,7 +111,7 @@ CREATE TABLE historialErrores(
     fechaRegistro DATETIME DEFAULT GETDATE() NOT NULL
 
     CONSTRAINT [PK_historialErrores_idError] PRIMARY KEY(idError)
-);
+)
 GO
 
  SELECT * FROM UsuarioLogin
@@ -119,7 +119,7 @@ GO
 
 -- eliminamos los registros en InicioSesion asociados al usuario
 DELETE FROM InicioSesion
-WHERE idUsuarioLogin = 1;
+WHERE idUsuarioLogin = 3;
 
 -- eliminamos el usuario de UsuarioLogin
 DELETE FROM UsuarioLogin

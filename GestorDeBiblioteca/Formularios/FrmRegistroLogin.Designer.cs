@@ -37,11 +37,13 @@
             this.btnCancelar = new Guna.UI2.WinForms.Guna2Button();
             this.btnAceptar = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.iconCerrar = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureUser = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.iconCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
@@ -106,11 +108,11 @@
             this.btnIniciarSesion.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciarSesion.ForeColor = System.Drawing.Color.Black;
             this.btnIniciarSesion.HoverState.Parent = this.btnIniciarSesion;
-            this.btnIniciarSesion.Location = new System.Drawing.Point(126, 319);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(109, 308);
             this.btnIniciarSesion.Margin = new System.Windows.Forms.Padding(2);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
             this.btnIniciarSesion.ShadowDecoration.Parent = this.btnIniciarSesion;
-            this.btnIniciarSesion.Size = new System.Drawing.Size(111, 26);
+            this.btnIniciarSesion.Size = new System.Drawing.Size(147, 37);
             this.btnIniciarSesion.TabIndex = 19;
             this.btnIniciarSesion.Text = "Iniciar Secion";
             this.toolTip1.SetToolTip(this.btnIniciarSesion, "Si tienes una cuenta inicia sesion");
@@ -183,6 +185,27 @@
             this.guna2Elipse1.BorderRadius = 15;
             this.guna2Elipse1.TargetControl = this;
             // 
+            // iconCerrar
+            // 
+            this.iconCerrar.Image = global::GestorDeBiblioteca.Properties.Resources.ss;
+            this.iconCerrar.Location = new System.Drawing.Point(344, 9);
+            this.iconCerrar.Name = "iconCerrar";
+            this.iconCerrar.Size = new System.Drawing.Size(34, 37);
+            this.iconCerrar.TabIndex = 25;
+            this.iconCerrar.TabStop = false;
+            this.toolTip1.SetToolTip(this.iconCerrar, "Cerrar app");
+            this.iconCerrar.Click += new System.EventHandler(this.iconCerrar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GestorDeBiblioteca.Properties.Resources.gmail1;
+            this.pictureBox1.Location = new System.Drawing.Point(39, 150);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 36);
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
+            // 
             // txtPassword
             // 
             this.txtPassword.BorderRadius = 10;
@@ -198,25 +221,18 @@
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.HoverState.Parent = this.txtPassword;
+            this.txtPassword.IconRight = global::GestorDeBiblioteca.Properties.Resources.view;
+            this.txtPassword.IconRightCursor = System.Windows.Forms.Cursors.Hand;
             this.txtPassword.Location = new System.Drawing.Point(84, 210);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '\0';
+            this.txtPassword.PasswordChar = '●';
             this.txtPassword.PlaceholderText = "Password...";
             this.txtPassword.SelectedText = "";
             this.txtPassword.ShadowDecoration.Parent = this.txtPassword;
             this.txtPassword.Size = new System.Drawing.Size(234, 36);
             this.txtPassword.TabIndex = 22;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GestorDeBiblioteca.Properties.Resources.gmail1;
-            this.pictureBox1.Location = new System.Drawing.Point(46, 150);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(39, 36);
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
+            this.txtPassword.IconRightClick += new System.EventHandler(this.txtPassword_IconRightClick);
             // 
             // pictureBox3
             // 
@@ -244,6 +260,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(390, 356);
+            this.Controls.Add(this.iconCerrar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmail);
@@ -257,9 +274,11 @@
             this.Controls.Add(this.btnAceptar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmRegistroLogin";
+            this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRegistroLogin";
             this.Shown += new System.EventHandler(this.FrmRegistroLogin_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.iconCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
@@ -283,5 +302,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox iconCerrar;
     }
 }

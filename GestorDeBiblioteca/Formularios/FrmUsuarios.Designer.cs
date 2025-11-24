@@ -36,8 +36,6 @@
             this.btnActualizar = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancelar = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.cbmCargos = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.txtId = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtTelefonos = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtApellidos = new Guna.UI2.WinForms.Guna2TextBox();
@@ -49,8 +47,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.cbmCargos = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dgvListado = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtId = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lbFecha = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -84,10 +84,10 @@
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.btnEliminar, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.btnEliminar, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.btnAceptar, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnActualizar, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btnCancelar, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.btnCancelar, 0, 2);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(774, 48);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -105,14 +105,13 @@
             this.btnEliminar.BorderRadius = 6;
             this.btnEliminar.CheckedState.Parent = this.btnEliminar;
             this.btnEliminar.CustomImages.Parent = this.btnEliminar;
-            this.btnEliminar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEliminar.FillColor = System.Drawing.Color.WhiteSmoke;
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
             this.btnEliminar.HoverState.Parent = this.btnEliminar;
-            this.btnEliminar.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_eliminar_100;
-            this.btnEliminar.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnEliminar.Location = new System.Drawing.Point(3, 99);
+            this.btnEliminar.Image = global::GestorDeBiblioteca.Properties.Resources.folder2;
+            this.btnEliminar.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnEliminar.Location = new System.Drawing.Point(3, 147);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.ShadowDecoration.Parent = this.btnEliminar;
             this.btnEliminar.Size = new System.Drawing.Size(171, 42);
@@ -127,13 +126,12 @@
             this.btnAceptar.BorderRadius = 6;
             this.btnAceptar.CheckedState.Parent = this.btnAceptar;
             this.btnAceptar.CustomImages.Parent = this.btnAceptar;
-            this.btnAceptar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAceptar.FillColor = System.Drawing.Color.WhiteSmoke;
             this.btnAceptar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.Black;
             this.btnAceptar.HoverState.Parent = this.btnAceptar;
-            this.btnAceptar.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_aceptar_100;
-            this.btnAceptar.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnAceptar.Image = global::GestorDeBiblioteca.Properties.Resources.eed1;
+            this.btnAceptar.ImageSize = new System.Drawing.Size(40, 40);
             this.btnAceptar.Location = new System.Drawing.Point(3, 3);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.ShadowDecoration.Parent = this.btnAceptar;
@@ -149,13 +147,12 @@
             this.btnActualizar.BorderRadius = 6;
             this.btnActualizar.CheckedState.Parent = this.btnActualizar;
             this.btnActualizar.CustomImages.Parent = this.btnActualizar;
-            this.btnActualizar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnActualizar.FillColor = System.Drawing.Color.WhiteSmoke;
             this.btnActualizar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.Color.Black;
             this.btnActualizar.HoverState.Parent = this.btnActualizar;
-            this.btnActualizar.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_actualizar_100;
-            this.btnActualizar.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnActualizar.Image = global::GestorDeBiblioteca.Properties.Resources.update1;
+            this.btnActualizar.ImageSize = new System.Drawing.Size(40, 40);
             this.btnActualizar.Location = new System.Drawing.Point(3, 51);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.ShadowDecoration.Parent = this.btnActualizar;
@@ -172,14 +169,13 @@
             this.btnCancelar.BorderRadius = 6;
             this.btnCancelar.CheckedState.Parent = this.btnCancelar;
             this.btnCancelar.CustomImages.Parent = this.btnCancelar;
-            this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCancelar.FillColor = System.Drawing.Color.WhiteSmoke;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.Black;
             this.btnCancelar.HoverState.Parent = this.btnCancelar;
-            this.btnCancelar.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_cancelar_100__2_;
-            this.btnCancelar.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnCancelar.Location = new System.Drawing.Point(3, 147);
+            this.btnCancelar.Image = global::GestorDeBiblioteca.Properties.Resources.sasad1;
+            this.btnCancelar.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnCancelar.Location = new System.Drawing.Point(3, 99);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.PressedColor = System.Drawing.Color.White;
             this.btnCancelar.PressedDepth = 50;
@@ -199,8 +195,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.71242F));
-            this.tableLayoutPanel1.Controls.Add(this.cbmCargos, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtId, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtEmail, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtTelefonos, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtApellidos, 1, 1);
@@ -212,6 +206,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label6, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cbmCargos, 2, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 54);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -222,53 +217,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.45455F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(740, 186);
             this.tableLayoutPanel1.TabIndex = 67;
-            // 
-            // cbmCargos
-            // 
-            this.cbmCargos.BackColor = System.Drawing.Color.Transparent;
-            this.cbmCargos.BorderRadius = 15;
-            this.cbmCargos.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbmCargos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbmCargos.FocusedColor = System.Drawing.Color.Empty;
-            this.cbmCargos.FocusedState.Parent = this.cbmCargos;
-            this.cbmCargos.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbmCargos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbmCargos.FormattingEnabled = true;
-            this.cbmCargos.HoverState.Parent = this.cbmCargos;
-            this.cbmCargos.ItemHeight = 30;
-            this.cbmCargos.Items.AddRange(new object[] {
-            "Docente",
-            "Alumno"});
-            this.cbmCargos.ItemsAppearance.Parent = this.cbmCargos;
-            this.cbmCargos.Location = new System.Drawing.Point(511, 118);
-            this.cbmCargos.Name = "cbmCargos";
-            this.cbmCargos.ShadowDecoration.Parent = this.cbmCargos;
-            this.cbmCargos.Size = new System.Drawing.Size(226, 36);
-            this.cbmCargos.TabIndex = 69;
-            // 
-            // txtId
-            // 
-            this.txtId.BorderRadius = 15;
-            this.txtId.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtId.DefaultText = "";
-            this.txtId.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtId.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtId.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtId.DisabledState.Parent = this.txtId;
-            this.txtId.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtId.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtId.FocusedState.Parent = this.txtId;
-            this.txtId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtId.HoverState.Parent = this.txtId;
-            this.txtId.Location = new System.Drawing.Point(3, 158);
-            this.txtId.Name = "txtId";
-            this.txtId.PasswordChar = '\0';
-            this.txtId.PlaceholderText = "";
-            this.txtId.SelectedText = "";
-            this.txtId.ShadowDecoration.Parent = this.txtId;
-            this.txtId.Size = new System.Drawing.Size(67, 24);
-            this.txtId.TabIndex = 72;
-            this.txtId.Visible = false;
             // 
             // txtEmail
             // 
@@ -282,15 +230,17 @@
             this.txtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmail.FocusedState.Parent = this.txtEmail;
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmail.HoverState.Parent = this.txtEmail;
-            this.txtEmail.Location = new System.Drawing.Point(511, 40);
+            this.txtEmail.Location = new System.Drawing.Point(512, 42);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
             this.txtEmail.PlaceholderText = "";
             this.txtEmail.SelectedText = "";
             this.txtEmail.ShadowDecoration.Parent = this.txtEmail;
-            this.txtEmail.Size = new System.Drawing.Size(226, 36);
+            this.txtEmail.Size = new System.Drawing.Size(224, 35);
             this.txtEmail.TabIndex = 71;
             // 
             // txtTelefonos
@@ -305,15 +255,17 @@
             this.txtTelefonos.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTelefonos.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTelefonos.FocusedState.Parent = this.txtTelefonos;
+            this.txtTelefonos.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefonos.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTelefonos.HoverState.Parent = this.txtTelefonos;
-            this.txtTelefonos.Location = new System.Drawing.Point(257, 118);
+            this.txtTelefonos.Location = new System.Drawing.Point(258, 120);
+            this.txtTelefonos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTelefonos.Name = "txtTelefonos";
             this.txtTelefonos.PasswordChar = '\0';
             this.txtTelefonos.PlaceholderText = "";
             this.txtTelefonos.SelectedText = "";
             this.txtTelefonos.ShadowDecoration.Parent = this.txtTelefonos;
-            this.txtTelefonos.Size = new System.Drawing.Size(248, 33);
+            this.txtTelefonos.Size = new System.Drawing.Size(246, 30);
             this.txtTelefonos.TabIndex = 72;
             // 
             // txtApellidos
@@ -328,15 +280,17 @@
             this.txtApellidos.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtApellidos.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtApellidos.FocusedState.Parent = this.txtApellidos;
+            this.txtApellidos.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellidos.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtApellidos.HoverState.Parent = this.txtApellidos;
-            this.txtApellidos.Location = new System.Drawing.Point(257, 40);
+            this.txtApellidos.Location = new System.Drawing.Point(258, 42);
+            this.txtApellidos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.PasswordChar = '\0';
             this.txtApellidos.PlaceholderText = "";
             this.txtApellidos.SelectedText = "";
             this.txtApellidos.ShadowDecoration.Parent = this.txtApellidos;
-            this.txtApellidos.Size = new System.Drawing.Size(248, 36);
+            this.txtApellidos.Size = new System.Drawing.Size(246, 35);
             this.txtApellidos.TabIndex = 73;
             // 
             // txtCarnet
@@ -351,15 +305,17 @@
             this.txtCarnet.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCarnet.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCarnet.FocusedState.Parent = this.txtCarnet;
+            this.txtCarnet.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCarnet.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCarnet.HoverState.Parent = this.txtCarnet;
-            this.txtCarnet.Location = new System.Drawing.Point(3, 40);
+            this.txtCarnet.Location = new System.Drawing.Point(4, 42);
+            this.txtCarnet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCarnet.Name = "txtCarnet";
             this.txtCarnet.PasswordChar = '\0';
             this.txtCarnet.PlaceholderText = "";
             this.txtCarnet.SelectedText = "";
             this.txtCarnet.ShadowDecoration.Parent = this.txtCarnet;
-            this.txtCarnet.Size = new System.Drawing.Size(248, 36);
+            this.txtCarnet.Size = new System.Drawing.Size(246, 35);
             this.txtCarnet.TabIndex = 69;
             // 
             // labale
@@ -394,15 +350,17 @@
             this.txtNombres.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtNombres.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNombres.FocusedState.Parent = this.txtNombres;
+            this.txtNombres.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombres.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNombres.HoverState.Parent = this.txtNombres;
-            this.txtNombres.Location = new System.Drawing.Point(3, 118);
+            this.txtNombres.Location = new System.Drawing.Point(4, 120);
+            this.txtNombres.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.PasswordChar = '\0';
             this.txtNombres.PlaceholderText = "";
             this.txtNombres.SelectedText = "";
             this.txtNombres.ShadowDecoration.Parent = this.txtNombres;
-            this.txtNombres.Size = new System.Drawing.Size(248, 33);
+            this.txtNombres.Size = new System.Drawing.Size(246, 30);
             this.txtNombres.TabIndex = 70;
             // 
             // label
@@ -445,6 +403,29 @@
             this.label6.TabIndex = 30;
             this.label6.Text = "Cargo";
             // 
+            // cbmCargos
+            // 
+            this.cbmCargos.BackColor = System.Drawing.Color.Transparent;
+            this.cbmCargos.BorderRadius = 15;
+            this.cbmCargos.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbmCargos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbmCargos.FocusedColor = System.Drawing.Color.Empty;
+            this.cbmCargos.FocusedState.Parent = this.cbmCargos;
+            this.cbmCargos.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbmCargos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbmCargos.FormattingEnabled = true;
+            this.cbmCargos.HoverState.Parent = this.cbmCargos;
+            this.cbmCargos.ItemHeight = 30;
+            this.cbmCargos.Items.AddRange(new object[] {
+            "Docente",
+            "Alumno"});
+            this.cbmCargos.ItemsAppearance.Parent = this.cbmCargos;
+            this.cbmCargos.Location = new System.Drawing.Point(511, 118);
+            this.cbmCargos.Name = "cbmCargos";
+            this.cbmCargos.ShadowDecoration.Parent = this.cbmCargos;
+            this.cbmCargos.Size = new System.Drawing.Size(226, 36);
+            this.cbmCargos.TabIndex = 69;
+            // 
             // dgvListado
             // 
             this.dgvListado.AllowUserToAddRows = false;
@@ -467,6 +448,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(58)))), ((int)(((byte)(79)))));
+            this.panel2.Controls.Add(this.txtId);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.lbFecha);
             this.panel2.Controls.Add(this.label4);
@@ -476,6 +458,30 @@
             this.panel2.Size = new System.Drawing.Size(963, 43);
             this.panel2.TabIndex = 19;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // txtId
+            // 
+            this.txtId.BorderRadius = 15;
+            this.txtId.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtId.DefaultText = "";
+            this.txtId.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtId.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtId.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtId.DisabledState.Parent = this.txtId;
+            this.txtId.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtId.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtId.FocusedState.Parent = this.txtId;
+            this.txtId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtId.HoverState.Parent = this.txtId;
+            this.txtId.Location = new System.Drawing.Point(273, 9);
+            this.txtId.Name = "txtId";
+            this.txtId.PasswordChar = '\0';
+            this.txtId.PlaceholderText = "";
+            this.txtId.SelectedText = "";
+            this.txtId.ShadowDecoration.Parent = this.txtId;
+            this.txtId.Size = new System.Drawing.Size(67, 27);
+            this.txtId.TabIndex = 72;
+            this.txtId.Visible = false;
             // 
             // label5
             // 

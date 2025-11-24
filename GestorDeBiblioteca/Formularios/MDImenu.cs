@@ -1,4 +1,6 @@
-﻿using GestorDeBiblioteca.Formularios;
+﻿using app.Banco.Utilidades;
+using GestorDeBiblioteca.Formularios;
+using GestorDeBiblioteca.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -96,12 +98,40 @@ namespace GestorDeBiblioteca
         }
         private void btnBloquearMenu_Click(object sender, EventArgs e)
         {
+            // Cerrar todos los formularios excepto este (el menu) y el login que vamos a abrir
+            CerrarTodosLosFormularios();
+
+            // Ahora abrir el login
             FrmLogin login = new FrmLogin();
             login.Show();
-            this.Hide();  
-
+            this.Hide();
 
         }
+
+        private void CerrarTodosLosFormularios()
+        {
+            // Crear una lista de formularios a cerrar (excluyendo el menú actual)
+            var formsACerrar = new List<Form>();
+
+            foreach (Form form in Application.OpenForms)
+            {
+                // No cerrar el menú actual (este formulario) ni los que vamos a abrir
+                if (form != this && !(form is FrmLogin))
+                {
+                    formsACerrar.Add(form);
+                }
+            }
+
+            // Cerrar todos los formularios de la lista
+            foreach (var form in formsACerrar)
+            {
+                form.Close();
+            }
+
+            // Procesar eventos pendientes para asegurar el cierre
+            Application.DoEvents();
+        }
+
         private void btnHamburger_Click(object sender, EventArgs e)
         {
             // alterna el estado del menú
@@ -133,6 +163,28 @@ namespace GestorDeBiblioteca
         private void MDImenu_Load(object sender, EventArgs e)
         {
             btnDashboard_Click(sender, e);
+
+            panelSiderbar.Visible = false;
+            menuExpandido = true;
+
+
+        }
+
+        private void iconHamburger_Click(object sender, EventArgs e)
+        {
+            // alterna el estado del menú
+            if (menuExpandido)
+            {
+                // si está visible, lo ocultamos
+                panelSiderbar.Visible = false;
+                menuExpandido = false;
+            }
+            else
+            {
+                // si está oculto, lo mostramos
+                panelSiderbar.Visible = true;
+                menuExpandido = true;
+            }
         }
     }
 }

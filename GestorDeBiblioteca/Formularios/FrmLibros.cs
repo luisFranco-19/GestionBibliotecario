@@ -1,4 +1,5 @@
 ﻿using app.Banco.Utilidades;
+using GestorDeBiblioteca.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,6 +50,7 @@ namespace GestorDeBiblioteca
             cmbEstado.SelectedIndex = 0;//Se muestra el primer Elemento de los Combo box
             cmbEstado.Enabled = false;//El combo box queda Desactivado cuando se inicializa el formulario
             listarRegistro();//Mandamos ah llamar al metodo para listar el data grid
+            btnEliminar.Enabled = false;
 
             this.ActiveControl = txtTitulos;//Establece que el control del cursor del teclado estara  activo en txtTitulos
                                             //automaticamente al abrir el formulario.
@@ -88,6 +90,8 @@ namespace GestorDeBiblioteca
             {
                 MessageBox.Show("El año de publicación debe ser un número válido", "Año inválido",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAñoPublicacion.Focus();
+                txtAñoPublicacion.SelectAll();
                 return;
             }
 
@@ -96,6 +100,8 @@ namespace GestorDeBiblioteca
             {
                 MessageBox.Show("La cantidad de copias es inválida. Debe existir una o más copias por libro.",
                     "Cantidad inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCantidad.Focus();
+                txtCantidad.SelectAll();
                 return;
             }
 
@@ -196,10 +202,36 @@ namespace GestorDeBiblioteca
                     limpiarControles();
                 }
             }
+            catch (SqlException ex)
+            {
+                // Mensaje exacto que manda tu SP cuando hay préstamos activos
+                if (ex.Message.Contains("Error al eliminar libro"))
+                {
+                    MessageBox.Show(
+                        "No se puede eliminar este libro porque tiene préstamos activos.",
+                        "Operación no permitida",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    txtTitulos.Focus();
+                    return;
+                }
+
+                MessageBox.Show(
+                    "Ocurrió un error al intentar eliminar el libro:\n\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar el libro: " + ex.Message);
+                MessageBox.Show(
+                    "Ha ocurrido un error inesperado: " + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
+
+
         }
 
         private void listarRegistro()
@@ -217,7 +249,8 @@ namespace GestorDeBiblioteca
                                     l.estado,
                                     l.anioPublicacion, 
                                     l.cantidad
-                      FROM Libros l INNER JOIN Autores a ON l.idAutor = a.idAutor";
+                      FROM Libros l INNER JOIN Autores a ON l.idAutor = a.idAutor
+                      ORDER BY l.idLibro DESC";
 
                     SqlDataAdapter adapter = new SqlDataAdapter(consultaSql, conexion);
                     DataTable dt = new DataTable();
@@ -355,9 +388,52 @@ namespace GestorDeBiblioteca
                     string estado = cmbEstado.Text.Trim();
                     string cantidad = txtCantidad.Text.Trim();
 
+                    // VALIDACIONES MEJORADAS PARA AÑO DE PUBLICACIÓN
+                    if (!int.TryParse(fechaPublicacion, out int anoPub))
+                    {
+                        MessageBox.Show("El año de publicación debe ser un número válido", "Año inválido",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtAñoPublicacion.Focus();
+                        txtAñoPublicacion.SelectAll();
+                        return;
+                    }
+
+                    // VALIDACIÓN DE RANGO DEL AÑO (1400 hasta el año actual + 1)
+                    int añoActual = DateTime.Now.Year;
+                    if (anoPub < 1400 || anoPub > (añoActual + 1))
+                    {
+                        MessageBox.Show($"El año de publicación debe estar entre 1400 y {añoActual + 1}", "Año inválido",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtAñoPublicacion.Focus();
+                        txtAñoPublicacion.SelectAll();
+                        return;
+                    }
+
+                    // VALIDACIÓN ADICIONAL: No permitir años con menos de 4 dígitos
+                    if (fechaPublicacion.Length != 4)
+                    {
+                        MessageBox.Show("El año de publicación debe tener 4 dígitos (ej: 2024)", "Formato inválido",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtAñoPublicacion.Focus();
+                        txtAñoPublicacion.SelectAll();
+                        return;
+                    }
+
+
+                    if (!int.TryParse(cantidad, out int cantidadCopias) || cantidadCopias <= 0)
+                    {
+                        MessageBox.Show("La cantidad de copias es inválida. Debe existir una o más copias por libro.",
+                            "Cantidad inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtCantidad.Focus();
+                        txtCantidad.SelectAll();
+                        return;
+                    }
 
                     Aceptar(titulo, nombreAutor, nacionalidad, fechaPublicacion, estado, cantidad);
                     limpiarControles();
+                    txtTitulos.Focus();
+                    btnEliminar.Enabled = false;
+
                 }
                 else
                 {
@@ -377,24 +453,23 @@ namespace GestorDeBiblioteca
             errorIcono.Clear();
             bool datosValidos = true;
 
-            foreach (Control control in tableLayoutPanel1.Controls)//recorre todos los controles
+            foreach (Control control in tableLayoutPanel1.Controls)
             {
-                if (control is Guna.UI2.WinForms.Guna2TextBox gunaTextBox)//Si este control es una caja de texto (de tipo Guna2TextBox),
-                                                                          //entonces verifica si el campo está vacío o lleno solo de espacios.
+                if (control is Guna.UI2.WinForms.Guna2TextBox gunaTextBox)
                 {
                     if (string.IsNullOrWhiteSpace(gunaTextBox.Text))
                     {
                         errorIcono.SetError(gunaTextBox, "Este campo es obligatorio. ");
-                        datosValidos = false;//marca que falta información.
+                        datosValidos = false;
                     }
                 }
             }
-            //Si datosValidos es false, significa que al menos un campo estaba vacio.
+
             if (!datosValidos)
             {
                 MessageBox.Show("Informacion incompleta, seran remarcados los datos que faltan. ",
                     "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;//salir del método (no se ejecuta nada mas hasta que se llenen los datos).
+                return;
             }
 
             try
@@ -406,11 +481,34 @@ namespace GestorDeBiblioteca
                     string nacionalidad = txtNacionalidad.Text.Trim();
                     string estado = cmbEstado.Text.Trim();
 
-                    // Convertir a int
+                    // VALIDACIONES MEJORADAS PARA AÑO DE PUBLICACIÓN
                     if (!int.TryParse(txtAñoPublicacion.Text.Trim(), out int anioPublicacion))
                     {
                         MessageBox.Show("El año de publicación debe ser un número válido", "Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtAñoPublicacion.Focus();
+                        txtAñoPublicacion.SelectAll();
+                        return;
+                    }
+
+                    // VALIDACIÓN DE RANGO DEL AÑO
+                    int añoActual = DateTime.Now.Year;
+                    if (anioPublicacion < 1400 || anioPublicacion > (añoActual + 1))
+                    {
+                        MessageBox.Show($"El año de publicación debe estar entre 1400 y {añoActual + 1}", "Año inválido",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtAñoPublicacion.Focus();
+                        txtAñoPublicacion.SelectAll();
+                        return;
+                    }
+
+                    // VALIDACIÓN ADICIONAL: No permitir años con menos de 4 dígitos
+                    if (txtAñoPublicacion.Text.Trim().Length != 4)
+                    {
+                        MessageBox.Show("El año de publicación debe tener 4 dígitos (ej: 2024)", "Formato inválido",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtAñoPublicacion.Focus();
+                        txtAñoPublicacion.SelectAll();
                         return;
                     }
 
@@ -418,6 +516,8 @@ namespace GestorDeBiblioteca
                     {
                         MessageBox.Show("La cantidad debe ser un número mayor que 0", "Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtCantidad.Focus();
+                        txtCantidad.SelectAll();
                         return;
                     }
 
@@ -433,7 +533,8 @@ namespace GestorDeBiblioteca
 
                     btnAceptar.Visible = true;
                     cmbEstado.Enabled = false;
-
+                    txtTitulos.Focus();
+                    btnEliminar.Enabled = false;
                 }
                 else
                 {
@@ -454,12 +555,15 @@ namespace GestorDeBiblioteca
                     if (MessageBox.Show("Seguro que desea eliminar este registro?", "Confirmacion", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        int.TryParse(dgvListado.CurrentRow.Cells[0].Value.ToString(), out int idUsuario);
+                        int.TryParse(dgvListado.CurrentRow.Cells[0].Value.ToString(), out int idLibro);
 
                         
-                        Eliminar(idUsuario);
+                        Eliminar(idLibro);
                         limpiarControles();
+                        txtTitulos.Focus();
                         btnAceptar.Visible = true;
+                        btnEliminar.Enabled = false;
+
                     }
 
                 }
@@ -479,6 +583,13 @@ namespace GestorDeBiblioteca
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             limpiarControles();
+            btnAceptar.Visible = true;
+            btnEliminar.Enabled = false;
+            txtTitulos.Focus();
+            btnAceptar.Enabled = true;
+
+
+
         }
 
         #endregion
@@ -513,7 +624,8 @@ namespace GestorDeBiblioteca
                     txtCantidad.Text = dgvListado.CurrentRow.Cells[6].Value?.ToString() ?? "";
 
                     //Asi, las cajas de texto del formulario se rellenan automaticamente con los datos de la fila seleccionada.
-                    btnAceptar.Visible = false;
+                    btnEliminar.Enabled = true;
+                    btnAceptar.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -547,8 +659,20 @@ namespace GestorDeBiblioteca
         {
 
         }
+
         #endregion
 
-     
+      
+
+        private void iconReporte_Click_1(object sender, EventArgs e)
+        {
+            //FrmReportesLibros frm = new FrmReportesLibros();
+            //frm.ShowDialog();
+
+            using (var formularioReporte = new FrmReportesLibros())
+            {
+                MostrarModal.MostraConCap(this, formularioReporte);
+            }
+        }
     }
 }
