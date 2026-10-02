@@ -28,45 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvListado = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.iconCerrar = new Guna.UI2.WinForms.Guna2Button();
-            this.iconEliminar = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.iconReporte = new Guna.UI2.WinForms.Guna2Button();
+            this.iconCerrar = new Guna.UI2.WinForms.Guna2Button();
+            this.iconEliminar = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GroupBox1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2GroupBox1
             // 
             this.guna2GroupBox1.BorderColor = System.Drawing.Color.White;
             this.guna2GroupBox1.BorderRadius = 8;
+            this.guna2GroupBox1.Controls.Add(this.iconReporte);
+            this.guna2GroupBox1.Controls.Add(this.label1);
             this.guna2GroupBox1.Controls.Add(this.tableLayoutPanel4);
             this.guna2GroupBox1.Controls.Add(this.tableLayoutPanel3);
             this.guna2GroupBox1.Controls.Add(this.tableLayoutPanel2);
-            this.guna2GroupBox1.Controls.Add(this.tableLayoutPanel1);
             this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.White;
             this.guna2GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.guna2GroupBox1.Location = new System.Drawing.Point(0, 0);
-            this.guna2GroupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
             this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
-            this.guna2GroupBox1.Size = new System.Drawing.Size(1545, 724);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(1028, 588);
             this.guna2GroupBox1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(58)))), ((int)(((byte)(79)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Lucida Bright", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1028, 47);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Módulo de Devolución";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel4
             // 
@@ -77,12 +91,11 @@
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Controls.Add(this.dgvListado, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(29, 151);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(22, 123);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1494, 547);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(989, 444);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
             // dgvListado
@@ -117,15 +130,14 @@
             this.dgvListado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListado.EnableHeadersVisualStyles = false;
             this.dgvListado.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvListado.Location = new System.Drawing.Point(4, 4);
-            this.dgvListado.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvListado.Location = new System.Drawing.Point(3, 3);
             this.dgvListado.Name = "dgvListado";
             this.dgvListado.ReadOnly = true;
             this.dgvListado.RowHeadersVisible = false;
             this.dgvListado.RowHeadersWidth = 51;
             this.dgvListado.RowTemplate.Height = 30;
             this.dgvListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListado.Size = new System.Drawing.Size(1486, 539);
+            this.dgvListado.Size = new System.Drawing.Size(983, 438);
             this.dgvListado.TabIndex = 0;
             this.dgvListado.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvListado.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -162,50 +174,12 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Controls.Add(this.iconCerrar, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.iconEliminar, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(1006, 70);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(631, 57);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(517, 59);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(394, 48);
             this.tableLayoutPanel3.TabIndex = 2;
-            // 
-            // iconCerrar
-            // 
-            this.iconCerrar.BorderRadius = 6;
-            this.iconCerrar.CheckedState.Parent = this.iconCerrar;
-            this.iconCerrar.CustomImages.Parent = this.iconCerrar;
-            this.iconCerrar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.iconCerrar.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconCerrar.ForeColor = System.Drawing.Color.Black;
-            this.iconCerrar.HoverState.Parent = this.iconCerrar;
-            this.iconCerrar.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_cancelar_1001;
-            this.iconCerrar.Location = new System.Drawing.Point(261, 3);
-            this.iconCerrar.Name = "iconCerrar";
-            this.iconCerrar.ShadowDecoration.Parent = this.iconCerrar;
-            this.iconCerrar.Size = new System.Drawing.Size(252, 50);
-            this.iconCerrar.TabIndex = 4;
-            this.iconCerrar.Text = "Cerrar";
-            this.iconCerrar.Click += new System.EventHandler(this.iconCerrar_Click_1);
-            // 
-            // iconEliminar
-            // 
-            this.iconEliminar.BorderRadius = 6;
-            this.iconEliminar.CheckedState.Parent = this.iconEliminar;
-            this.iconEliminar.CustomImages.Parent = this.iconEliminar;
-            this.iconEliminar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.iconEliminar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.iconEliminar.HoverState.Parent = this.iconEliminar;
-            this.iconEliminar.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_eliminar_1001;
-            this.iconEliminar.Location = new System.Drawing.Point(3, 3);
-            this.iconEliminar.Name = "iconEliminar";
-            this.iconEliminar.ShadowDecoration.Parent = this.iconEliminar;
-            this.iconEliminar.Size = new System.Drawing.Size(250, 51);
-            this.iconEliminar.TabIndex = 4;
-            this.iconEliminar.Text = "Eliminar Prestamo";
-            this.iconEliminar.Click += new System.EventHandler(this.iconEliminar_Click_1);
             // 
             // tableLayoutPanel2
             // 
@@ -215,12 +189,11 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.txtBuscar, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(29, 70);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(22, 57);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(829, 59);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(491, 48);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // txtBuscar
@@ -240,54 +213,91 @@
             this.txtBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBuscar.HoverState.Parent = this.txtBuscar;
-            this.txtBuscar.Location = new System.Drawing.Point(5, 6);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtBuscar.IconLeft = global::GestorDeBiblioteca.Properties.Resources.icons8_search_241;
+            this.txtBuscar.Location = new System.Drawing.Point(4, 5);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.PasswordChar = '\0';
             this.txtBuscar.PlaceholderText = "Buscar registro...";
             this.txtBuscar.SelectedText = "";
             this.txtBuscar.ShadowDecoration.Parent = this.txtBuscar;
-            this.txtBuscar.Size = new System.Drawing.Size(819, 47);
+            this.txtBuscar.Size = new System.Drawing.Size(483, 38);
             this.txtBuscar.TabIndex = 0;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
-            // tableLayoutPanel1
+            // iconReporte
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1545, 51);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.iconReporte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconReporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(58)))), ((int)(((byte)(79)))));
+            this.iconReporte.BorderRadius = 8;
+            this.iconReporte.CheckedState.Parent = this.iconReporte;
+            this.iconReporte.CustomImages.Parent = this.iconReporte;
+            this.iconReporte.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(58)))), ((int)(((byte)(79)))));
+            this.iconReporte.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconReporte.ForeColor = System.Drawing.Color.White;
+            this.iconReporte.HoverState.Parent = this.iconReporte;
+            this.iconReporte.Image = global::GestorDeBiblioteca.Properties.Resources.file1;
+            this.iconReporte.ImageSize = new System.Drawing.Size(30, 30);
+            this.iconReporte.Location = new System.Drawing.Point(915, 0);
+            this.iconReporte.Margin = new System.Windows.Forms.Padding(2);
+            this.iconReporte.Name = "iconReporte";
+            this.iconReporte.ShadowDecoration.Parent = this.iconReporte;
+            this.iconReporte.Size = new System.Drawing.Size(113, 45);
+            this.iconReporte.TabIndex = 5;
+            this.iconReporte.Text = "Reporte";
+            this.toolTip1.SetToolTip(this.iconReporte, "Reporte de prestamos de libros");
+            this.iconReporte.Click += new System.EventHandler(this.iconReporte_Click);
             // 
-            // label1
+            // iconCerrar
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(4, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1537, 51);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Módulo de Devolución";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconCerrar.BorderRadius = 6;
+            this.iconCerrar.CheckedState.Parent = this.iconCerrar;
+            this.iconCerrar.CustomImages.Parent = this.iconCerrar;
+            this.iconCerrar.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.iconCerrar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconCerrar.ForeColor = System.Drawing.Color.Black;
+            this.iconCerrar.HoverState.Parent = this.iconCerrar;
+            this.iconCerrar.Image = global::GestorDeBiblioteca.Properties.Resources.sasad2;
+            this.iconCerrar.ImageSize = new System.Drawing.Size(40, 40);
+            this.iconCerrar.Location = new System.Drawing.Point(199, 2);
+            this.iconCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.iconCerrar.Name = "iconCerrar";
+            this.iconCerrar.ShadowDecoration.Parent = this.iconCerrar;
+            this.iconCerrar.Size = new System.Drawing.Size(183, 44);
+            this.iconCerrar.TabIndex = 4;
+            this.iconCerrar.Text = "Cerrar";
+            this.toolTip1.SetToolTip(this.iconCerrar, "Cerrar Ventana");
+            this.iconCerrar.Click += new System.EventHandler(this.iconCerrar_Click_1);
             // 
-            // FrmDev
+            // iconEliminar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.iconEliminar.BorderRadius = 6;
+            this.iconEliminar.CheckedState.Parent = this.iconEliminar;
+            this.iconEliminar.CustomImages.Parent = this.iconEliminar;
+            this.iconEliminar.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.iconEliminar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconEliminar.ForeColor = System.Drawing.Color.Black;
+            this.iconEliminar.HoverState.Parent = this.iconEliminar;
+            this.iconEliminar.Image = global::GestorDeBiblioteca.Properties.Resources.return1;
+            this.iconEliminar.ImageSize = new System.Drawing.Size(40, 40);
+            this.iconEliminar.Location = new System.Drawing.Point(2, 2);
+            this.iconEliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.iconEliminar.Name = "iconEliminar";
+            this.iconEliminar.ShadowDecoration.Parent = this.iconEliminar;
+            this.iconEliminar.Size = new System.Drawing.Size(193, 44);
+            this.iconEliminar.TabIndex = 4;
+            this.iconEliminar.Text = "Devolver Prestamo";
+            this.toolTip1.SetToolTip(this.iconEliminar, "osDevolver libros en prestami");
+            this.iconEliminar.Click += new System.EventHandler(this.iconEliminar_Click_1);
+            // 
+            // FrmDevoluciones
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1545, 724);
+            this.ClientSize = new System.Drawing.Size(1028, 588);
             this.Controls.Add(this.guna2GroupBox1);
-            this.Name = "FrmDev";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "FrmDevoluciones";
             this.Text = "FrmDev";
             this.Load += new System.EventHandler(this.FrmDev_Load);
             this.guna2GroupBox1.ResumeLayout(false);
@@ -295,8 +305,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -309,9 +317,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private Guna.UI2.WinForms.Guna2TextBox txtBuscar;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button iconEliminar;
         private Guna.UI2.WinForms.Guna2Button iconCerrar;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private Guna.UI2.WinForms.Guna2Button iconReporte;
     }
 }

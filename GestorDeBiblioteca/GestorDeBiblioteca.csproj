@@ -7,11 +7,27 @@
     <ProjectGuid>{61C885B0-A4DF-4003-853B-ED5EB6DE36AB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>GestorDeBiblioteca</RootNamespace>
-    <AssemblyName>GestorDeBiblioteca</AssemblyName>
+    <AssemblyName>Gestor Bibliotecario</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\LuisFranco\Documents\ExamenFinal\BibliotecaApp\Instalado\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +48,24 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>books_12939107.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>CABA03E79438685B5618D51A15284E5D6F490009</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>GestorDeBiblioteca_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>packages\FontAwesome.Sharp.6.6.0\lib\net48\FontAwesome.Sharp.dll</HintPath>
@@ -47,6 +81,24 @@
     </Reference>
     <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
@@ -77,11 +129,23 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Formularios\FormLogin.cs">
+    <Compile Include="Formularios\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FormLogin.Designer.cs">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <Compile Include="Formularios\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmDashboard.Designer.cs">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmConexion.cs">
       <SubType>Form</SubType>
@@ -95,17 +159,23 @@
     <Compile Include="Formularios\FrmDevoluciones.Designer.cs">
       <DependentUpon>FrmDevoluciones.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FrmGestionDePrestamos.cs">
+    <Compile Include="Formularios\FrmPrestamos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FrmGestionDePrestamos.Designer.cs">
-      <DependentUpon>FrmGestionDePrestamos.cs</DependentUpon>
+    <Compile Include="Formularios\FrmPrestamos.Designer.cs">
+      <DependentUpon>FrmPrestamos.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmLibros.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\FrmLibros.Designer.cs">
       <DependentUpon>FrmLibros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmRegistroLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmRegistroLogin.Designer.cs">
+      <DependentUpon>FrmRegistroLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmUsuarios.cs">
       <SubType>Form</SubType>
@@ -119,14 +189,48 @@
     <Compile Include="Formularios\MDImenu.Designer.cs">
       <DependentUpon>MDImenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrigenDatos\DtsConexion.cs">
+      <DependentUpon>DtsConexion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OrigenDatos\DtsConexion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DtsConexion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OrigenDatos\DtsConexion1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DtsConexion1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OrigenDatos\Servicios.cs" />
+    <Compile Include="OrigenDatos\Servicios1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\FrmReportesDevoluciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FrmReportesDevoluciones.Designer.cs">
+      <DependentUpon>FrmReportesDevoluciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FrmReportesLibros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FrmReportesLibros.Designer.cs">
+      <DependentUpon>FrmReportesLibros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="utilidades\ConexionDB.cs" />
     <Compile Include="utilidades\MostrarModal.cs" />
     <Compile Include="utilidades\ParametrosDeConexion.cs" />
     <Compile Include="utilidades\ValidacionEntrada.cs" />
-    <EmbeddedResource Include="Formularios\FormLogin.resx">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmDashboard.resx">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmConexion.resx">
       <DependentUpon>FrmConexion.cs</DependentUpon>
@@ -134,11 +238,14 @@
     <EmbeddedResource Include="Formularios\FrmDevoluciones.resx">
       <DependentUpon>FrmDevoluciones.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmGestionDePrestamos.resx">
-      <DependentUpon>FrmGestionDePrestamos.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\FrmPrestamos.resx">
+      <DependentUpon>FrmPrestamos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmLibros.resx">
       <DependentUpon>FrmLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmRegistroLogin.resx">
+      <DependentUpon>FrmRegistroLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
@@ -146,7 +253,6 @@
     <EmbeddedResource Include="Formularios\MDImenu.resx">
       <DependentUpon>MDImenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -157,6 +263,38 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\FrmReportesDevoluciones.resx">
+      <DependentUpon>FrmReportesDevoluciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FrmReportesLibros.resx">
+      <DependentUpon>FrmReportesLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptListadoDevoluciones.rdlc" />
+    <EmbeddedResource Include="Reportes\RptListadoLibros.rdlc" />
+    <None Include="app.manifest" />
+    <None Include="GestorDeBiblioteca_TemporaryKey.pfx" />
+    <None Include="OrigenDatos\DtsConexion.xsc">
+      <DependentUpon>DtsConexion.xsd</DependentUpon>
+    </None>
+    <None Include="OrigenDatos\DtsConexion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DtsConexion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="OrigenDatos\DtsConexion.xss">
+      <DependentUpon>DtsConexion.xsd</DependentUpon>
+    </None>
+    <None Include="OrigenDatos\DtsConexion1.xsc">
+      <DependentUpon>DtsConexion1.xsd</DependentUpon>
+    </None>
+    <None Include="OrigenDatos\DtsConexion1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DtsConexion1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="OrigenDatos\DtsConexion1.xss">
+      <DependentUpon>DtsConexion1.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -170,6 +308,172 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-control-panel-1001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_lock_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_lock_241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_lock_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gemini_Generated_Image_wa9p0swa9p0swa9p-Photoroom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gemini_Generated_Image_ytzwg7ytzwg7ytzw-Photoroom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gemini_Generated_Image_ytzwg7ytzwg7ytzw-Photoroom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gemini_Generated_Image_wa9p0swa9p0swa9p-Photoroom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-contraseña-481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_lock_321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_lock_322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-actualizar-1001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data-analysis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\char.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\business-report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\people.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open-book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gmail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\communication.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\communication1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gmail1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\locked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carpeta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_error_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open-book1.png" />
+    <None Include="Resources\reportesPdf.png" />
+    <None Include="Resources\reportesPdf1.png" />
+    <None Include="Resources\file.png" />
+    <None Include="Resources\file1.png" />
+    <None Include="Resources\view.png" />
+    <None Include="Resources\return.png" />
+    <None Include="Resources\return1.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\close1.png" />
+    <None Include="Resources\eed.png" />
+    <None Include="Resources\sasad.png" />
+    <None Include="Resources\update.png" />
+    <None Include="Resources\folder1.png" />
+    <None Include="Resources\eed1.png" />
+    <None Include="Resources\update1.png" />
+    <None Include="Resources\sasad1.png" />
+    <None Include="Resources\folder2.png" />
+    <None Include="Resources\sasad2.png" />
+    <None Include="Resources\icons8-search-241.png" />
+    <None Include="Resources\book.png" />
+    <None Include="Resources\stack-of-books.png" />
+    <None Include="Resources\category.png" />
+    <None Include="Resources\group.png" />
+    <None Include="Resources\eed2.png" />
+    <None Include="Resources\sasad3.png" />
+    <Content Include="books_12939107.ico" />
+    <Content Include="library_1837945.ico" />
+    <None Include="Resources\close2.png" />
+    <None Include="Resources\emergency-exit.png" />
+    <None Include="Resources\ss.png" />
+    <None Include="Resources\carpeta1.png" />
+    <None Include="Resources\menu1.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

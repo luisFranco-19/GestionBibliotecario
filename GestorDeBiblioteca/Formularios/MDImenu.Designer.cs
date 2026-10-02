@@ -30,236 +30,315 @@
         {
             this.components = new System.ComponentModel.Container();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.panelSiderbar = new System.Windows.Forms.Panel();
+            this.btnBloquea = new Guna.UI2.WinForms.Guna2Button();
             this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSalir = new Guna.UI2.WinForms.Guna2Button();
-            this.btnUsuario = new Guna.UI2.WinForms.Guna2Button();
-            this.btnLibro = new Guna.UI2.WinForms.Guna2Button();
             this.btnPrestamo = new Guna.UI2.WinForms.Guna2Button();
             this.btnDevolucion = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSalir = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLibro = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUsuario = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.picLogo = new System.Windows.Forms.PictureBox();
-            this.panelSuperior = new System.Windows.Forms.Panel();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.panelSiderbar = new Guna.UI2.WinForms.Guna2Panel();
+            this.picLogo = new System.Windows.Forms.PictureBox();
+            this.panelSuperior = new Guna.UI2.WinForms.Guna2Panel();
+            this.iconHamburger = new System.Windows.Forms.PictureBox();
+            this.btnBroma = new Guna.UI2.WinForms.Guna2Button();
             this.panelSiderbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            this.panelSuperior.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconHamburger)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelSiderbar
+            // btnBloquea
             // 
-            this.panelSiderbar.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panelSiderbar.Controls.Add(this.btnDashboard);
-            this.panelSiderbar.Controls.Add(this.btnSalir);
-            this.panelSiderbar.Controls.Add(this.btnUsuario);
-            this.panelSiderbar.Controls.Add(this.btnLibro);
-            this.panelSiderbar.Controls.Add(this.btnPrestamo);
-            this.panelSiderbar.Controls.Add(this.btnDevolucion);
-            this.panelSiderbar.Controls.Add(this.label1);
-            this.panelSiderbar.Controls.Add(this.picLogo);
-            this.panelSiderbar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelSiderbar.Location = new System.Drawing.Point(0, 0);
-            this.panelSiderbar.Margin = new System.Windows.Forms.Padding(4);
-            this.panelSiderbar.Name = "panelSiderbar";
-            this.panelSiderbar.Size = new System.Drawing.Size(221, 838);
-            this.panelSiderbar.TabIndex = 15;
+            this.btnBloquea.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBloquea.CheckedState.Parent = this.btnBloquea;
+            this.btnBloquea.CustomImages.Parent = this.btnBloquea;
+            this.btnBloquea.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
+            this.btnBloquea.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnBloquea.ForeColor = System.Drawing.Color.White;
+            this.btnBloquea.HoverState.Parent = this.btnBloquea;
+            this.btnBloquea.Image = global::GestorDeBiblioteca.Properties.Resources.carpeta;
+            this.btnBloquea.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnBloquea.Location = new System.Drawing.Point(850, 3);
+            this.btnBloquea.Name = "btnBloquea";
+            this.btnBloquea.ShadowDecoration.Parent = this.btnBloquea;
+            this.btnBloquea.Size = new System.Drawing.Size(49, 43);
+            this.btnBloquea.TabIndex = 0;
+            this.toolTip.SetToolTip(this.btnBloquea, "Bloquear App");
+            this.btnBloquea.Click += new System.EventHandler(this.btnBloquearMenu_Click);
             // 
             // btnDashboard
             // 
+            this.btnDashboard.BackColor = System.Drawing.Color.Transparent;
             this.btnDashboard.CheckedState.Parent = this.btnDashboard;
             this.btnDashboard.CustomImages.Parent = this.btnDashboard;
-            this.btnDashboard.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnDashboard.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
             this.btnDashboard.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.ForeColor = System.Drawing.Color.White;
+            this.btnDashboard.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
             this.btnDashboard.HoverState.Parent = this.btnDashboard;
             this.btnDashboard.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_control_panel_100;
             this.btnDashboard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDashboard.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnDashboard.Location = new System.Drawing.Point(0, 225);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDashboard.Location = new System.Drawing.Point(3, 175);
             this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
             this.btnDashboard.ShadowDecoration.Parent = this.btnDashboard;
-            this.btnDashboard.Size = new System.Drawing.Size(221, 75);
+            this.btnDashboard.Size = new System.Drawing.Size(160, 61);
             this.btnDashboard.TabIndex = 1;
             this.btnDashboard.Text = "Dashboard";
+            this.toolTip.SetToolTip(this.btnDashboard, "Registro Bibliotecario");
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.CheckedState.Parent = this.btnSalir;
-            this.btnSalir.CustomImages.Parent = this.btnSalir;
-            this.btnSalir.FillColor = System.Drawing.Color.RoyalBlue;
-            this.btnSalir.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.HoverState.Parent = this.btnSalir;
-            this.btnSalir.Image = global::GestorDeBiblioteca.Properties.Resources.icon_salida_48;
-            this.btnSalir.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSalir.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSalir.Location = new System.Drawing.Point(0, 759);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.ShadowDecoration.Parent = this.btnSalir;
-            this.btnSalir.Size = new System.Drawing.Size(221, 75);
-            this.btnSalir.TabIndex = 1;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnUsuario
-            // 
-            this.btnUsuario.CheckedState.Parent = this.btnUsuario;
-            this.btnUsuario.CustomImages.Parent = this.btnUsuario;
-            this.btnUsuario.FillColor = System.Drawing.Color.RoyalBlue;
-            this.btnUsuario.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsuario.ForeColor = System.Drawing.Color.White;
-            this.btnUsuario.HoverState.Parent = this.btnUsuario;
-            this.btnUsuario.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_customer_100;
-            this.btnUsuario.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnUsuario.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnUsuario.Location = new System.Drawing.Point(-3, 323);
-            this.btnUsuario.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.ShadowDecoration.Parent = this.btnUsuario;
-            this.btnUsuario.Size = new System.Drawing.Size(221, 75);
-            this.btnUsuario.TabIndex = 5;
-            this.btnUsuario.Text = "Usuarios";
-            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
-            // 
-            // btnLibro
-            // 
-            this.btnLibro.CheckedState.Parent = this.btnLibro;
-            this.btnLibro.CustomImages.Parent = this.btnLibro;
-            this.btnLibro.FillColor = System.Drawing.Color.RoyalBlue;
-            this.btnLibro.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLibro.ForeColor = System.Drawing.Color.White;
-            this.btnLibro.HoverState.Parent = this.btnLibro;
-            this.btnLibro.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_libros_100;
-            this.btnLibro.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnLibro.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnLibro.Location = new System.Drawing.Point(0, 427);
-            this.btnLibro.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLibro.Name = "btnLibro";
-            this.btnLibro.ShadowDecoration.Parent = this.btnLibro;
-            this.btnLibro.Size = new System.Drawing.Size(221, 75);
-            this.btnLibro.TabIndex = 1;
-            this.btnLibro.Text = "Libros";
-            this.btnLibro.Click += new System.EventHandler(this.btnLibro_Click);
             // 
             // btnPrestamo
             // 
             this.btnPrestamo.CheckedState.Parent = this.btnPrestamo;
             this.btnPrestamo.CustomImages.Parent = this.btnPrestamo;
-            this.btnPrestamo.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnPrestamo.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
             this.btnPrestamo.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrestamo.ForeColor = System.Drawing.Color.White;
+            this.btnPrestamo.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
             this.btnPrestamo.HoverState.Parent = this.btnPrestamo;
             this.btnPrestamo.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_libros_100__1_;
             this.btnPrestamo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPrestamo.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnPrestamo.Location = new System.Drawing.Point(0, 533);
-            this.btnPrestamo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrestamo.Location = new System.Drawing.Point(3, 471);
             this.btnPrestamo.Name = "btnPrestamo";
+            this.btnPrestamo.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
             this.btnPrestamo.ShadowDecoration.Parent = this.btnPrestamo;
-            this.btnPrestamo.Size = new System.Drawing.Size(221, 75);
+            this.btnPrestamo.Size = new System.Drawing.Size(160, 61);
             this.btnPrestamo.TabIndex = 1;
             this.btnPrestamo.Text = "Prestamo";
+            this.toolTip.SetToolTip(this.btnPrestamo, "Registar Un Prestamo");
             this.btnPrestamo.Click += new System.EventHandler(this.btnPrestamo_Click);
             // 
             // btnDevolucion
             // 
             this.btnDevolucion.CheckedState.Parent = this.btnDevolucion;
             this.btnDevolucion.CustomImages.Parent = this.btnDevolucion;
-            this.btnDevolucion.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnDevolucion.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
             this.btnDevolucion.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDevolucion.ForeColor = System.Drawing.Color.White;
+            this.btnDevolucion.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
             this.btnDevolucion.HoverState.Parent = this.btnDevolucion;
             this.btnDevolucion.Image = global::GestorDeBiblioteca.Properties.Resources.icon_actualizar_48;
             this.btnDevolucion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDevolucion.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnDevolucion.Location = new System.Drawing.Point(0, 647);
-            this.btnDevolucion.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDevolucion.Location = new System.Drawing.Point(3, 576);
             this.btnDevolucion.Name = "btnDevolucion";
+            this.btnDevolucion.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
             this.btnDevolucion.ShadowDecoration.Parent = this.btnDevolucion;
-            this.btnDevolucion.Size = new System.Drawing.Size(221, 75);
+            this.btnDevolucion.Size = new System.Drawing.Size(160, 61);
             this.btnDevolucion.TabIndex = 0;
             this.btnDevolucion.Text = "Devolucion";
+            this.toolTip.SetToolTip(this.btnDevolucion, "Devoluvion Del Prestamo");
             this.btnDevolucion.Click += new System.EventHandler(this.btnDevolucion_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.CheckedState.Parent = this.btnSalir;
+            this.btnSalir.CustomImages.Parent = this.btnSalir;
+            this.btnSalir.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
+            this.btnSalir.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
+            this.btnSalir.HoverState.Parent = this.btnSalir;
+            this.btnSalir.Image = global::GestorDeBiblioteca.Properties.Resources.icon_salida_48;
+            this.btnSalir.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSalir.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSalir.Location = new System.Drawing.Point(3, 676);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
+            this.btnSalir.ShadowDecoration.Parent = this.btnSalir;
+            this.btnSalir.Size = new System.Drawing.Size(160, 61);
+            this.btnSalir.TabIndex = 1;
+            this.btnSalir.Text = "Salir";
+            this.toolTip.SetToolTip(this.btnSalir, "Cerrar App");
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnLibro
+            // 
+            this.btnLibro.CheckedState.Parent = this.btnLibro;
+            this.btnLibro.CustomImages.Parent = this.btnLibro;
+            this.btnLibro.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
+            this.btnLibro.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLibro.ForeColor = System.Drawing.Color.White;
+            this.btnLibro.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
+            this.btnLibro.HoverState.Parent = this.btnLibro;
+            this.btnLibro.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_libros_100;
+            this.btnLibro.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnLibro.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnLibro.Location = new System.Drawing.Point(3, 366);
+            this.btnLibro.Name = "btnLibro";
+            this.btnLibro.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
+            this.btnLibro.ShadowDecoration.Parent = this.btnLibro;
+            this.btnLibro.Size = new System.Drawing.Size(160, 61);
+            this.btnLibro.TabIndex = 1;
+            this.btnLibro.Text = "Libros";
+            this.toolTip.SetToolTip(this.btnLibro, "Registar Libros");
+            this.btnLibro.Click += new System.EventHandler(this.btnLibro_Click);
+            // 
+            // btnUsuario
+            // 
+            this.btnUsuario.CheckedState.Parent = this.btnUsuario;
+            this.btnUsuario.CustomImages.Parent = this.btnUsuario;
+            this.btnUsuario.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
+            this.btnUsuario.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuario.ForeColor = System.Drawing.Color.White;
+            this.btnUsuario.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
+            this.btnUsuario.HoverState.Parent = this.btnUsuario;
+            this.btnUsuario.Image = global::GestorDeBiblioteca.Properties.Resources.icons8_customer_100;
+            this.btnUsuario.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnUsuario.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnUsuario.Location = new System.Drawing.Point(3, 268);
+            this.btnUsuario.Name = "btnUsuario";
+            this.btnUsuario.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
+            this.btnUsuario.ShadowDecoration.Parent = this.btnUsuario;
+            this.btnUsuario.Size = new System.Drawing.Size(160, 61);
+            this.btnUsuario.TabIndex = 5;
+            this.btnUsuario.Text = "Usuarios";
+            this.toolTip.SetToolTip(this.btnUsuario, "Registar Usuarios");
+            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(4, 138);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(3, 123);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 39);
+            this.label1.Size = new System.Drawing.Size(165, 31);
             this.label1.TabIndex = 8;
             this.label1.Text = "Prestamos ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panelContenedor
+            // 
+            this.panelContenedor.BackColor = System.Drawing.Color.White;
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(166, 49);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(911, 700);
+            this.panelContenedor.TabIndex = 20;
+            // 
+            // panelSiderbar
+            // 
+            this.panelSiderbar.BackColor = System.Drawing.Color.Transparent;
+            this.panelSiderbar.BorderColor = System.Drawing.Color.White;
+            this.panelSiderbar.BorderRadius = 20;
+            this.panelSiderbar.BorderThickness = 1;
+            this.panelSiderbar.Controls.Add(this.picLogo);
+            this.panelSiderbar.Controls.Add(this.btnDashboard);
+            this.panelSiderbar.Controls.Add(this.btnPrestamo);
+            this.panelSiderbar.Controls.Add(this.btnDevolucion);
+            this.panelSiderbar.Controls.Add(this.btnSalir);
+            this.panelSiderbar.Controls.Add(this.btnLibro);
+            this.panelSiderbar.Controls.Add(this.label1);
+            this.panelSiderbar.Controls.Add(this.btnUsuario);
+            this.panelSiderbar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelSiderbar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
+            this.panelSiderbar.Location = new System.Drawing.Point(0, 0);
+            this.panelSiderbar.Name = "panelSiderbar";
+            this.panelSiderbar.ShadowDecoration.Parent = this.panelSiderbar;
+            this.panelSiderbar.Size = new System.Drawing.Size(166, 749);
+            this.panelSiderbar.TabIndex = 1;
+            // 
             // picLogo
             // 
-            this.picLogo.Image = global::GestorDeBiblioteca.Properties.Resources.Logo__2_;
-            this.picLogo.Location = new System.Drawing.Point(-41, -37);
-            this.picLogo.Margin = new System.Windows.Forms.Padding(4);
+            this.picLogo.Image = global::GestorDeBiblioteca.Properties.Resources.Gemini_Generated_Image_wa9p0swa9p0swa9p_Photoroom1;
+            this.picLogo.Location = new System.Drawing.Point(-2, -35);
             this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(301, 254);
+            this.picLogo.Size = new System.Drawing.Size(170, 155);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLogo.TabIndex = 7;
             this.picLogo.TabStop = false;
             // 
             // panelSuperior
             // 
-            this.panelSuperior.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panelSuperior.BackColor = System.Drawing.Color.Transparent;
+            this.panelSuperior.BorderColor = System.Drawing.Color.White;
+            this.panelSuperior.BorderRadius = 10;
+            this.panelSuperior.BorderThickness = 1;
+            this.panelSuperior.Controls.Add(this.iconHamburger);
+            this.panelSuperior.Controls.Add(this.btnBroma);
+            this.panelSuperior.Controls.Add(this.btnBloquea);
             this.panelSuperior.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSuperior.Location = new System.Drawing.Point(221, 0);
-            this.panelSuperior.Margin = new System.Windows.Forms.Padding(4);
+            this.panelSuperior.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
+            this.panelSuperior.Location = new System.Drawing.Point(166, 0);
             this.panelSuperior.Name = "panelSuperior";
-            this.panelSuperior.Size = new System.Drawing.Size(1464, 43);
-            this.panelSuperior.TabIndex = 18;
+            this.panelSuperior.ShadowDecoration.Parent = this.panelSuperior;
+            this.panelSuperior.Size = new System.Drawing.Size(911, 49);
+            this.panelSuperior.TabIndex = 0;
             // 
-            // panelContenedor
+            // iconHamburger
             // 
-            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(221, 43);
-            this.panelContenedor.Margin = new System.Windows.Forms.Padding(4);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1464, 795);
-            this.panelContenedor.TabIndex = 20;
+            this.iconHamburger.Image = global::GestorDeBiblioteca.Properties.Resources.menu1;
+            this.iconHamburger.Location = new System.Drawing.Point(8, 7);
+            this.iconHamburger.Name = "iconHamburger";
+            this.iconHamburger.Size = new System.Drawing.Size(37, 39);
+            this.iconHamburger.TabIndex = 0;
+            this.iconHamburger.TabStop = false;
+            this.iconHamburger.Click += new System.EventHandler(this.iconHamburger_Click);
+            // 
+            // btnBroma
+            // 
+            this.btnBroma.CheckedState.Parent = this.btnBroma;
+            this.btnBroma.CustomImages.Parent = this.btnBroma;
+            this.btnBroma.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(79)))));
+            this.btnBroma.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBroma.ForeColor = System.Drawing.Color.White;
+            this.btnBroma.HoverState.Parent = this.btnBroma;
+            this.btnBroma.Location = new System.Drawing.Point(68, 3);
+            this.btnBroma.Name = "btnBroma";
+            this.btnBroma.PressedColor = System.Drawing.Color.Transparent;
+            this.btnBroma.ShadowDecoration.Parent = this.btnBroma;
+            this.btnBroma.Size = new System.Drawing.Size(180, 45);
+            this.btnBroma.TabIndex = 0;
+            this.btnBroma.Text = "Generar Reporte...?";
+            this.btnBroma.Click += new System.EventHandler(this.btnBroma_Click);
             // 
             // MDImenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1685, 838);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1077, 749);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.panelSuperior);
             this.Controls.Add(this.panelSiderbar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MDImenu";
             this.Text = "MDImenu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MDImenu_Load);
             this.panelSiderbar.ResumeLayout(false);
             this.panelSiderbar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
+            this.panelSuperior.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconHamburger)).EndInit();
             this.ResumeLayout(false);
 
         }
         #endregion
 
         private System.Windows.Forms.ToolTip toolTip;
-        private System.Windows.Forms.Panel panelSiderbar;
-        private System.Windows.Forms.PictureBox picLogo;
-        private System.Windows.Forms.Panel panelSuperior;
+        private Guna.UI2.WinForms.Guna2Button btnLibro;
+        private Guna.UI2.WinForms.Guna2Button btnDashboard;
+        private Guna.UI2.WinForms.Guna2Button btnPrestamo;
+        private Guna.UI2.WinForms.Guna2Button btnUsuario;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2Button btnDevolucion;
+        private System.Windows.Forms.PictureBox picLogo;
+        private Guna.UI2.WinForms.Guna2Button btnBloquea;
         private System.Windows.Forms.Panel panelContenedor;
         private Guna.UI2.WinForms.Guna2Button btnSalir;
-        private Guna.UI2.WinForms.Guna2Button btnUsuario;
-        private Guna.UI2.WinForms.Guna2Button btnLibro;
-        private Guna.UI2.WinForms.Guna2Button btnPrestamo;
-        private Guna.UI2.WinForms.Guna2Button btnDashboard;
+        private Guna.UI2.WinForms.Guna2Button btnDevolucion;
+        private Guna.UI2.WinForms.Guna2Panel panelSiderbar;
+        private Guna.UI2.WinForms.Guna2Panel panelSuperior;
+        private Guna.UI2.WinForms.Guna2Button btnBroma;
+        private System.Windows.Forms.PictureBox iconHamburger;
     }
 }
 
