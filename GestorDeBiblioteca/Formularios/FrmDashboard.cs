@@ -1,4 +1,4 @@
-﻿using app.Banco.Utilidades;
+using app.Banco.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +20,7 @@ namespace GestorDeBiblioteca.Formularios
         public FrmDashboard()
         {
             InitializeComponent();
+            ConfigurarInteracciones();
             TotalesvistasOcultas();
         }
 
@@ -93,17 +94,17 @@ namespace GestorDeBiblioteca.Formularios
             // Paleta personalizada (colores combinados con el dashboard)
             Color[] coloresDashboard =
             {
-                    Color.FromArgb(54, 69, 79),   // gris azulado oscuro
-                    Color.FromArgb(93, 109, 126), // gris acero
-                    Color.FromArgb(72, 133, 184), // azul petróleo
-                    Color.FromArgb(100, 149, 237),// celeste suave
-                    Color.FromArgb(147, 197, 207),// azul gris claro
-                    Color.FromArgb(171, 183, 183),// gris cálido
-                    Color.FromArgb(88, 111, 124), // gris azulado medio
-                    Color.FromArgb(42, 87, 118),  // azul marino
-                    Color.FromArgb(64, 128, 128), // azul verdoso
-                    Color.FromArgb(192, 200, 207) // gris plateado
-    };
+                Presentacion.BibliotecaTheme.Petrol,
+                Presentacion.BibliotecaTheme.Amber,
+                Color.FromArgb(94, 140, 137),
+                Color.FromArgb(222, 187, 130),
+                Color.FromArgb(57, 100, 111),
+                Color.FromArgb(166, 195, 182),
+                Color.FromArgb(196, 142, 99),
+                Color.FromArgb(128, 158, 160),
+                Color.FromArgb(74, 116, 97),
+                Color.FromArgb(227, 213, 186)
+            };
 
             // Configuración visual según vista
             switch (vistaActual)
@@ -146,6 +147,7 @@ namespace GestorDeBiblioteca.Formularios
             // Ajuste visual general
             chartEstadisticas.ChartAreas[0].AxisX.LabelStyle.Angle = -30;
             chartEstadisticas.Titles[0].Font = new Font("Segoe UI Semibold", 12, FontStyle.Bold);
+            Presentacion.BibliotecaTheme.Chart(chartEstadisticas);
             chartEstadisticas.Titles[0].ForeColor = Color.FromArgb(54, 69, 79);
         }
 
@@ -177,6 +179,9 @@ namespace GestorDeBiblioteca.Formularios
         }
         private void ActualizarTotales(DataTable dt)
         {
+            bool distribucion = vistaActual == "vw_DistribucionUsuarios";
+            titulosMetricas[1].Text = distribucion ? "USUARIOS" : "PRÉSTAMOS";
+            titulosMetricas[2].Text = distribucion ? "TIPOS DE USUARIO" : "PROMEDIO";
             if (dt == null || dt.Rows.Count == 0)
             {
                 total1.Text = total2.Text = total3.Text = total4.Text = "—";
@@ -189,30 +194,30 @@ namespace GestorDeBiblioteca.Formularios
                     int totalUsuarios = dt.Rows.Count;
                     int totalPrestamosUsuarios = dt.AsEnumerable().Sum(r => Convert.ToInt32(r["TotalPrestamos"]));
 
-                    total1.Text = $"👥 Usuarios Top: {totalUsuarios}";
-                    total2.Text = $"📘 Total de préstamos: {totalPrestamosUsuarios}";
-                    total3.Text = $"🏆 Promedio por usuario: {totalPrestamosUsuarios / totalUsuarios}";
-                    total4.Text = $"🗓️ Actualizado: {DateTime.Now:dd/MM/yyyy}";
+                    total1.Text = $"{totalUsuarios} usuarios";
+                    total2.Text = totalPrestamosUsuarios.ToString("N0");
+                    total3.Text = ((double)totalPrestamosUsuarios / totalUsuarios).ToString("0.0");
+                    total4.Text = DateTime.Now.ToString("dd MMM yyyy");
                     break;
 
                 case "vw_Top10LibrosPopulares":
                     int totalLibros = dt.Rows.Count;
                     int totalPrestamosLibros = dt.AsEnumerable().Sum(r => Convert.ToInt32(r["TotalPrestamos"]));
 
-                    total1.Text = $"📚 Libros Top: {totalLibros}";
-                    total2.Text = $"📦 Total préstamos: {totalPrestamosLibros}";
-                    total3.Text = $"⭐ Promedio por libro: {totalPrestamosLibros / totalLibros}";
-                    total4.Text = $"🗓️ Actualizado: {DateTime.Now:dd/MM/yyyy}";
+                    total1.Text = $"{totalLibros} libros";
+                    total2.Text = totalPrestamosLibros.ToString("N0");
+                    total3.Text = ((double)totalPrestamosLibros / totalLibros).ToString("0.0");
+                    total4.Text = DateTime.Now.ToString("dd MMM yyyy");
                     break;
 
                 case "vw_DistribucionUsuarios":
                     int total = dt.AsEnumerable().Sum(r => Convert.ToInt32(r["Total"]));
                     string detalle = string.Join(" | ", dt.AsEnumerable().Select(r => $"{r["TipoUsuario"]}: {r["Total"]}"));
 
-                    total1.Text = $"👥 Total usuarios: {total}";
-                    total2.Text = $"📊 {detalle}";
-                    total3.Text = $"🔍 {dt.Rows.Count} categorías";
-                    total4.Text = $"🗓️ Actualizado: {DateTime.Now:dd/MM/yyyy}";
+                    total1.Text = $"{total} usuarios";
+                    total2.Text = total.ToString("N0");
+                    total3.Text = $"{dt.Rows.Count} tipos";
+                    total4.Text = DateTime.Now.ToString("dd MMM yyyy");
                     break;
             }
         }
@@ -278,6 +283,7 @@ namespace GestorDeBiblioteca.Formularios
             dvgListado.StandardTab = true;
 
             dvgListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            GestorDeBiblioteca.Presentacion.BibliotecaTheme.Grid(dvgListado);
         }
         #endregion
 

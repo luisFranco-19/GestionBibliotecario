@@ -28,21 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            System.Windows.Forms.DataGridViewCellStyle estiloDisenodvgListadoColumnHeadersDefaultCellStyle = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle estiloDisenodvgListadoDefaultCellStyle = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle estiloDisenodvgListadoAlternatingRowsDefaultCellStyle = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
             this.total2 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.total3 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.total4 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.total1 = new System.Windows.Forms.Label();
             this.chartEstadisticas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dvgListado = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -55,11 +53,55 @@
             this.btnRegistrosLibros = new Guna.UI2.WinForms.Guna2Button();
             this.btnStockLibros = new Guna.UI2.WinForms.Guna2Button();
             this.btnRegistroUsuarios = new Guna.UI2.WinForms.Guna2Button();
-            this.panel1.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tlpDisenoRaiz = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpDisenoEncabezado = new System.Windows.Forms.TableLayoutPanel();
+            this.lblDisenoSeccion = new System.Windows.Forms.Label();
+            this.lblDisenoTitulo = new System.Windows.Forms.Label();
+            this.lblDisenoSubtitulo = new System.Windows.Forms.Label();
+            this.tlpDisenoBarra = new System.Windows.Forms.TableLayoutPanel();
+            this.flpDisenoAcciones = new System.Windows.Forms.FlowLayoutPanel();
+            this.tlpDisenoIndicadores = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlDisenoIndicador = new Guna.UI2.WinForms.Guna2Panel();
+            this.tlpDisenoFilas = new System.Windows.Forms.TableLayoutPanel();
+            this.lblDisenoMetrica1 = new System.Windows.Forms.Label();
+            this.pnlDisenoIndicador2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.tlpDisenoFilas2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblDisenoMetrica2 = new System.Windows.Forms.Label();
+            this.pnlDisenoIndicador3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.tlpDisenoFilas3 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblDisenoMetrica3 = new System.Windows.Forms.Label();
+            this.pnlDisenoIndicador4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.tlpDisenoFilas4 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblDisenoMetrica4 = new System.Windows.Forms.Label();
+            this.tlpDisenoDatos = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlDisenoGrafico = new Guna.UI2.WinForms.Guna2Panel();
+            this.tlpDisenoFilas5 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblDiseno = new System.Windows.Forms.Label();
+            this.pnlDisenoListado = new Guna.UI2.WinForms.Guna2Panel();
+            this.tlpDisenoListado = new System.Windows.Forms.TableLayoutPanel();
+            this.lblDisenoListado = new System.Windows.Forms.Label();
+            this.lblDisenoContador = new System.Windows.Forms.Label();
+            this.lblDisenoAyuda = new System.Windows.Forms.Label();
+            this.pnlDisenoControlesInternos = new System.Windows.Forms.Panel();
+            this.tlpDisenoRaiz.SuspendLayout();
+            this.tlpDisenoEncabezado.SuspendLayout();
+            this.tlpDisenoBarra.SuspendLayout();
+            this.flpDisenoAcciones.SuspendLayout();
+            this.tlpDisenoIndicadores.SuspendLayout();
+            this.pnlDisenoIndicador.SuspendLayout();
+            this.tlpDisenoFilas.SuspendLayout();
+            this.pnlDisenoIndicador2.SuspendLayout();
+            this.tlpDisenoFilas2.SuspendLayout();
+            this.pnlDisenoIndicador3.SuspendLayout();
+            this.tlpDisenoFilas3.SuspendLayout();
+            this.pnlDisenoIndicador4.SuspendLayout();
+            this.tlpDisenoFilas4.SuspendLayout();
+            this.tlpDisenoDatos.SuspendLayout();
+            this.pnlDisenoGrafico.SuspendLayout();
+            this.tlpDisenoFilas5.SuspendLayout();
+            this.pnlDisenoListado.SuspendLayout();
+            this.tlpDisenoListado.SuspendLayout();
+            this.pnlDisenoControlesInternos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartEstadisticas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgListado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox2)).BeginInit();
@@ -67,144 +109,40 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox3)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.picBox2);
-            this.panel1.Controls.Add(this.picBox1);
-            this.panel1.Controls.Add(this.tableLayoutPanel4);
-            this.panel1.Controls.Add(this.tableLayoutPanel3);
-            this.panel1.Controls.Add(this.tableLayoutPanel2);
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Controls.Add(this.picBox4);
-            this.panel1.Controls.Add(this.picBox3);
-            this.panel1.Controls.Add(this.chartEstadisticas);
-            this.panel1.Controls.Add(this.txtBuscar);
-            this.panel1.Controls.Add(this.dvgListado);
-            this.panel1.Controls.Add(this.btnRegistrosLibros);
-            this.panel1.Controls.Add(this.btnStockLibros);
-            this.panel1.Controls.Add(this.btnRegistroUsuarios);
-            this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1063, 514);
-            this.panel1.TabIndex = 3;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.total2, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 213);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(223, 81);
-            this.tableLayoutPanel4.TabIndex = 45;
-            // 
-            // total2
-            // 
-            this.total2.AutoSize = true;
-            this.total2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(124)))), ((int)(((byte)(161)))));
-            this.total2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.total2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.total2.ForeColor = System.Drawing.Color.Black;
-            this.total2.Location = new System.Drawing.Point(3, 0);
-            this.total2.Name = "total2";
-            this.total2.Size = new System.Drawing.Size(217, 81);
+            estiloDisenodvgListadoColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(233, 243, 239);
+            estiloDisenodvgListadoColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(25, 78, 89);
+            estiloDisenodvgListadoColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            estiloDisenodvgListadoColumnHeadersDefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(233, 243, 239);
+            estiloDisenodvgListadoColumnHeadersDefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(25, 78, 89);
+            estiloDisenodvgListadoColumnHeadersDefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            estiloDisenodvgListadoColumnHeadersDefaultCellStyle.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            estiloDisenodvgListadoDefaultCellStyle.BackColor = System.Drawing.Color.White;
+            estiloDisenodvgListadoDefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(24, 53, 61);
+            estiloDisenodvgListadoDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            estiloDisenodvgListadoDefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(219, 237, 231);
+            estiloDisenodvgListadoDefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(24, 53, 61);
+            estiloDisenodvgListadoDefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            estiloDisenodvgListadoDefaultCellStyle.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            estiloDisenodvgListadoAlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(249, 250, 247);
+            estiloDisenodvgListadoAlternatingRowsDefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(24, 53, 61);
+            estiloDisenodvgListadoAlternatingRowsDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            estiloDisenodvgListadoAlternatingRowsDefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(219, 237, 231);
+            estiloDisenodvgListadoAlternatingRowsDefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(24, 53, 61);
+            estiloDisenodvgListadoAlternatingRowsDefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            estiloDisenodvgListadoAlternatingRowsDefaultCellStyle.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            chartArea2.Area3DStyle.Enable3D = false;
+            chartArea2.BackColor = System.Drawing.Color.White;
+            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(224, 229, 225);
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(224, 229, 225);
             this.total2.TabIndex = 37;
-            this.total2.Text = "total2";
-            this.total2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.total3, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(830, 57);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(227, 81);
-            this.tableLayoutPanel3.TabIndex = 44;
-            // 
-            // total3
-            // 
-            this.total3.AutoSize = true;
-            this.total3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(124)))), ((int)(((byte)(161)))));
-            this.total3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.total3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.total3.ForeColor = System.Drawing.Color.Black;
-            this.total3.Location = new System.Drawing.Point(3, 0);
-            this.total3.Name = "total3";
-            this.total3.Size = new System.Drawing.Size(221, 81);
             this.total3.TabIndex = 33;
-            this.total3.Text = "total3";
-            this.total3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.total4, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(833, 213);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(227, 81);
-            this.tableLayoutPanel2.TabIndex = 43;
-            // 
-            // total4
-            // 
-            this.total4.AutoSize = true;
-            this.total4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(124)))), ((int)(((byte)(161)))));
-            this.total4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.total4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.total4.ForeColor = System.Drawing.Color.Black;
-            this.total4.Location = new System.Drawing.Point(3, 0);
-            this.total4.Name = "total4";
-            this.total4.Size = new System.Drawing.Size(221, 81);
             this.total4.TabIndex = 41;
-            this.total4.Text = "total4";
-            this.total4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.total1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 68);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 81F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(223, 81);
-            this.tableLayoutPanel1.TabIndex = 42;
-            // 
-            // total1
-            // 
-            this.total1.AutoSize = true;
-            this.total1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(124)))), ((int)(((byte)(161)))));
-            this.total1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.total1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.total1.ForeColor = System.Drawing.Color.Black;
-            this.total1.Location = new System.Drawing.Point(3, 0);
-            this.total1.Name = "total1";
-            this.total1.Size = new System.Drawing.Size(217, 81);
             this.total1.TabIndex = 29;
-            this.total1.Text = "total1";
-            this.total1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // chartEstadisticas
-            // 
-            this.chartEstadisticas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Area3DStyle.Enable3D = true;
+            this.chartEstadisticas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             chartArea2.Area3DStyle.Inclination = 20;
             chartArea2.Area3DStyle.IsRightAngleAxes = false;
             chartArea2.Area3DStyle.PointDepth = 200;
@@ -213,8 +151,6 @@
             this.chartEstadisticas.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chartEstadisticas.Legends.Add(legend2);
-            this.chartEstadisticas.Location = new System.Drawing.Point(327, 3);
-            this.chartEstadisticas.Name = "chartEstadisticas";
             this.chartEstadisticas.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series2.BorderColor = System.Drawing.Color.Silver;
             series2.ChartArea = "ChartArea1";
@@ -227,24 +163,13 @@
             series2.MarkerBorderColor = System.Drawing.Color.WhiteSmoke;
             series2.Name = "Series1";
             this.chartEstadisticas.Series.Add(series2);
-            this.chartEstadisticas.Size = new System.Drawing.Size(400, 190);
             this.chartEstadisticas.TabIndex = 25;
             this.chartEstadisticas.Text = "chart1";
-            // 
-            // dvgListado
-            // 
-            this.dvgListado.AllowUserToAddRows = false;
             this.dvgListado.AllowUserToDeleteRows = false;
             this.dvgListado.AllowUserToOrderColumns = true;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dvgListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dvgListado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dvgListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dvgListado.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dvgListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dvgListado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dvgListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dvgListado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -252,8 +177,6 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dvgListado.ColumnHeadersHeight = 4;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -261,193 +184,744 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvgListado.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dvgListado.EnableHeadersVisualStyles = false;
-            this.dvgListado.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dvgListado.Location = new System.Drawing.Point(170, 247);
-            this.dvgListado.Name = "dvgListado";
             this.dvgListado.ReadOnly = true;
-            this.dvgListado.RowHeadersVisible = false;
-            this.dvgListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dvgListado.Size = new System.Drawing.Size(838, 255);
             this.dvgListado.TabIndex = 23;
             this.dvgListado.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
-            this.dvgListado.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dvgListado.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.dvgListado.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.dvgListado.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dvgListado.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.dvgListado.ThemeStyle.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dvgListado.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dvgListado.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.dvgListado.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dvgListado.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.dvgListado.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dvgListado.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dvgListado.ThemeStyle.HeaderStyle.Height = 4;
             this.dvgListado.ThemeStyle.ReadOnly = true;
-            this.dvgListado.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dvgListado.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dvgListado.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.dvgListado.ThemeStyle.RowsStyle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.dvgListado.ThemeStyle.RowsStyle.Height = 22;
-            this.dvgListado.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dvgListado.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // picBox2
-            // 
             this.picBox2.BackColor = System.Drawing.Color.White;
             this.picBox2.Image = global::GestorDeBiblioteca.Properties.Resources.dash;
-            this.picBox2.Location = new System.Drawing.Point(3, 158);
-            this.picBox2.Name = "picBox2";
-            this.picBox2.Size = new System.Drawing.Size(63, 52);
             this.picBox2.TabIndex = 47;
             this.picBox2.TabStop = false;
-            // 
-            // picBox1
-            // 
             this.picBox1.BackColor = System.Drawing.Color.White;
             this.picBox1.Image = global::GestorDeBiblioteca.Properties.Resources.boars;
-            this.picBox1.Location = new System.Drawing.Point(3, 8);
-            this.picBox1.Name = "picBox1";
-            this.picBox1.Size = new System.Drawing.Size(67, 59);
             this.picBox1.TabIndex = 46;
             this.picBox1.TabStop = false;
-            // 
-            // picBox4
-            // 
             this.picBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picBox4.BackColor = System.Drawing.Color.White;
             this.picBox4.Image = global::GestorDeBiblioteca.Properties.Resources.business_report;
-            this.picBox4.Location = new System.Drawing.Point(988, 144);
-            this.picBox4.Name = "picBox4";
-            this.picBox4.Size = new System.Drawing.Size(63, 66);
             this.picBox4.TabIndex = 39;
             this.picBox4.TabStop = false;
-            // 
-            // picBox3
-            // 
             this.picBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picBox3.BackColor = System.Drawing.Color.White;
             this.picBox3.Image = global::GestorDeBiblioteca.Properties.Resources._char;
-            this.picBox3.Location = new System.Drawing.Point(984, 0);
-            this.picBox3.Name = "picBox3";
-            this.picBox3.Size = new System.Drawing.Size(67, 67);
             this.picBox3.TabIndex = 31;
             this.picBox3.TabStop = false;
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBuscar.BorderColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txtBuscar.BorderRadius = 8;
+            this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBuscar.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtBuscar.DefaultText = "";
             this.txtBuscar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBuscar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBuscar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtBuscar.DisabledState.Parent = this.txtBuscar;
             this.txtBuscar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBuscar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBuscar.FocusedState.Parent = this.txtBuscar;
-            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBuscar.HoverState.Parent = this.txtBuscar;
-            this.txtBuscar.IconLeft = global::GestorDeBiblioteca.Properties.Resources.icons8_search_241;
-            this.txtBuscar.Location = new System.Drawing.Point(170, 201);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.PasswordChar = '\0';
-            this.txtBuscar.PlaceholderText = "Buscar registro...";
             this.txtBuscar.SelectedText = "";
             this.txtBuscar.ShadowDecoration.Parent = this.txtBuscar;
-            this.txtBuscar.Size = new System.Drawing.Size(838, 38);
             this.txtBuscar.TabIndex = 24;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
-            // 
-            // btnRegistrosLibros
-            // 
             this.btnRegistrosLibros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRegistrosLibros.BackColor = System.Drawing.Color.White;
-            this.btnRegistrosLibros.BorderRadius = 10;
             this.btnRegistrosLibros.CheckedState.Parent = this.btnRegistrosLibros;
             this.btnRegistrosLibros.CustomImages.Parent = this.btnRegistrosLibros;
-            this.btnRegistrosLibros.FillColor = System.Drawing.Color.SlateGray;
-            this.btnRegistrosLibros.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrosLibros.ForeColor = System.Drawing.Color.White;
             this.btnRegistrosLibros.HoverState.Parent = this.btnRegistrosLibros;
-            this.btnRegistrosLibros.Image = global::GestorDeBiblioteca.Properties.Resources.group;
             this.btnRegistrosLibros.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnRegistrosLibros.Location = new System.Drawing.Point(3, 247);
-            this.btnRegistrosLibros.Name = "btnRegistrosLibros";
             this.btnRegistrosLibros.ShadowDecoration.Parent = this.btnRegistrosLibros;
-            this.btnRegistrosLibros.Size = new System.Drawing.Size(161, 69);
             this.btnRegistrosLibros.TabIndex = 22;
-            this.btnRegistrosLibros.Text = "Lectores";
             this.toolTip1.SetToolTip(this.btnRegistrosLibros, "Mostrar usuarios mas concurrentes");
-            this.btnRegistrosLibros.Click += new System.EventHandler(this.btnRegistrosLibros_Click);
-            // 
-            // btnStockLibros
-            // 
             this.btnStockLibros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnStockLibros.BorderRadius = 10;
             this.btnStockLibros.CheckedState.Parent = this.btnStockLibros;
             this.btnStockLibros.CustomImages.Parent = this.btnStockLibros;
-            this.btnStockLibros.FillColor = System.Drawing.Color.SlateGray;
-            this.btnStockLibros.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStockLibros.ForeColor = System.Drawing.Color.White;
             this.btnStockLibros.HoverState.Parent = this.btnStockLibros;
-            this.btnStockLibros.Image = global::GestorDeBiblioteca.Properties.Resources.category;
             this.btnStockLibros.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnStockLibros.Location = new System.Drawing.Point(3, 435);
-            this.btnStockLibros.Name = "btnStockLibros";
             this.btnStockLibros.ShadowDecoration.Parent = this.btnStockLibros;
-            this.btnStockLibros.Size = new System.Drawing.Size(161, 69);
             this.btnStockLibros.TabIndex = 21;
-            this.btnStockLibros.Text = "Categorías";
             this.toolTip1.SetToolTip(this.btnStockLibros, "Mostrar distribucion de lectores");
-            this.btnStockLibros.Click += new System.EventHandler(this.btnStockLibros_Click);
-            // 
-            // btnRegistroUsuarios
-            // 
             this.btnRegistroUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRegistroUsuarios.BorderRadius = 10;
             this.btnRegistroUsuarios.CheckedState.Parent = this.btnRegistroUsuarios;
             this.btnRegistroUsuarios.CustomImages.Parent = this.btnRegistroUsuarios;
-            this.btnRegistroUsuarios.FillColor = System.Drawing.Color.SlateGray;
-            this.btnRegistroUsuarios.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistroUsuarios.ForeColor = System.Drawing.Color.White;
             this.btnRegistroUsuarios.HoverState.Parent = this.btnRegistroUsuarios;
-            this.btnRegistroUsuarios.Image = global::GestorDeBiblioteca.Properties.Resources.stack_of_books;
             this.btnRegistroUsuarios.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnRegistroUsuarios.Location = new System.Drawing.Point(3, 339);
-            this.btnRegistroUsuarios.Name = "btnRegistroUsuarios";
             this.btnRegistroUsuarios.ShadowDecoration.Parent = this.btnRegistroUsuarios;
-            this.btnRegistroUsuarios.Size = new System.Drawing.Size(161, 69);
             this.btnRegistroUsuarios.TabIndex = 20;
-            this.btnRegistroUsuarios.Text = "Ejemplares";
             this.toolTip1.SetToolTip(this.btnRegistroUsuarios, "Mostrar libros mas usados");
-            this.btnRegistroUsuarios.Click += new System.EventHandler(this.btnRegistroUsuarios_Click);
-            // 
-            // FrmDashboard
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1063, 514);
-            this.Controls.Add(this.panel1);
             this.Name = "FrmDashboard";
-            this.Text = "Dashboard";
+            // tlpDisenoRaiz
+            this.tlpDisenoRaiz.Name = "tlpDisenoRaiz";
+            this.tlpDisenoRaiz.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpDisenoRaiz.BackColor = System.Drawing.Color.Transparent;
+            this.tlpDisenoRaiz.ColumnCount = 1;
+            this.tlpDisenoRaiz.RowCount = 5;
+            this.tlpDisenoRaiz.Padding = new System.Windows.Forms.Padding(24, 16, 24, 14);
+            this.tlpDisenoRaiz.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoRaiz.Location = new System.Drawing.Point(0, 0);
+            this.tlpDisenoRaiz.Size = new System.Drawing.Size(1140, 730);
+            this.tlpDisenoRaiz.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDisenoRaiz.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tlpDisenoRaiz.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tlpDisenoRaiz.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 106F));
+            this.tlpDisenoRaiz.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDisenoRaiz.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tlpDisenoRaiz.Controls.Add(this.tlpDisenoEncabezado, 0, 0);
+            this.tlpDisenoRaiz.Controls.Add(this.tlpDisenoBarra, 0, 1);
+            this.tlpDisenoRaiz.Controls.Add(this.tlpDisenoIndicadores, 0, 2);
+            this.tlpDisenoRaiz.Controls.Add(this.tlpDisenoDatos, 0, 3);
+            this.tlpDisenoRaiz.Controls.Add(this.lblDisenoAyuda, 0, 4);
+            // tlpDisenoEncabezado
+            this.tlpDisenoEncabezado.Name = "tlpDisenoEncabezado";
+            this.tlpDisenoEncabezado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpDisenoEncabezado.BackColor = System.Drawing.Color.Transparent;
+            this.tlpDisenoEncabezado.ColumnCount = 1;
+            this.tlpDisenoEncabezado.RowCount = 3;
+            this.tlpDisenoEncabezado.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoEncabezado.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.tlpDisenoEncabezado.Location = new System.Drawing.Point(24, 16);
+            this.tlpDisenoEncabezado.Size = new System.Drawing.Size(1092, 86);
+            this.tlpDisenoEncabezado.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDisenoEncabezado.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpDisenoEncabezado.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tlpDisenoEncabezado.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tlpDisenoEncabezado.Controls.Add(this.lblDisenoSeccion, 0, 0);
+            this.tlpDisenoEncabezado.Controls.Add(this.lblDisenoTitulo, 0, 1);
+            this.tlpDisenoEncabezado.Controls.Add(this.lblDisenoSubtitulo, 0, 2);
+            // lblDisenoSeccion
+            this.lblDisenoSeccion.Name = "lblDisenoSeccion";
+            this.lblDisenoSeccion.Text = "RESUMEN";
+            this.lblDisenoSeccion.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDisenoSeccion.ForeColor = System.Drawing.Color.FromArgb(183, 113, 55);
+            this.lblDisenoSeccion.BackColor = System.Drawing.Color.Transparent;
+            this.lblDisenoSeccion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDisenoSeccion.AutoSize = false;
+            this.lblDisenoSeccion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblDisenoSeccion.AutoEllipsis = true;
+            this.lblDisenoSeccion.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.lblDisenoSeccion.Location = new System.Drawing.Point(0, 0);
+            this.lblDisenoSeccion.Size = new System.Drawing.Size(1092, 20);
+            // lblDisenoTitulo
+            this.lblDisenoTitulo.Name = "lblDisenoTitulo";
+            this.lblDisenoTitulo.Text = "Tu biblioteca, en perspectiva";
+            this.lblDisenoTitulo.Font = new System.Drawing.Font("Georgia", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDisenoTitulo.ForeColor = System.Drawing.Color.FromArgb(24, 53, 61);
+            this.lblDisenoTitulo.BackColor = System.Drawing.Color.Transparent;
+            this.lblDisenoTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDisenoTitulo.AutoSize = false;
+            this.lblDisenoTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblDisenoTitulo.AutoEllipsis = true;
+            this.lblDisenoTitulo.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.lblDisenoTitulo.Location = new System.Drawing.Point(0, 20);
+            this.lblDisenoTitulo.Size = new System.Drawing.Size(1092, 42);
+            // lblDisenoSubtitulo
+            this.lblDisenoSubtitulo.Name = "lblDisenoSubtitulo";
+            this.lblDisenoSubtitulo.Text = "Explora la actividad de lectores, libros y préstamos.";
+            this.lblDisenoSubtitulo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDisenoSubtitulo.ForeColor = System.Drawing.Color.FromArgb(102, 117, 120);
+            this.lblDisenoSubtitulo.BackColor = System.Drawing.Color.Transparent;
+            this.lblDisenoSubtitulo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDisenoSubtitulo.AutoSize = false;
+            this.lblDisenoSubtitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblDisenoSubtitulo.AutoEllipsis = true;
+            this.lblDisenoSubtitulo.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.lblDisenoSubtitulo.Location = new System.Drawing.Point(0, 62);
+            this.lblDisenoSubtitulo.Size = new System.Drawing.Size(1092, 24);
+            // tlpDisenoBarra
+            this.tlpDisenoBarra.Name = "tlpDisenoBarra";
+            this.tlpDisenoBarra.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpDisenoBarra.BackColor = System.Drawing.Color.Transparent;
+            this.tlpDisenoBarra.ColumnCount = 2;
+            this.tlpDisenoBarra.RowCount = 1;
+            this.tlpDisenoBarra.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoBarra.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoBarra.Location = new System.Drawing.Point(24, 112);
+            this.tlpDisenoBarra.Size = new System.Drawing.Size(1092, 60);
+            this.tlpDisenoBarra.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76F));
+            this.tlpDisenoBarra.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24F));
+            this.tlpDisenoBarra.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDisenoBarra.Controls.Add(this.flpDisenoAcciones, 0, 0);
+            this.tlpDisenoBarra.Controls.Add(this.txtBuscar, 1, 0);
+            // btnRegistrosLibros
+            this.btnRegistrosLibros.Name = "btnRegistrosLibros";
+            this.btnRegistrosLibros.Text = "Usuarios destacados";
+            this.btnRegistrosLibros.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRegistrosLibros.AccessibleName = "Usuarios destacados";
+            this.btnRegistrosLibros.Size = new System.Drawing.Size(200, 42);
+            this.btnRegistrosLibros.MinimumSize = new System.Drawing.Size(200, 42);
+            this.btnRegistrosLibros.Dock = System.Windows.Forms.DockStyle.None;
+            this.btnRegistrosLibros.Visible = true;
+            this.btnRegistrosLibros.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnRegistrosLibros.BorderRadius = 7;
+            this.btnRegistrosLibros.BackColor = System.Drawing.Color.Transparent;
+            this.btnRegistrosLibros.Image = null;
+            this.btnRegistrosLibros.TextOffset = new System.Drawing.Point(0, 0);
+            this.btnRegistrosLibros.BorderThickness = 0;
+            this.btnRegistrosLibros.BorderColor = System.Drawing.Color.FromArgb(224, 229, 225);
+            this.btnRegistrosLibros.FillColor = System.Drawing.Color.FromArgb(25, 78, 89);
+            this.btnRegistrosLibros.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrosLibros.PressedColor = System.Drawing.Color.FromArgb(25, 78, 89);
+            this.btnRegistrosLibros.HoverState.FillColor = System.Drawing.Color.FromArgb(35, 96, 107);
+            this.btnRegistrosLibros.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrosLibros.Location = new System.Drawing.Point(0, 2);
+            this.btnRegistrosLibros.Size = new System.Drawing.Size(200, 42);
+            // btnRegistroUsuarios
+            this.btnRegistroUsuarios.Name = "btnRegistroUsuarios";
+            this.btnRegistroUsuarios.Text = "Libros destacados";
+            this.btnRegistroUsuarios.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRegistroUsuarios.AccessibleName = "Libros destacados";
+            this.btnRegistroUsuarios.Size = new System.Drawing.Size(182, 42);
+            this.btnRegistroUsuarios.MinimumSize = new System.Drawing.Size(182, 42);
+            this.btnRegistroUsuarios.Dock = System.Windows.Forms.DockStyle.None;
+            this.btnRegistroUsuarios.Visible = true;
+            this.btnRegistroUsuarios.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnRegistroUsuarios.BorderRadius = 7;
+            this.btnRegistroUsuarios.BackColor = System.Drawing.Color.Transparent;
+            this.btnRegistroUsuarios.Image = null;
+            this.btnRegistroUsuarios.TextOffset = new System.Drawing.Point(0, 0);
+            this.btnRegistroUsuarios.BorderThickness = 1;
+            this.btnRegistroUsuarios.BorderColor = System.Drawing.Color.FromArgb(224, 229, 225);
+            this.btnRegistroUsuarios.FillColor = System.Drawing.Color.White;
+            this.btnRegistroUsuarios.ForeColor = System.Drawing.Color.FromArgb(24, 53, 61);
+            this.btnRegistroUsuarios.PressedColor = System.Drawing.Color.FromArgb(25, 78, 89);
+            this.btnRegistroUsuarios.HoverState.FillColor = System.Drawing.Color.FromArgb(233, 243, 239);
+            this.btnRegistroUsuarios.HoverState.ForeColor = System.Drawing.Color.FromArgb(24, 53, 61);
+            this.btnRegistroUsuarios.Location = new System.Drawing.Point(210, 2);
+            this.btnRegistroUsuarios.Size = new System.Drawing.Size(182, 42);
+            // btnStockLibros
+            this.btnStockLibros.Name = "btnStockLibros";
+            this.btnStockLibros.Text = "Tipos de usuario";
+            this.btnStockLibros.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnStockLibros.AccessibleName = "Tipos de usuario";
+            this.btnStockLibros.Size = new System.Drawing.Size(156, 42);
+            this.btnStockLibros.MinimumSize = new System.Drawing.Size(156, 42);
+            this.btnStockLibros.Dock = System.Windows.Forms.DockStyle.None;
+            this.btnStockLibros.Visible = true;
+            this.btnStockLibros.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnStockLibros.BorderRadius = 7;
+            this.btnStockLibros.BackColor = System.Drawing.Color.Transparent;
+            this.btnStockLibros.Image = null;
+            this.btnStockLibros.TextOffset = new System.Drawing.Point(0, 0);
+            this.btnStockLibros.BorderThickness = 1;
+            this.btnStockLibros.BorderColor = System.Drawing.Color.FromArgb(224, 229, 225);
+            this.btnStockLibros.FillColor = System.Drawing.Color.White;
+            this.btnStockLibros.ForeColor = System.Drawing.Color.FromArgb(24, 53, 61);
+            this.btnStockLibros.PressedColor = System.Drawing.Color.FromArgb(25, 78, 89);
+            this.btnStockLibros.HoverState.FillColor = System.Drawing.Color.FromArgb(233, 243, 239);
+            this.btnStockLibros.HoverState.ForeColor = System.Drawing.Color.FromArgb(24, 53, 61);
+            this.btnStockLibros.Location = new System.Drawing.Point(402, 2);
+            this.btnStockLibros.Size = new System.Drawing.Size(156, 42);
+            // flpDisenoAcciones
+            this.flpDisenoAcciones.Name = "flpDisenoAcciones";
+            this.flpDisenoAcciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpDisenoAcciones.WrapContents = false;
+            this.flpDisenoAcciones.FlowDirection = System.Windows.Forms.FlowDirection.LeftToRight;
+            this.flpDisenoAcciones.BackColor = System.Drawing.Color.Transparent;
+            this.flpDisenoAcciones.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.flpDisenoAcciones.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.flpDisenoAcciones.Location = new System.Drawing.Point(0, 0);
+            this.flpDisenoAcciones.Size = new System.Drawing.Size(829, 60);
+            this.flpDisenoAcciones.Controls.Add(this.btnRegistrosLibros);
+            this.flpDisenoAcciones.Controls.Add(this.btnRegistroUsuarios);
+            this.flpDisenoAcciones.Controls.Add(this.btnStockLibros);
+            // txtBuscar
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(24, 53, 61);
+            this.txtBuscar.AccessibleName = "Filtrar resultados";
+            this.txtBuscar.Visible = true;
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(10, 0, 0, 12);
+            this.txtBuscar.BorderRadius = 6;
+            this.txtBuscar.BorderThickness = 1;
+            this.txtBuscar.BorderColor = System.Drawing.Color.FromArgb(224, 229, 225);
+            this.txtBuscar.FillColor = System.Drawing.Color.White;
+            this.txtBuscar.TextOffset = new System.Drawing.Point(6, 0);
+            this.txtBuscar.PlaceholderForeColor = System.Drawing.Color.FromArgb(126, 142, 145);
+            this.txtBuscar.IconLeft = null;
+            this.txtBuscar.IconRight = null;
+            this.txtBuscar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(25, 78, 89);
+            this.txtBuscar.HoverState.BorderColor = System.Drawing.Color.FromArgb(35, 96, 107);
+            this.txtBuscar.DisabledState.FillColor = System.Drawing.Color.FromArgb(246, 245, 241);
+            this.txtBuscar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(102, 117, 120);
+            this.txtBuscar.PlaceholderText = "Filtrar resultados";
+            this.txtBuscar.Location = new System.Drawing.Point(839, 0);
+            this.txtBuscar.Size = new System.Drawing.Size(252, 48);
+            // tlpDisenoIndicadores
+            this.tlpDisenoIndicadores.Name = "tlpDisenoIndicadores";
+            this.tlpDisenoIndicadores.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpDisenoIndicadores.BackColor = System.Drawing.Color.Transparent;
+            this.tlpDisenoIndicadores.ColumnCount = 4;
+            this.tlpDisenoIndicadores.RowCount = 1;
+            this.tlpDisenoIndicadores.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoIndicadores.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoIndicadores.Location = new System.Drawing.Point(24, 172);
+            this.tlpDisenoIndicadores.Size = new System.Drawing.Size(1092, 106);
+            this.tlpDisenoIndicadores.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpDisenoIndicadores.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpDisenoIndicadores.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpDisenoIndicadores.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpDisenoIndicadores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDisenoIndicadores.Controls.Add(this.pnlDisenoIndicador, 0, 0);
+            this.tlpDisenoIndicadores.Controls.Add(this.pnlDisenoIndicador2, 1, 0);
+            this.tlpDisenoIndicadores.Controls.Add(this.pnlDisenoIndicador3, 2, 0);
+            this.tlpDisenoIndicadores.Controls.Add(this.pnlDisenoIndicador4, 3, 0);
+            // pnlDisenoIndicador
+            this.pnlDisenoIndicador.Name = "pnlDisenoIndicador";
+            this.pnlDisenoIndicador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlDisenoIndicador.FillColor = System.Drawing.Color.White;
+            this.pnlDisenoIndicador.BackColor = System.Drawing.Color.Transparent;
+            this.pnlDisenoIndicador.BorderColor = System.Drawing.Color.FromArgb(224, 229, 225);
+            this.pnlDisenoIndicador.BorderThickness = 1;
+            this.pnlDisenoIndicador.BorderRadius = 12;
+            this.pnlDisenoIndicador.Padding = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.pnlDisenoIndicador.Margin = new System.Windows.Forms.Padding(0, 0, 12, 14);
+            this.pnlDisenoIndicador.Location = new System.Drawing.Point(0, 0);
+            this.pnlDisenoIndicador.Size = new System.Drawing.Size(261, 92);
+            this.pnlDisenoIndicador.Controls.Add(this.tlpDisenoFilas);
+            // tlpDisenoFilas
+            this.tlpDisenoFilas.Name = "tlpDisenoFilas";
+            this.tlpDisenoFilas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpDisenoFilas.BackColor = System.Drawing.Color.Transparent;
+            this.tlpDisenoFilas.ColumnCount = 1;
+            this.tlpDisenoFilas.RowCount = 2;
+            this.tlpDisenoFilas.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoFilas.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoFilas.Location = new System.Drawing.Point(14, 14);
+            this.tlpDisenoFilas.Size = new System.Drawing.Size(233, 64);
+            this.tlpDisenoFilas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDisenoFilas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tlpDisenoFilas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDisenoFilas.Controls.Add(this.lblDisenoMetrica1, 0, 0);
+            this.tlpDisenoFilas.Controls.Add(this.total1, 0, 1);
+            // lblDisenoMetrica1
+            this.lblDisenoMetrica1.Name = "lblDisenoMetrica1";
+            this.lblDisenoMetrica1.Text = "PARTICIPANTES";
+            this.lblDisenoMetrica1.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDisenoMetrica1.ForeColor = System.Drawing.Color.FromArgb(102, 117, 120);
+            this.lblDisenoMetrica1.BackColor = System.Drawing.Color.Transparent;
+            this.lblDisenoMetrica1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDisenoMetrica1.AutoSize = false;
+            this.lblDisenoMetrica1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblDisenoMetrica1.AutoEllipsis = true;
+            this.lblDisenoMetrica1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.lblDisenoMetrica1.Location = new System.Drawing.Point(0, 0);
+            this.lblDisenoMetrica1.Size = new System.Drawing.Size(233, 24);
+            // total1
+            this.total1.Name = "total1";
+            this.total1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.total1.AutoSize = false;
+            this.total1.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.total1.ForeColor = System.Drawing.Color.FromArgb(25, 78, 89);
+            this.total1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.total1.Text = "—";
+            this.total1.BackColor = System.Drawing.Color.Transparent;
+            this.total1.Visible = true;
+            this.total1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.total1.Location = new System.Drawing.Point(0, 24);
+            this.total1.Size = new System.Drawing.Size(233, 40);
+            // pnlDisenoIndicador2
+            this.pnlDisenoIndicador2.Name = "pnlDisenoIndicador2";
+            this.pnlDisenoIndicador2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlDisenoIndicador2.FillColor = System.Drawing.Color.White;
+            this.pnlDisenoIndicador2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlDisenoIndicador2.BorderColor = System.Drawing.Color.FromArgb(224, 229, 225);
+            this.pnlDisenoIndicador2.BorderThickness = 1;
+            this.pnlDisenoIndicador2.BorderRadius = 12;
+            this.pnlDisenoIndicador2.Padding = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.pnlDisenoIndicador2.Margin = new System.Windows.Forms.Padding(0, 0, 12, 14);
+            this.pnlDisenoIndicador2.Location = new System.Drawing.Point(273, 0);
+            this.pnlDisenoIndicador2.Size = new System.Drawing.Size(261, 92);
+            this.pnlDisenoIndicador2.Controls.Add(this.tlpDisenoFilas2);
+            // tlpDisenoFilas2
+            this.tlpDisenoFilas2.Name = "tlpDisenoFilas2";
+            this.tlpDisenoFilas2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpDisenoFilas2.BackColor = System.Drawing.Color.Transparent;
+            this.tlpDisenoFilas2.ColumnCount = 1;
+            this.tlpDisenoFilas2.RowCount = 2;
+            this.tlpDisenoFilas2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoFilas2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoFilas2.Location = new System.Drawing.Point(14, 14);
+            this.tlpDisenoFilas2.Size = new System.Drawing.Size(233, 64);
+            this.tlpDisenoFilas2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDisenoFilas2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tlpDisenoFilas2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDisenoFilas2.Controls.Add(this.lblDisenoMetrica2, 0, 0);
+            this.tlpDisenoFilas2.Controls.Add(this.total2, 0, 1);
+            // lblDisenoMetrica2
+            this.lblDisenoMetrica2.Name = "lblDisenoMetrica2";
+            this.lblDisenoMetrica2.Text = "PRÉSTAMOS";
+            this.lblDisenoMetrica2.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDisenoMetrica2.ForeColor = System.Drawing.Color.FromArgb(102, 117, 120);
+            this.lblDisenoMetrica2.BackColor = System.Drawing.Color.Transparent;
+            this.lblDisenoMetrica2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDisenoMetrica2.AutoSize = false;
+            this.lblDisenoMetrica2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblDisenoMetrica2.AutoEllipsis = true;
+            this.lblDisenoMetrica2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.lblDisenoMetrica2.Location = new System.Drawing.Point(0, 0);
+            this.lblDisenoMetrica2.Size = new System.Drawing.Size(233, 24);
+            // total2
+            this.total2.Name = "total2";
+            this.total2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.total2.AutoSize = false;
+            this.total2.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.total2.ForeColor = System.Drawing.Color.FromArgb(183, 113, 55);
+            this.total2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.total2.Text = "—";
+            this.total2.BackColor = System.Drawing.Color.Transparent;
+            this.total2.Visible = true;
+            this.total2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.total2.Location = new System.Drawing.Point(0, 24);
+            this.total2.Size = new System.Drawing.Size(233, 40);
+            // pnlDisenoIndicador3
+            this.pnlDisenoIndicador3.Name = "pnlDisenoIndicador3";
+            this.pnlDisenoIndicador3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlDisenoIndicador3.FillColor = System.Drawing.Color.White;
+            this.pnlDisenoIndicador3.BackColor = System.Drawing.Color.Transparent;
+            this.pnlDisenoIndicador3.BorderColor = System.Drawing.Color.FromArgb(224, 229, 225);
+            this.pnlDisenoIndicador3.BorderThickness = 1;
+            this.pnlDisenoIndicador3.BorderRadius = 12;
+            this.pnlDisenoIndicador3.Padding = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.pnlDisenoIndicador3.Margin = new System.Windows.Forms.Padding(0, 0, 12, 14);
+            this.pnlDisenoIndicador3.Location = new System.Drawing.Point(546, 0);
+            this.pnlDisenoIndicador3.Size = new System.Drawing.Size(261, 92);
+            this.pnlDisenoIndicador3.Controls.Add(this.tlpDisenoFilas3);
+            // tlpDisenoFilas3
+            this.tlpDisenoFilas3.Name = "tlpDisenoFilas3";
+            this.tlpDisenoFilas3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpDisenoFilas3.BackColor = System.Drawing.Color.Transparent;
+            this.tlpDisenoFilas3.ColumnCount = 1;
+            this.tlpDisenoFilas3.RowCount = 2;
+            this.tlpDisenoFilas3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoFilas3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoFilas3.Location = new System.Drawing.Point(14, 14);
+            this.tlpDisenoFilas3.Size = new System.Drawing.Size(233, 64);
+            this.tlpDisenoFilas3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDisenoFilas3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tlpDisenoFilas3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDisenoFilas3.Controls.Add(this.lblDisenoMetrica3, 0, 0);
+            this.tlpDisenoFilas3.Controls.Add(this.total3, 0, 1);
+            // lblDisenoMetrica3
+            this.lblDisenoMetrica3.Name = "lblDisenoMetrica3";
+            this.lblDisenoMetrica3.Text = "PROMEDIO";
+            this.lblDisenoMetrica3.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDisenoMetrica3.ForeColor = System.Drawing.Color.FromArgb(102, 117, 120);
+            this.lblDisenoMetrica3.BackColor = System.Drawing.Color.Transparent;
+            this.lblDisenoMetrica3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDisenoMetrica3.AutoSize = false;
+            this.lblDisenoMetrica3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblDisenoMetrica3.AutoEllipsis = true;
+            this.lblDisenoMetrica3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.lblDisenoMetrica3.Location = new System.Drawing.Point(0, 0);
+            this.lblDisenoMetrica3.Size = new System.Drawing.Size(233, 24);
+            // total3
+            this.total3.Name = "total3";
+            this.total3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.total3.AutoSize = false;
+            this.total3.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.total3.ForeColor = System.Drawing.Color.FromArgb(25, 78, 89);
+            this.total3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.total3.Text = "—";
+            this.total3.BackColor = System.Drawing.Color.Transparent;
+            this.total3.Visible = true;
+            this.total3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.total3.Location = new System.Drawing.Point(0, 24);
+            this.total3.Size = new System.Drawing.Size(233, 40);
+            // pnlDisenoIndicador4
+            this.pnlDisenoIndicador4.Name = "pnlDisenoIndicador4";
+            this.pnlDisenoIndicador4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlDisenoIndicador4.FillColor = System.Drawing.Color.White;
+            this.pnlDisenoIndicador4.BackColor = System.Drawing.Color.Transparent;
+            this.pnlDisenoIndicador4.BorderColor = System.Drawing.Color.FromArgb(224, 229, 225);
+            this.pnlDisenoIndicador4.BorderThickness = 1;
+            this.pnlDisenoIndicador4.BorderRadius = 12;
+            this.pnlDisenoIndicador4.Padding = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.pnlDisenoIndicador4.Margin = new System.Windows.Forms.Padding(0, 0, 0, 14);
+            this.pnlDisenoIndicador4.Location = new System.Drawing.Point(819, 0);
+            this.pnlDisenoIndicador4.Size = new System.Drawing.Size(273, 92);
+            this.pnlDisenoIndicador4.Controls.Add(this.tlpDisenoFilas4);
+            // tlpDisenoFilas4
+            this.tlpDisenoFilas4.Name = "tlpDisenoFilas4";
+            this.tlpDisenoFilas4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpDisenoFilas4.BackColor = System.Drawing.Color.Transparent;
+            this.tlpDisenoFilas4.ColumnCount = 1;
+            this.tlpDisenoFilas4.RowCount = 2;
+            this.tlpDisenoFilas4.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoFilas4.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoFilas4.Location = new System.Drawing.Point(14, 14);
+            this.tlpDisenoFilas4.Size = new System.Drawing.Size(245, 64);
+            this.tlpDisenoFilas4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDisenoFilas4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tlpDisenoFilas4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDisenoFilas4.Controls.Add(this.lblDisenoMetrica4, 0, 0);
+            this.tlpDisenoFilas4.Controls.Add(this.total4, 0, 1);
+            // lblDisenoMetrica4
+            this.lblDisenoMetrica4.Name = "lblDisenoMetrica4";
+            this.lblDisenoMetrica4.Text = "ACTUALIZACIÓN";
+            this.lblDisenoMetrica4.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDisenoMetrica4.ForeColor = System.Drawing.Color.FromArgb(102, 117, 120);
+            this.lblDisenoMetrica4.BackColor = System.Drawing.Color.Transparent;
+            this.lblDisenoMetrica4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDisenoMetrica4.AutoSize = false;
+            this.lblDisenoMetrica4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblDisenoMetrica4.AutoEllipsis = true;
+            this.lblDisenoMetrica4.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.lblDisenoMetrica4.Location = new System.Drawing.Point(0, 0);
+            this.lblDisenoMetrica4.Size = new System.Drawing.Size(245, 24);
+            // total4
+            this.total4.Name = "total4";
+            this.total4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.total4.AutoSize = false;
+            this.total4.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.total4.ForeColor = System.Drawing.Color.FromArgb(25, 78, 89);
+            this.total4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.total4.Text = "—";
+            this.total4.BackColor = System.Drawing.Color.Transparent;
+            this.total4.Visible = true;
+            this.total4.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.total4.Location = new System.Drawing.Point(0, 24);
+            this.total4.Size = new System.Drawing.Size(245, 40);
+            // tlpDisenoDatos
+            this.tlpDisenoDatos.Name = "tlpDisenoDatos";
+            this.tlpDisenoDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpDisenoDatos.BackColor = System.Drawing.Color.Transparent;
+            this.tlpDisenoDatos.ColumnCount = 2;
+            this.tlpDisenoDatos.RowCount = 1;
+            this.tlpDisenoDatos.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoDatos.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoDatos.Location = new System.Drawing.Point(24, 278);
+            this.tlpDisenoDatos.Size = new System.Drawing.Size(1092, 412);
+            this.tlpDisenoDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53F));
+            this.tlpDisenoDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47F));
+            this.tlpDisenoDatos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDisenoDatos.Controls.Add(this.pnlDisenoGrafico, 0, 0);
+            this.tlpDisenoDatos.Controls.Add(this.pnlDisenoListado, 1, 0);
+            // pnlDisenoGrafico
+            this.pnlDisenoGrafico.Name = "pnlDisenoGrafico";
+            this.pnlDisenoGrafico.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlDisenoGrafico.FillColor = System.Drawing.Color.White;
+            this.pnlDisenoGrafico.BackColor = System.Drawing.Color.Transparent;
+            this.pnlDisenoGrafico.BorderColor = System.Drawing.Color.FromArgb(224, 229, 225);
+            this.pnlDisenoGrafico.BorderThickness = 1;
+            this.pnlDisenoGrafico.BorderRadius = 12;
+            this.pnlDisenoGrafico.Padding = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.pnlDisenoGrafico.Margin = new System.Windows.Forms.Padding(0, 0, 14, 0);
+            this.pnlDisenoGrafico.Location = new System.Drawing.Point(0, 0);
+            this.pnlDisenoGrafico.Size = new System.Drawing.Size(564, 412);
+            this.pnlDisenoGrafico.Controls.Add(this.tlpDisenoFilas5);
+            // tlpDisenoFilas5
+            this.tlpDisenoFilas5.Name = "tlpDisenoFilas5";
+            this.tlpDisenoFilas5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpDisenoFilas5.BackColor = System.Drawing.Color.Transparent;
+            this.tlpDisenoFilas5.ColumnCount = 1;
+            this.tlpDisenoFilas5.RowCount = 2;
+            this.tlpDisenoFilas5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoFilas5.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoFilas5.Location = new System.Drawing.Point(14, 14);
+            this.tlpDisenoFilas5.Size = new System.Drawing.Size(536, 384);
+            this.tlpDisenoFilas5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDisenoFilas5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tlpDisenoFilas5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDisenoFilas5.Controls.Add(this.lblDiseno, 0, 0);
+            this.tlpDisenoFilas5.Controls.Add(this.chartEstadisticas, 0, 1);
+            // lblDiseno
+            this.lblDiseno.Name = "lblDiseno";
+            this.lblDiseno.Text = "Distribución de la actividad";
+            this.lblDiseno.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDiseno.ForeColor = System.Drawing.Color.FromArgb(24, 53, 61);
+            this.lblDiseno.BackColor = System.Drawing.Color.Transparent;
+            this.lblDiseno.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDiseno.AutoSize = false;
+            this.lblDiseno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblDiseno.AutoEllipsis = true;
+            this.lblDiseno.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.lblDiseno.Location = new System.Drawing.Point(0, 0);
+            this.lblDiseno.Size = new System.Drawing.Size(536, 35);
+            // chartEstadisticas
+            this.chartEstadisticas.Name = "chartEstadisticas";
+            this.chartEstadisticas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartEstadisticas.BackColor = System.Drawing.Color.White;
+            this.chartEstadisticas.BorderlineWidth = 0;
+            this.chartEstadisticas.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.chartEstadisticas.Location = new System.Drawing.Point(0, 35);
+            this.chartEstadisticas.Size = new System.Drawing.Size(536, 349);
+            // pnlDisenoListado
+            this.pnlDisenoListado.Name = "pnlDisenoListado";
+            this.pnlDisenoListado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlDisenoListado.FillColor = System.Drawing.Color.White;
+            this.pnlDisenoListado.BackColor = System.Drawing.Color.Transparent;
+            this.pnlDisenoListado.BorderColor = System.Drawing.Color.FromArgb(224, 229, 225);
+            this.pnlDisenoListado.BorderThickness = 1;
+            this.pnlDisenoListado.BorderRadius = 12;
+            this.pnlDisenoListado.Padding = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.pnlDisenoListado.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.pnlDisenoListado.Location = new System.Drawing.Point(578, 0);
+            this.pnlDisenoListado.Size = new System.Drawing.Size(513, 412);
+            this.pnlDisenoListado.Controls.Add(this.tlpDisenoListado);
+            // tlpDisenoListado
+            this.tlpDisenoListado.Name = "tlpDisenoListado";
+            this.tlpDisenoListado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpDisenoListado.BackColor = System.Drawing.Color.Transparent;
+            this.tlpDisenoListado.ColumnCount = 1;
+            this.tlpDisenoListado.RowCount = 3;
+            this.tlpDisenoListado.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoListado.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tlpDisenoListado.Location = new System.Drawing.Point(14, 14);
+            this.tlpDisenoListado.Size = new System.Drawing.Size(485, 384);
+            this.tlpDisenoListado.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDisenoListado.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tlpDisenoListado.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDisenoListado.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tlpDisenoListado.Controls.Add(this.lblDisenoListado, 0, 0);
+            this.tlpDisenoListado.Controls.Add(this.dvgListado, 0, 1);
+            this.tlpDisenoListado.Controls.Add(this.lblDisenoContador, 0, 2);
+            // lblDisenoListado
+            this.lblDisenoListado.Name = "lblDisenoListado";
+            this.lblDisenoListado.Text = "Detalle de actividad";
+            this.lblDisenoListado.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDisenoListado.ForeColor = System.Drawing.Color.FromArgb(24, 53, 61);
+            this.lblDisenoListado.BackColor = System.Drawing.Color.Transparent;
+            this.lblDisenoListado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDisenoListado.AutoSize = false;
+            this.lblDisenoListado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblDisenoListado.AutoEllipsis = true;
+            this.lblDisenoListado.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.lblDisenoListado.Location = new System.Drawing.Point(0, 0);
+            this.lblDisenoListado.Size = new System.Drawing.Size(485, 35);
+            // dvgListado
+            this.dvgListado.Name = "dvgListado";
+            this.dvgListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dvgListado.BackgroundColor = System.Drawing.Color.White;
+            this.dvgListado.GridColor = System.Drawing.Color.FromArgb(224, 229, 225);
+            this.dvgListado.EnableHeadersVisualStyles = false;
+            this.dvgListado.RowHeadersVisible = false;
+            this.dvgListado.AllowUserToAddRows = false;
+            this.dvgListado.AllowUserToResizeRows = false;
+            this.dvgListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dvgListado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dvgListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dvgListado.ColumnHeadersHeight = 42;
+            this.dvgListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dvgListado.MultiSelect = false;
+            this.dvgListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dvgListado.ShowCellToolTips = true;
+            this.dvgListado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dvgListado.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.dvgListado.RowTemplate.Height = 38;
+            this.dvgListado.ColumnHeadersDefaultCellStyle = estiloDisenodvgListadoColumnHeadersDefaultCellStyle;
+            this.dvgListado.DefaultCellStyle = estiloDisenodvgListadoDefaultCellStyle;
+            this.dvgListado.AlternatingRowsDefaultCellStyle = estiloDisenodvgListadoAlternatingRowsDefaultCellStyle;
+            this.dvgListado.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(233, 243, 239);
+            this.dvgListado.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.FromArgb(25, 78, 89);
+            this.dvgListado.ThemeStyle.HeaderStyle.Height = 42;
+            this.dvgListado.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dvgListado.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dvgListado.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(24, 53, 61);
+            this.dvgListado.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(219, 237, 231);
+            this.dvgListado.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(24, 53, 61);
+            this.dvgListado.ThemeStyle.RowsStyle.Height = 38;
+            this.dvgListado.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dvgListado.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(249, 250, 247);
+            this.dvgListado.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(224, 229, 225);
+            this.dvgListado.Location = new System.Drawing.Point(0, 35);
+            this.dvgListado.Size = new System.Drawing.Size(485, 323);
+            // lblDisenoContador
+            this.lblDisenoContador.Name = "lblDisenoContador";
+            this.lblDisenoContador.Text = "Sin registros para mostrar";
+            this.lblDisenoContador.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDisenoContador.ForeColor = System.Drawing.Color.FromArgb(102, 117, 120);
+            this.lblDisenoContador.BackColor = System.Drawing.Color.Transparent;
+            this.lblDisenoContador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDisenoContador.AutoSize = false;
+            this.lblDisenoContador.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblDisenoContador.AutoEllipsis = true;
+            this.lblDisenoContador.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.lblDisenoContador.Location = new System.Drawing.Point(0, 358);
+            this.lblDisenoContador.Size = new System.Drawing.Size(485, 26);
+            // lblDisenoAyuda
+            this.lblDisenoAyuda.Name = "lblDisenoAyuda";
+            this.lblDisenoAyuda.Text = "Selecciona una categoría para explorar los datos de la biblioteca.";
+            this.lblDisenoAyuda.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDisenoAyuda.ForeColor = System.Drawing.Color.FromArgb(102, 117, 120);
+            this.lblDisenoAyuda.BackColor = System.Drawing.Color.Transparent;
+            this.lblDisenoAyuda.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDisenoAyuda.AutoSize = false;
+            this.lblDisenoAyuda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblDisenoAyuda.AutoEllipsis = true;
+            this.lblDisenoAyuda.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.lblDisenoAyuda.Location = new System.Drawing.Point(24, 690);
+            this.lblDisenoAyuda.Size = new System.Drawing.Size(1092, 26);
+            // pnlDisenoControlesInternos
+            this.pnlDisenoControlesInternos.Name = "pnlDisenoControlesInternos";
+            this.pnlDisenoControlesInternos.Visible = false;
+            this.pnlDisenoControlesInternos.Location = new System.Drawing.Point(-100, -100);
+            this.pnlDisenoControlesInternos.Size = new System.Drawing.Size(1, 1);
+            this.pnlDisenoControlesInternos.Controls.Add(this.picBox4);
+            this.pnlDisenoControlesInternos.Controls.Add(this.picBox3);
+            this.pnlDisenoControlesInternos.Controls.Add(this.picBox1);
+            this.pnlDisenoControlesInternos.Controls.Add(this.picBox2);
+            // picBox4
+            this.picBox4.Name = "picBox4";
+            this.picBox4.Visible = false;
+            this.picBox4.Location = new System.Drawing.Point(0, 0);
+            this.picBox4.Size = new System.Drawing.Size(1, 1);
+            // picBox3
+            this.picBox3.Name = "picBox3";
+            this.picBox3.Visible = false;
+            this.picBox3.Location = new System.Drawing.Point(0, 0);
+            this.picBox3.Size = new System.Drawing.Size(1, 1);
+            // picBox1
+            this.picBox1.Name = "picBox1";
+            this.picBox1.Visible = false;
+            this.picBox1.Location = new System.Drawing.Point(0, 0);
+            this.picBox1.Size = new System.Drawing.Size(1, 1);
+            // picBox2
+            this.picBox2.Name = "picBox2";
+            this.picBox2.Visible = false;
+            this.picBox2.Location = new System.Drawing.Point(0, 0);
+            this.picBox2.Size = new System.Drawing.Size(1, 1);
+            this.Text = "Resumen | Biblioteca";
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BackColor = System.Drawing.Color.FromArgb(246, 245, 241);
+            this.ForeColor = System.Drawing.Color.FromArgb(24, 53, 61);
+            this.ClientSize = new System.Drawing.Size(1140, 730);
+            this.MinimumSize = new System.Drawing.Size(900, 640);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            this.MaximizeBox = true;
+            this.MinimizeBox = true;
+            this.Opacity = 1D;
+            this.Controls.Add(this.tlpDisenoRaiz);
+            this.Controls.Add(this.pnlDisenoControlesInternos);
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            this.btnRegistrosLibros.Click += new System.EventHandler(this.btnRegistrosLibros_Click);
+            this.btnStockLibros.Click += new System.EventHandler(this.btnStockLibros_Click);
+            this.btnRegistroUsuarios.Click += new System.EventHandler(this.btnRegistroUsuarios_Click);
             this.Load += new System.EventHandler(this.FrmDashboard_Load);
-            this.panel1.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tlpDisenoRaiz.ResumeLayout(false);
+            this.tlpDisenoEncabezado.ResumeLayout(false);
+            this.tlpDisenoBarra.ResumeLayout(false);
+            this.flpDisenoAcciones.ResumeLayout(false);
+            this.tlpDisenoIndicadores.ResumeLayout(false);
+            this.pnlDisenoIndicador.ResumeLayout(false);
+            this.tlpDisenoFilas.ResumeLayout(false);
+            this.pnlDisenoIndicador2.ResumeLayout(false);
+            this.tlpDisenoFilas2.ResumeLayout(false);
+            this.pnlDisenoIndicador3.ResumeLayout(false);
+            this.tlpDisenoFilas3.ResumeLayout(false);
+            this.pnlDisenoIndicador4.ResumeLayout(false);
+            this.tlpDisenoFilas4.ResumeLayout(false);
+            this.tlpDisenoDatos.ResumeLayout(false);
+            this.pnlDisenoGrafico.ResumeLayout(false);
+            this.tlpDisenoFilas5.ResumeLayout(false);
+            this.pnlDisenoListado.ResumeLayout(false);
+            this.tlpDisenoListado.ResumeLayout(false);
+            this.pnlDisenoControlesInternos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartEstadisticas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgListado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox2)).EndInit();
@@ -455,12 +929,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox3)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2DataGridView dvgListado;
         private Guna.UI2.WinForms.Guna2Button btnRegistrosLibros;
         private Guna.UI2.WinForms.Guna2Button btnStockLibros;
@@ -473,12 +944,39 @@
         private System.Windows.Forms.Label total4;
         private System.Windows.Forms.PictureBox picBox4;
         private System.Windows.Forms.Label total2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PictureBox picBox2;
         private System.Windows.Forms.PictureBox picBox1;
+
+        private System.Windows.Forms.TableLayoutPanel tlpDisenoRaiz;
+        private System.Windows.Forms.TableLayoutPanel tlpDisenoEncabezado;
+        private System.Windows.Forms.Label lblDisenoSeccion;
+        private System.Windows.Forms.Label lblDisenoTitulo;
+        private System.Windows.Forms.Label lblDisenoSubtitulo;
+        private System.Windows.Forms.TableLayoutPanel tlpDisenoBarra;
+        private System.Windows.Forms.FlowLayoutPanel flpDisenoAcciones;
+        private System.Windows.Forms.TableLayoutPanel tlpDisenoIndicadores;
+        private Guna.UI2.WinForms.Guna2Panel pnlDisenoIndicador;
+        private System.Windows.Forms.TableLayoutPanel tlpDisenoFilas;
+        private System.Windows.Forms.Label lblDisenoMetrica1;
+        private Guna.UI2.WinForms.Guna2Panel pnlDisenoIndicador2;
+        private System.Windows.Forms.TableLayoutPanel tlpDisenoFilas2;
+        private System.Windows.Forms.Label lblDisenoMetrica2;
+        private Guna.UI2.WinForms.Guna2Panel pnlDisenoIndicador3;
+        private System.Windows.Forms.TableLayoutPanel tlpDisenoFilas3;
+        private System.Windows.Forms.Label lblDisenoMetrica3;
+        private Guna.UI2.WinForms.Guna2Panel pnlDisenoIndicador4;
+        private System.Windows.Forms.TableLayoutPanel tlpDisenoFilas4;
+        private System.Windows.Forms.Label lblDisenoMetrica4;
+        private System.Windows.Forms.TableLayoutPanel tlpDisenoDatos;
+        private Guna.UI2.WinForms.Guna2Panel pnlDisenoGrafico;
+        private System.Windows.Forms.TableLayoutPanel tlpDisenoFilas5;
+        private System.Windows.Forms.Label lblDiseno;
+        private Guna.UI2.WinForms.Guna2Panel pnlDisenoListado;
+        private System.Windows.Forms.TableLayoutPanel tlpDisenoListado;
+        private System.Windows.Forms.Label lblDisenoListado;
+        private System.Windows.Forms.Label lblDisenoContador;
+        private System.Windows.Forms.Label lblDisenoAyuda;
+        private System.Windows.Forms.Panel pnlDisenoControlesInternos;
     }
 }

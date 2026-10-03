@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,10 +20,21 @@ namespace GestorDeBiblioteca.Formularios
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //string ruta = Path.Combine(Application.StartupPath, "Media", "videoplayback.mp4");
+            //if (!File.Exists(ruta))
+            //{
+            //    ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Media", "videoplayback.mp4");
+            //}
+            //if (!File.Exists(ruta))
+            //{
+            //    ruta = Path.GetFullPath(Path.Combine(Application.StartupPath, @"..\..\..\Recursos\Video\videoplayback.mp4"));
+            //}
 
-            string ruta = Path.Combine(Application.StartupPath, "C:\\Users\\LuisFranco\\Documents\\ExamenFinal\\BibliotecaApp\\Recursos\\Video\\videoplayback.mp4");
-            axWindowsMediaPlayer1.URL = ruta;
-            axWindowsMediaPlayer1.Ctlcontrols.play();
+            //if (File.Exists(ruta))
+            //{
+            //    axWindowsMediaPlayer1.URL = ruta;
+            //    axWindowsMediaPlayer1.Ctlcontrols.play();
+            //}
         }
     }
 }

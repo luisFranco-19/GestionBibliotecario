@@ -1,4 +1,4 @@
-﻿using app.Banco.Utilidades;
+using app.Banco.Utilidades;
 using GestorDeBiblioteca.Formularios;
 using GestorDeBiblioteca.Reportes;
 using System;
@@ -22,6 +22,7 @@ namespace GestorDeBiblioteca
         public MDImenu()
         {
             InitializeComponent();
+            ConfigurarInteracciones();
         }
 
         #region Metodos
@@ -41,6 +42,7 @@ namespace GestorDeBiblioteca
                     formularioActivo = formularioHijo;
 
                     formularioHijo.TopLevel = false;
+                    formularioHijo.MinimumSize = Size.Empty;
                     formularioHijo.FormBorderStyle = FormBorderStyle.None;
                     formularioHijo.Dock = DockStyle.Fill;
 
@@ -151,10 +153,8 @@ namespace GestorDeBiblioteca
 
         private void btnBroma_Click(object sender, EventArgs e)
         {
-            Form1 frm = new Form1();
-            frm.Show();
-            
-
+            //Form1 frm = new Form1();
+            //frm.Show();
         }
 
 
@@ -164,7 +164,7 @@ namespace GestorDeBiblioteca
         {
             btnDashboard_Click(sender, e);
 
-            panelSiderbar.Visible = false;
+            panelSiderbar.Visible = true;
             menuExpandido = true;
 
 
