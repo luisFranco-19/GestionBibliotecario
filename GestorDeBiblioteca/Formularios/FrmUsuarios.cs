@@ -1,4 +1,4 @@
-﻿using app.Banco.Utilidades;
+using app.Banco.Utilidades;
 using FontAwesome.Sharp;
 using Microsoft.VisualBasic.Logging;
 using System;
@@ -23,6 +23,7 @@ namespace GestorDeBiblioteca
         public FrmUsuarios()
         {
             InitializeComponent();
+            ConfigurarInteracciones();
 
             // eventos de teclado
             this.KeyPreview = true; // interseccion antes de resivir los controladores hijos
@@ -317,6 +318,7 @@ namespace GestorDeBiblioteca
             dgvListado.StandardTab = true;
 
             dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            GestorDeBiblioteca.Presentacion.BibliotecaTheme.Grid(dgvListado);
         }
         private void limpiarControles()
         {

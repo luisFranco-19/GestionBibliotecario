@@ -1,4 +1,4 @@
-﻿using app.Banco.Utilidades;
+using app.Banco.Utilidades;
 using GestorDeBiblioteca.Reportes;
 using System;
 using System.Collections.Generic;
@@ -20,6 +20,7 @@ namespace GestorDeBiblioteca.Formularios
         public FrmDevoluciones()
         {
             InitializeComponent();
+            ConfigurarInteracciones();
             this.KeyPress += ValidacionEntrada.PasarFocus;
             this.KeyDown += ValidacionEntrada.ControlEsc;
             
@@ -28,6 +29,7 @@ namespace GestorDeBiblioteca.Formularios
         public FrmDevoluciones(int idPrestamo, string carnet, string nombre, string telefono, string cargo, int fechaRegistro)
         {
             InitializeComponent();
+            ConfigurarInteracciones();
             txtBuscar.Focus();
         }
 
@@ -144,6 +146,7 @@ namespace GestorDeBiblioteca.Formularios
             {
                 iconEliminar.Enabled = dgvListado.SelectedRows.Count > 0;
             };
+            GestorDeBiblioteca.Presentacion.BibliotecaTheme.Grid(dgvListado);
         }
 
         // Evento que se ejecuta después de que los datos se han enlazado
@@ -169,11 +172,11 @@ namespace GestorDeBiblioteca.Formularios
                 if (estado == "Prestado")
                 {
                     // Aplicar estilo personalizado para préstamos activos
-                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 204, 203);
-                    row.DefaultCellStyle.ForeColor = Color.DarkRed;
+                    row.DefaultCellStyle.BackColor = Presentacion.BibliotecaTheme.AmberSoft;
+                    row.DefaultCellStyle.ForeColor = Presentacion.BibliotecaTheme.Ink;
                     // Importante: asegurar que la selección no sobrescriba el color
-                    row.DefaultCellStyle.SelectionBackColor = Color.FromArgb(255, 150, 150); // Rojo más oscuro para selección
-                    row.DefaultCellStyle.SelectionForeColor = Color.DarkRed;
+                    row.DefaultCellStyle.SelectionBackColor = Color.FromArgb(241, 219, 183); // Rojo más oscuro para selección
+                    row.DefaultCellStyle.SelectionForeColor = Presentacion.BibliotecaTheme.Ink;
                 }
                 else
                 {
@@ -182,7 +185,7 @@ namespace GestorDeBiblioteca.Formularios
                         ? dgvListado.DefaultCellStyle.BackColor
                         : dgvListado.AlternatingRowsDefaultCellStyle.BackColor;
                     row.DefaultCellStyle.ForeColor = dgvListado.DefaultCellStyle.ForeColor;
-                    row.DefaultCellStyle.SelectionBackColor = Color.FromArgb(187, 222, 251); // Azul original para selección
+                    row.DefaultCellStyle.SelectionBackColor = Color.FromArgb(219, 237, 231); // Azul original para selección
                     row.DefaultCellStyle.SelectionForeColor = Color.Black;
                 }
             }
@@ -193,6 +196,8 @@ namespace GestorDeBiblioteca.Formularios
         #region Busqueda
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
+            // Guna también dispara este evento al crear sus controles internos.
+            if (!IsHandleCreated || !Visible) return;
             string valor = txtBuscar.Text.Trim();
 
             try

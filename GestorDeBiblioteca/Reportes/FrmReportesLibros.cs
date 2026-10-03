@@ -1,4 +1,4 @@
-﻿using GestorDeBiblioteca.OrigenDatos;
+using GestorDeBiblioteca.OrigenDatos;
 using Microsoft.Reporting.WinForms;
 using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 using System;
@@ -36,8 +36,8 @@ namespace GestorDeBiblioteca.Reportes
 
                 //reportViewer1.ZoomMode = ZoomMode.FullPage;
 
-                reportViewer1.ZoomMode = ZoomMode.Percent;
-                reportViewer1.ZoomPercent = 75;
+                reportViewer1.ZoomMode = ZoomMode.PageWidth;
+
 
 
                 reportViewer1.RefreshReport();

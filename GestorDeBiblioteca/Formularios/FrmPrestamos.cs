@@ -1,4 +1,4 @@
-﻿    using app.Banco.Utilidades;
+    using app.Banco.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +19,7 @@ namespace GestorDeBiblioteca
         public FrmPrestamos()
         {
             InitializeComponent();
+            ConfigurarInteracciones();
         }
 
 
@@ -174,6 +175,7 @@ namespace GestorDeBiblioteca
             dgvPrestamos.StandardTab = true;
 
             dgvPrestamos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            GestorDeBiblioteca.Presentacion.BibliotecaTheme.Grid(dgvPrestamos);
         }
 
 

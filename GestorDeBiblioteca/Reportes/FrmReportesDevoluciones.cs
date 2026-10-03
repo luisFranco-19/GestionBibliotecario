@@ -1,4 +1,4 @@
-﻿using GestorDeBiblioteca.OrigenDatos;
+using GestorDeBiblioteca.OrigenDatos;
 using System;
 using Microsoft.Reporting.WinForms;
 using System.Collections.Generic;
@@ -30,8 +30,8 @@ namespace GestorDeBiblioteca.Reportes
                     ds.ListadoDevolucion as DataTable));
                 reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
 
-                reportViewer1.ZoomMode = ZoomMode.Percent;
-                reportViewer1.ZoomPercent = 75;
+                reportViewer1.ZoomMode = ZoomMode.PageWidth;
+
 
                 reportViewer1.RefreshReport();
             }
@@ -39,7 +39,7 @@ namespace GestorDeBiblioteca.Reportes
             {
                 MessageBox.Show(ex.Message);
             }
-         
+
         }
     }
 }

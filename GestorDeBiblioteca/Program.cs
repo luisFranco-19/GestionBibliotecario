@@ -30,8 +30,8 @@ namespace GestorDeBiblioteca
                     {
                         MessageBox.Show("No se configuro la conexion. La aplicacion se cerrara.",
                             "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
                     }
-                    return;
                 }
             }
             Application.Run(new FrmLogin());
